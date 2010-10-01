@@ -1,0 +1,3 @@
+[submodule "JONTUAuth"]
+	path = JONTUAuth
+	url = http://github.com/echoz/JONTUAuth.git
