@@ -106,21 +106,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F5EDCFA12564C9100FF2D80 /* Edventurous-Device */;
+			remoteGlobalIDString = 3F5EDCFA12564C9100FF2D80;
 			remoteInfo = "Edventurous-Device";
 		};
 		3F5EDD3012564DD800FF2D80 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F5EDD1712564D7600FF2D80 /* Edventurous-OSX */;
+			remoteGlobalIDString = 3F5EDD1712564D7600FF2D80;
 			remoteInfo = "Edventurous-OSX";
 		};
 		3F5EDDB61256506500FF2D80 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3F5EDD9412564F8100FF2D80 /* Edventurous-Simulator */;
+			remoteGlobalIDString = 3F5EDD9412564F8100FF2D80;
 			remoteInfo = "Edventurous-Simulator";
 		};
 /* End PBXContainerItemProxy section */
@@ -152,7 +152,7 @@
 		3F5EDCFB12564C9100FF2D80 /* libEdventurous-Device.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libEdventurous-Device.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EDD0012564C9F00FF2D80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		3F5EDD0412564CA300FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = /usr/lib/libicucore.dylib; sourceTree = "<absolute>"; };
-		3F5EDD0612564CB600FF2D80 /* Edventurous.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Edventurous.pch; path = Classes/Edventurous.pch; sourceTree = SOURCE_ROOT; };
+		3F5EDD0612564CB600FF2D80 /* Edventurous.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Edventurous.pch; sourceTree = "<group>"; };
 		3F5EDD1812564D7600FF2D80 /* libEdventurous-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libEdventurous-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EDD2412564DB400FF2D80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -199,6 +199,7 @@
 		3F5EDCCC12564B8D00FF2D80 = {
 			isa = PBXGroup;
 			children = (
+				3F5EDD0612564CB600FF2D80 /* Edventurous.pch */,
 				3F5EDDC1125650E000FF2D80 /* lipo */,
 				3F5EDCDA12564C6A00FF2D80 /* Classes */,
 				3F5EDCFC12564C9100FF2D80 /* Products */,
@@ -214,7 +215,6 @@
 		3F5EDCDA12564C6A00FF2D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3F5EDD0612564CB600FF2D80 /* Edventurous.pch */,
 				3F5EDCDB12564C6A00FF2D80 /* External */,
 				3F5EDCE212564C6A00FF2D80 /* JONTUAuth */,
 				3F5EDCE512564C6A00FF2D80 /* JONTUBusCore */,
@@ -594,7 +594,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Classes/Edventurous.pch;
+				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
@@ -646,7 +646,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Classes/Edventurous.pch;
+				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
@@ -717,7 +717,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Classes/Edventurous.pch;
+				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PREBINDING = NO;
