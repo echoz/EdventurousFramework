@@ -28,30 +28,30 @@
 		3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0412564CA300FF2D80 /* libicucore.dylib */; };
 		3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD2412564DB400FF2D80 /* Foundation.framework */; };
 		3F5EDD2912564DBD00FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */; };
-		3F5EDD3712564E1200FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; };
-		3F5EDD3812564E1200FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; };
-		3F5EDD3912564E1200FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; };
-		3F5EDD3A12564E1200FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; };
-		3F5EDD3B12564E1200FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; };
-		3F5EDD3C12564E1200FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; };
-		3F5EDD3D12564E1200FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; };
-		3F5EDD3E12564E1200FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; };
-		3F5EDD3F12564E1200FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; };
-		3F5EDD4012564E1200FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; };
-		3F5EDD4112564E1200FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; };
-		3F5EDD4212564E1200FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; };
-		3F5EDD4312564E1F00FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; };
-		3F5EDD4412564E1F00FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; };
-		3F5EDD4512564E1F00FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; };
-		3F5EDD4612564E1F00FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; };
-		3F5EDD4712564E1F00FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; };
-		3F5EDD4812564E1F00FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; };
-		3F5EDD4912564E1F00FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; };
-		3F5EDD4A12564E1F00FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; };
-		3F5EDD4B12564E1F00FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; };
-		3F5EDD4C12564E1F00FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; };
-		3F5EDD4D12564E1F00FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; };
-		3F5EDD4E12564E1F00FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; };
+		3F5EDD3712564E1200FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3812564E1200FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3912564E1200FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3A12564E1200FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3B12564E1200FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3C12564E1200FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDD3D12564E1200FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD3E12564E1200FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDD3F12564E1200FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4012564E1200FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4112564E1200FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4212564E1200FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDD4312564E1F00FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4412564E1F00FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4512564E1F00FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4612564E1F00FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4712564E1F00FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4812564E1F00FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDD4912564E1F00FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4A12564E1F00FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDD4B12564E1F00FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4C12564E1F00FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4D12564E1F00FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD4E12564E1F00FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3F5EDD4F12564E2C00FF2D80 /* JONTUSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */; };
 		3F5EDD5012564E2C00FF2D80 /* JONTUBusRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCEB12564C6A00FF2D80 /* JONTUBusRoute.m */; };
 		3F5EDD5112564E2C00FF2D80 /* JONTUBusEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE912564C6A00FF2D80 /* JONTUBusEngine.m */; };
@@ -74,18 +74,18 @@
 		3F5EDD6212564E3500FF2D80 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE012564C6A00FF2D80 /* RegexKitLite.m */; };
 		3F5EDD6312564E3500FF2D80 /* JONTUClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */; };
 		3F5EDD6412564E3500FF2D80 /* NSString+htmlentitiesaddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */; };
-		3F5EDD9B12564FF600FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; };
-		3F5EDD9C12564FF600FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; };
-		3F5EDD9D12564FF600FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; };
-		3F5EDD9E12564FF600FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; };
-		3F5EDD9F12564FF600FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; };
-		3F5EDDA012564FF600FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; };
-		3F5EDDA112564FF600FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; };
-		3F5EDDA212564FF600FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; };
-		3F5EDDA312564FF600FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; };
-		3F5EDDA412564FF600FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; };
-		3F5EDDA512564FF600FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; };
-		3F5EDDA612564FF600FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; };
+		3F5EDD9B12564FF600FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD9C12564FF600FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD9D12564FF600FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD9E12564FF600FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDD9F12564FF600FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDDA012564FF600FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDDA112564FF600FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDDA212564FF600FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3F5EDDA312564FF600FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDDA412564FF600FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDDA512564FF600FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F5EDDA612564FF600FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3F5EDDA71256500800FF2D80 /* JONTUSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */; };
 		3F5EDDA81256500800FF2D80 /* JONTUBusRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCEB12564C6A00FF2D80 /* JONTUBusRoute.m */; };
 		3F5EDDA91256500800FF2D80 /* JONTUBusEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE912564C6A00FF2D80 /* JONTUBusEngine.m */; };
@@ -462,7 +462,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -fr build/${BUILD_STYLE}/libEdventurous-iOS-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-Simulator.a\" \\\n-output build/libEdventurous-iOS-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-OSX.a\" \\\n-output build/libEdventurous-${BUILD_STYLE}.a";
+			shellScript = "rm -fr build/${BUILD_STYLE}/libEdventurous-iOS-${BUILD_STYLE}.a\nrm -fr build/${BUILD_STYLE}/libEdventurous-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-Simulator.a\" \\\n-output build/libEdventurous-iOS-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-OSX.a\" \\\n-output build/libEdventurous-${BUILD_STYLE}.a";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -597,6 +597,7 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
 				SDKROOT = iphoneos4.1;
@@ -650,6 +651,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_LDFLAGS = (
+					"-ObjC",
 					"-framework",
 					Foundation,
 				);
@@ -699,7 +701,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
 				SDKROOT = iphonesimulator4.1;
-				VALID_ARCHS = "x86_64 i386";
+				VALID_ARCHS = i386;
 				ZERO_LINK = "";
 			};
 			name = Debug;
@@ -720,10 +722,11 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
 				SDKROOT = iphonesimulator4.1;
-				VALID_ARCHS = "x86_64 i386";
+				VALID_ARCHS = i386;
 				ZERO_LINK = "";
 			};
 			name = Release;
