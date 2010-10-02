@@ -34,14 +34,16 @@
 #import "JONTUBusRoute.h"
 
 @interface JONTUBusEngine : NSObject <NSXMLParserDelegate, NSCoding> {
-	NSMutableArray *buses;
-	NSMutableArray *routes;
-	NSMutableArray *stops;
+	NSArray *buses;
+	NSArray *routes;
+	NSArray *stops;
 	NSData *indexPageCache;
 	NSDate *lastGetIndexPage;
 	BOOL dirty;
 	BOOL brandNew;
 	int holdCache;
+	
+	NSMutableArray *tempbuses;
 }
 
 @property (readonly) BOOL dirty;

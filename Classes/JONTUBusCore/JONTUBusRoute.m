@@ -44,6 +44,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 		stops = [busstops copy];
 		color = [clr copy];
 		colorAlt = [clrAlt copy];
+		tempstops = nil;
 	}
 	return self;
 }
@@ -83,7 +84,6 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 
 -(NSArray *)stopsWithRefresh:(BOOL)refresh {
 	if (refresh) {
-		[stops removeAllObjects];
 		JONTUBusEngine *engine = [JONTUBusEngine sharedJONTUBusEngine];
 		
 		NSMutableDictionary *post = [NSMutableDictionary dictionary];
@@ -96,9 +96,6 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 		[parser setShouldReportNamespacePrefixes:NO];
 		[parser setShouldResolveExternalEntities:NO];
 		
-		[stops release];
-		stops = [[NSMutableArray array] retain];
-		
 		[parser parse];
 
 		// fuck care error handling for now
@@ -109,14 +106,25 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 	return stops;
 }
 
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+	[tempstops release];
+	tempstops = [[NSMutableArray arrayWithCapacity:0] retain];
+}
+
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 	JONTUBusEngine *engine = [JONTUBusEngine sharedJONTUBusEngine];
 	JONTUBusStop *stop;
 
 	if ([elementName isEqualToString:@"bus_stop"]) {
 		stop = [engine stopForId:[[attributeDict valueForKey:@"id"] intValue]];
-		[stops addObject:stop];
+		[tempstops addObject:stop];
 	}
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+	[stops release];
+	stops = [tempstops retain];
+	[tempstops release], tempstops = nil;
 }
 
 -(void)dealloc {

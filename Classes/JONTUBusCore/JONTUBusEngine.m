@@ -67,9 +67,10 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 -(id)init {
 	if (self = [super init]) {
 		holdCache = 120;
-		stops = [[NSMutableArray array] retain];
-		routes = [[NSMutableArray array] retain];
-		buses = [[NSMutableArray array] retain];
+		stops = nil;
+		routes = nil;
+		buses = nil;
+		tempbuses = nil;
 		lastGetIndexPage = nil;
 		indexPageCache = nil;
 		brandNew = YES;
@@ -123,9 +124,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 -(void)start {
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"JONTUBusEngineWillStartCacheLoad" object:[NSNumber numberWithInt:3]];	
 
+	/*
 	[buses removeAllObjects];	
 	[routes removeAllObjects];
 	[stops removeAllObjects];
+	 */
 	
 	// start baseline initialisation.
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"JONTUBusEngineWillStartStopsCacheLoad" object:nil];	
@@ -178,7 +181,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 		NSArray *otherBuses = nil;
 		JONTUBusStop *stop;
 		
-		[stops removeAllObjects];
+		NSMutableArray *tempstops = [NSMutableArray arrayWithCapacity:0];
+		
 		[matchString release];
 			
 		for (int i=0;i<[busstops count];i++) {
@@ -196,9 +200,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 										 longtitude:[[busstops objectAtIndex:i] objectAtIndex:7]
 										   latitude:[[busstops objectAtIndex:i] objectAtIndex:8]
 										 otherBuses:otherBuses];
-			[stops addObject:stop];
+			[tempstops addObject:stop];
 			[stop release];
-		}					
+		}
+		[stops release];
+		stops = [tempstops retain];
 	}
 	return stops;
 }
@@ -238,7 +244,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 		NSArray *busroutes = [matchString arrayOfCaptureComponentsMatchedByRegex:regexRoute];
 		JONTUBusRoute *route;
 		
-		[routes removeAllObjects];
+		NSMutableArray *temproutes = [NSMutableArray arrayWithCapacity:0];
 		[matchString release];	
 		
 		for (int i=0;i<[busroutes count];i++) {
@@ -248,10 +254,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 											 colorAlt:[[busroutes objectAtIndex:i] objectAtIndex:6]
 												stops:nil];
 			route.dirty = YES;
-			[routes addObject:route];
+			[temproutes addObject:route];
 			[route release];
 			
-		}		
+		}
+		[routes release];
+		routes = [temproutes retain];
 	}
 	
 	return routes;
@@ -277,7 +285,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 
 -(NSArray *)busesWithRefresh:(BOOL)refresh {
 	if (refresh) {
-		[buses removeAllObjects];
 		
 		NSXMLParser *parser = [[NSXMLParser alloc] initWithData:[self sendXHRToURL:getBusPosition PostValues:[NSDictionary dictionaryWithObject:[NSString stringWithFormat:@"%f", (float)arc4random()/10000000000] forKey:@"r"]]];
 		
@@ -294,6 +301,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 	return buses;
 }
 
+- (void)parserDidStartDocument:(NSXMLParser *)parser {
+	[tempbuses release];
+	tempbuses = [[NSMutableArray arrayWithCapacity:0] retain];
+}
+
+
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 	JONTUBus *bus;
 	
@@ -309,11 +322,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 									 speed:[[attributeDict objectForKey:@"speed"] intValue]
 									  hide:([attributeDict objectForKey:@"stat"] == @"hide")?YES:NO 
 							   iscDistance:[f numberFromString:[attributeDict objectForKey:@"iscdistance"]]];
-		[buses addObject:bus];
+		[tempbuses addObject:bus];
 		
 		[f release];
 		[bus release];
 	}
+}
+
+- (void)parserDidEndDocument:(NSXMLParser *)parser {
+	[buses release];
+	buses = [tempbuses retain];
+	[tempbuses release], tempbuses = nil;
 }
 
 -(NSData *) getIndexPage {

@@ -32,11 +32,14 @@
 @interface JONTUBusRoute : NSObject <NSXMLParserDelegate, NSCoding> {
 	NSUInteger routeid;
 	NSString *name;
-	NSMutableArray *stops;
+	NSArray *stops;
 	NSDate *lastGetStops;
 	NSString *color;
 	NSString *colorAlt;
 	BOOL dirty;
+	
+	// for atomic updates of stops
+	NSMutableArray *tempstops;
 }
 -(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops;
 

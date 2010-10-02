@@ -200,8 +200,8 @@
 			isa = PBXGroup;
 			children = (
 				3F5EDD0612564CB600FF2D80 /* Edventurous.pch */,
-				3F5EDDC1125650E000FF2D80 /* lipo */,
 				3F5EDCDA12564C6A00FF2D80 /* Classes */,
+				3F5EDDC1125650E000FF2D80 /* lipo */,
 				3F5EDCFC12564C9100FF2D80 /* Products */,
 				3F5EDD0012564C9F00FF2D80 /* Foundation.framework */,
 				3F5EDD0412564CA300FF2D80 /* libicucore.dylib */,
@@ -546,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Debug;
 		};
@@ -553,6 +554,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
 			};
 			name = Release;
 		};
