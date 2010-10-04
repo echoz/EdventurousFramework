@@ -3,7 +3,6 @@
 //  NTUBusArrival
 //
 //  Created by Jeremy Foo on 3/26/10.
-//  Copyright 2010 THIRDLY. All rights reserved.
 //
 //  The MIT License
 //  
