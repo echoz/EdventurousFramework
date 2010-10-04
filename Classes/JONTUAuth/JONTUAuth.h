@@ -30,6 +30,7 @@
 
 @interface JONTUAuth : NSObject {
     NSMutableArray *cookies;
+	NSArray *authCookies;
     NSString *user;
     NSString *pass;
     NSString *domain;
@@ -40,13 +41,18 @@
 }
 
 @property (readonly) NSMutableArray *cookies;
+@property (readonly) NSArray *authCookies;
 @property (nonatomic, retain) NSString *user;
 @property (nonatomic, retain) NSString *pass;
 @property (nonatomic, retain) NSString *domain;
 @property (readonly) NSString *studentid;
 -(BOOL)auth;
+-(BOOL)canAuth;
 -(BOOL)authWithRefresh:(BOOL)refresh;
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token;
+
+-(void)clearStaleCookies;
+
 //-(BOOL) sendAsyncXHRToURL: (NSURL *)url postValues:(NSDictionary *)postValues; // implement soon!
 
 @end

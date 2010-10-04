@@ -37,13 +37,17 @@
 
 @implementation JONTUAuth
 
-@synthesize cookies, user, pass, domain, studentid;
+@synthesize cookies, user, pass, domain, studentid, authCookies;
 
 -(id)init {
     if (self = [super init]) {
-        cookies = [[NSMutableArray array] retain];
+        cookies = [[NSMutableArray alloc] initWithCapacity:0];
+		authCookies = nil;
 		studentid = nil;
 		secretToken = nil;
+		user = nil;
+		pass = nil;
+		domain = nil;
 		auth = NO;
     }
     return self;
@@ -57,6 +61,10 @@
 	}
 }
 
+-(BOOL)canAuth {
+	return ((user) && (pass) && (domain));
+}
+
 -(NSString *)escapeString:(NSString *) str {
 	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(" ()<>#%{}|\\^~[]`;/?:@=&$"), kCFStringEncodingUTF8) autorelease];
 }
@@ -66,9 +74,9 @@
 	// must grab p1 and p2.
 	
 	if (refresh) {
-		[cookies removeAllObjects];
+		auth = NO;
 		
-		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
+		NSMutableDictionary *postvalues = [NSMutableDictionary dictionaryWithCapacity:3];
 		
 		[postvalues setValue:[self escapeString:self.user] forKey:@"UserName"];
 		[postvalues setValue:[self escapeString:self.pass] forKey:@"PIN"];
@@ -82,6 +90,8 @@
 			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self escapeString:self.user],[self escapeString:self.pass]]];
 			
 			[test release], test = nil;
+			
+			// grab tokens!
 			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
 			studentid = [[test stringByMatching:TOKEN_REGEX capture:1] retain]; // p1
 			secretToken = [[test stringByMatching:TOKEN_REGEX capture:2] retain]; // p2
@@ -96,46 +106,101 @@
 }
 
 -(NSMutableURLRequest *)prepareURLRequestUsing:(NSDictionary *)postValues toURL:(NSURL *)url withToken:(BOOL)token {
+	
+	// setup URL Request
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	NSMutableDictionary *mutPostValues = [postValues mutableCopy];
 	[request setURL:url];
 	[request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
 	
-	NSMutableString *post = [NSMutableString string];
-	if (postValues != nil) {
-		
-		if ((auth) && (token)) {
-			[mutPostValues setObject:studentid forKey:@"P1"];
-			[mutPostValues setObject:secretToken forKey:@"P2"];
-		}
-		
-		for (NSString *key in mutPostValues) {
-			if ([post length] > 0) {
-				[post appendString:@"&"];
-			}
-			[post appendFormat:@"%@=%@",key,[mutPostValues objectForKey:key]];
-		}
+	// add secret tokens if they are requested for and have been authed
+	NSMutableDictionary *mutPostValues = [NSMutableDictionary dictionaryWithCapacity:2];
+	if ((auth) && (token)) {
+		[mutPostValues setObject:studentid forKey:@"P1"];
+		[mutPostValues setObject:secretToken forKey:@"P2"];
 	}
 	
+	// add postvalues if they exist
+	if (postValues) {
+		[mutPostValues addEntriesFromDictionary:postValues];
+	}
+
+	// generate post string for posting
+	NSMutableString *post = [NSMutableString string];	
+	for (NSString *key in mutPostValues) {
+		if ([post length] > 0) {
+			[post appendString:@"&"];
+		}
+		[post appendFormat:@"%@=%@",key,[mutPostValues objectForKey:key]];
+	}
+		
+	// add other http attributes based upon tokens or not
 	if ((token) || (postValues != nil)) {
+		// add post data
 		NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-		[request setHTTPMethod:@"POST"];
 		[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-		[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 		[request setHTTPBody:postData];
 		
+		[request setHTTPMethod:@"POST"];
+		[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 	}
 	
 	[request setValue:HTTP_USER_AGENT forHTTPHeaderField:@"User-Agent"];
 
-	if ((auth) && ([cookies count] > 0)) {
-		[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:self.cookies]];
+	// assemble cookies!
+	NSArray *submitCookies = [NSArray arrayWithArray:self.cookies];
+	if ((auth) && ([authCookies count] > 0)) {
+		submitCookies = [submitCookies arrayByAddingObjectsFromArray:authCookies];
 	}
-	[mutPostValues release];
 	
+	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:submitCookies]];
+
 	return [request autorelease];
 }
+
+-(void)clearStaleCookies {
+	
+}
+
+
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
+    
+	if ([self canAuth]) {
+		NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
+		//	[request setTimeoutInterval:60.0];
+		NSHTTPURLResponse *response;
+		
+		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+		
+		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[request URL]];
+		
+		// temporary array to store auth cookies
+		NSMutableArray *specialCookies = [NSMutableArray arrayWithCapacity:2];
+		
+		for (NSHTTPCookie *cookie in pastry) {
+			if (!auth) {
+				if ([cookie.domain hasSuffix:@".wis.ntu.edu.sg"]) {
+					[specialCookies addObject:cookie];
+				}
+			} else {
+				[cookies addObject:cookie];
+			}
+		}
+		
+		// has auth cookies! update internal cookie store for authentication tokens
+		if ([specialCookies count] > 0) {
+			[authCookies release];
+			authCookies = [specialCookies retain];
+		}
+		
+		return recvData;
+		
+	} else {
+		return nil;
+	}
+	
+}
+
 
 /* 
  
@@ -239,28 +304,8 @@
 }
  */
 
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
-    
-	NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
-	//	[request setTimeoutInterval:60.0];
-    NSHTTPURLResponse *response;
-	
-	NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    
-	if (!auth) {
-		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[request URL]];
-		
-		for (NSHTTPCookie *cookie in pastry) {
-			if ([cookie.domain hasSuffix:@".wis.ntu.edu.sg"]) {
-				[cookies addObject:cookie];
-			}
-		}		
-	}
-
-	return recvData;
-}
-
 -(void)dealloc {
+	[authCookies release], authCookies = nil;
 	[secretToken release], secretToken = nil;
 	[cookies release], cookies = nil;
 	[user release], user = nil;
