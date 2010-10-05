@@ -36,7 +36,7 @@
 #define TOKEN_REGEX @"<input type=\"hidden\" name=\"p1\" value=\"(.*)\">\\s*<input type=\"hidden\" name=\"p2\" value=\"(.*)\">"
 #define LEGAL_CHAR_TOESCAPE @" ()<>#%{}|\\^~[]`;/?:@=&$"
 
-#define EDVENTURE_LOGIN_CHECK @"<input value=\"/ntu_post_login.html\" name=\"new_loc\" type=\"HIDDEN\">"
+#define EDVENTURE_LOGIN_CHECK @"<input value=\"/ntu_post_login.html\" name=\"new_loc\" type=\"hidden\">"
 
 @implementation JONTUAuth
 
@@ -195,14 +195,12 @@
 	}
 	
 	[request setValue:HTTP_USER_AGENT forHTTPHeaderField:@"User-Agent"];
-
+	
 	// assemble cookies!
 	NSMutableArray *submitCookies = [NSMutableArray arrayWithArray:self.cookies];
-	if ([self auth]) {
-		for (NSHTTPCookie *cookie in authCookies) {
-			if ([url.host hasSuffix:cookie.domain]) {
-				[submitCookies addObject:cookie];
-			}
+	for (NSHTTPCookie *cookie in authCookies) {
+		if ([url.host hasSuffix:cookie.domain]) {
+			[submitCookies addObject:cookie];
 		}
 	}
 	
@@ -225,7 +223,7 @@
 
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
     
-	if ([self canAuth] && [self auth]) {
+	if ([self canAuth]) {
 		NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
 		//	[request setTimeoutInterval:60.0];
 		NSHTTPURLResponse *response;
@@ -239,7 +237,7 @@
 				
 		for (NSHTTPCookie *cookie in pastry) {
 			if (authing) {
-				if ([cookie.domain hasSuffix:@".wis.ntu.edu.sg"] || [cookie.domain hasSuffix:@"edventure.ntu.edu.sg"]) {
+				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
 					[specialCookies addObject:cookie];
 				}
 			} else {
@@ -248,9 +246,17 @@
 		}
 		
 		// has auth cookies! update internal cookie store for authentication tokens
-		if ([specialCookies count] > 0) {
-			[authCookies release];
-			authCookies = [specialCookies retain];
+		if (authing) {
+			if ([specialCookies count] > 0) {
+				
+				NSMutableArray *tempcookies = [NSMutableArray arrayWithCapacity:3];
+				[tempcookies addObjectsFromArray:authCookies];
+				[tempcookies addObjectsFromArray:specialCookies];
+				
+								
+				[authCookies release];
+				authCookies = [tempcookies retain];
+			}			
 		}
 		
 		return recvData;
