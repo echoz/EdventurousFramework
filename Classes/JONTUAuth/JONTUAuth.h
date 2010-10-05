@@ -37,7 +37,9 @@
     NSString *studentid;
 	NSString *secretToken;
 	NSMutableData *syncRecvData;
-    BOOL auth;
+    BOOL wisAuth;
+	BOOL edventureAuth;
+	BOOL authing;
 }
 
 @property (readonly) NSMutableArray *cookies;
@@ -48,10 +50,12 @@
 @property (readonly) NSString *studentid;
 -(BOOL)auth;
 -(BOOL)canAuth;
--(BOOL)authWithRefresh:(BOOL)refresh;
+-(BOOL)singleSignOn;
+
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token;
 
 -(void)clearStaleCookies;
+-(NSString *)escapeString:(NSString *) str;
 
 //-(BOOL) sendAsyncXHRToURL: (NSURL *)url postValues:(NSDictionary *)postValues; // implement soon!
 
