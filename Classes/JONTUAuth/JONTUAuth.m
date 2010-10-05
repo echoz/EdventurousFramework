@@ -183,7 +183,7 @@
 	}
 	
 	// add other http attributes based upon tokens or not
-	if ((token) || (postValues != nil)) {
+	if ((token) || (postValues)) {
 		// add post data
 		NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
 		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
@@ -208,18 +208,6 @@
 
 	return [request autorelease];
 }
-
--(void)clearStaleCookies {
-	NSMutableArray *staleCookies = [NSMutableArray arrayWithCapacity:0];
-	for (NSHTTPCookie *cookie in cookies) {
-		if ([cookie.expiresDate timeIntervalSinceNow] < 0) {
-			[staleCookies addObject:cookie];
-		}
-	}
-	
-	[cookies removeObjectsInArray:staleCookies];
-}
-
 
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
     
@@ -267,6 +255,16 @@
 	
 }
 
+-(void)clearStaleCookies {
+	NSMutableArray *staleCookies = [NSMutableArray arrayWithCapacity:0];
+	for (NSHTTPCookie *cookie in cookies) {
+		if ([cookie.expiresDate timeIntervalSinceNow] < 0) {
+			[staleCookies addObject:cookie];
+		}
+	}
+	
+	[cookies removeObjectsInArray:staleCookies];
+}
 
 /* 
  
