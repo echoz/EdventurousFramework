@@ -126,6 +126,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
 		3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+htmlentitiesaddition.h"; path = "Classes/External/NSString+htmlentitiesaddition.h"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+htmlentitiesaddition.m"; path = "Classes/External/NSString+htmlentitiesaddition.m"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = Classes/External/RegexKitLite/RegexKitLite.h; sourceTree = SOURCE_ROOT; };
@@ -226,6 +228,8 @@
 		3F5EDCDB12564C6A00FF2D80 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */,
+				3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */,
 				3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */,
 				3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */,
 				3F5EDCDE12564C6A00FF2D80 /* RegexKitLite */,
