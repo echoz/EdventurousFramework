@@ -127,7 +127,7 @@
 }
 
 -(void)parse {
-	if ([self auth]) {
+	if ([self singleSignOn]) {
 
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
 		[postvalues setValue:[NSString stringWithFormat:@"%i",self.year] forKey:@"acad"];
