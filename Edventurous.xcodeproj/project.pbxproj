@@ -198,6 +198,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F4E9B49125B074400C6319F /* JONTULocation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = JONTULocation;
+			sourceTree = "<group>";
+		};
 		3F5EDCCC12564B8D00FF2D80 = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +317,15 @@
 				3F5EDDC61256513200FF2D80 /* libEdventurous-Debug.a */,
 			);
 			name = lipo;
+			sourceTree = "<group>";
+		};
+		3FAFD1B2125A3CD30089E5C1 /* JONTUVideoLecture */ = {
+			isa = PBXGroup;
+			children = (
+				3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */,
+				3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */,
+			);
+			path = JONTUVideoLecture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
