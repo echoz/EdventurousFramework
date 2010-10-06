@@ -128,6 +128,8 @@
 /* Begin PBXFileReference section */
 		3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
+		3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoStreamingServer.m; sourceTree = "<group>"; };
 		3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+htmlentitiesaddition.h"; path = "Classes/External/NSString+htmlentitiesaddition.h"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+htmlentitiesaddition.m"; path = "Classes/External/NSString+htmlentitiesaddition.m"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = Classes/External/RegexKitLite/RegexKitLite.h; sourceTree = SOURCE_ROOT; };
@@ -328,6 +330,8 @@
 			children = (
 				3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */,
 				3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */,
+				3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */,
+				3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */,
 			);
 			path = JONTUVideoLecture;
 			sourceTree = "<group>";
