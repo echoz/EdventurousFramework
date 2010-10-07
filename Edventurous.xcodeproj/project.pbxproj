@@ -24,6 +24,51 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3F54E14B125CF74500D17762 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E140125CF74500D17762 /* JSON.h */; };
+		3F54E14C125CF74500D17762 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E141125CF74500D17762 /* NSObject+SBJSON.h */; };
+		3F54E14D125CF74500D17762 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E142125CF74500D17762 /* NSObject+SBJSON.m */; };
+		3F54E14E125CF74500D17762 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E143125CF74500D17762 /* NSString+SBJSON.h */; };
+		3F54E14F125CF74500D17762 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E144125CF74500D17762 /* NSString+SBJSON.m */; };
+		3F54E150125CF74500D17762 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E145125CF74500D17762 /* SBJsonBase.h */; };
+		3F54E151125CF74500D17762 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E146125CF74500D17762 /* SBJsonBase.m */; };
+		3F54E152125CF74500D17762 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E147125CF74500D17762 /* SBJsonParser.h */; };
+		3F54E153125CF74500D17762 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E148125CF74500D17762 /* SBJsonParser.m */; };
+		3F54E154125CF74500D17762 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E149125CF74500D17762 /* SBJsonWriter.h */; };
+		3F54E155125CF74500D17762 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E14A125CF74500D17762 /* SBJsonWriter.m */; };
+		3F54E156125CF74500D17762 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E140125CF74500D17762 /* JSON.h */; };
+		3F54E157125CF74500D17762 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E141125CF74500D17762 /* NSObject+SBJSON.h */; };
+		3F54E158125CF74500D17762 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E142125CF74500D17762 /* NSObject+SBJSON.m */; };
+		3F54E159125CF74500D17762 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E143125CF74500D17762 /* NSString+SBJSON.h */; };
+		3F54E15A125CF74500D17762 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E144125CF74500D17762 /* NSString+SBJSON.m */; };
+		3F54E15B125CF74500D17762 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E145125CF74500D17762 /* SBJsonBase.h */; };
+		3F54E15C125CF74500D17762 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E146125CF74500D17762 /* SBJsonBase.m */; };
+		3F54E15D125CF74500D17762 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E147125CF74500D17762 /* SBJsonParser.h */; };
+		3F54E15E125CF74500D17762 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E148125CF74500D17762 /* SBJsonParser.m */; };
+		3F54E15F125CF74500D17762 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E149125CF74500D17762 /* SBJsonWriter.h */; };
+		3F54E160125CF74500D17762 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E14A125CF74500D17762 /* SBJsonWriter.m */; };
+		3F54E161125CF74500D17762 /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E140125CF74500D17762 /* JSON.h */; };
+		3F54E162125CF74500D17762 /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E141125CF74500D17762 /* NSObject+SBJSON.h */; };
+		3F54E163125CF74500D17762 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E142125CF74500D17762 /* NSObject+SBJSON.m */; };
+		3F54E164125CF74500D17762 /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E143125CF74500D17762 /* NSString+SBJSON.h */; };
+		3F54E165125CF74500D17762 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E144125CF74500D17762 /* NSString+SBJSON.m */; };
+		3F54E166125CF74500D17762 /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E145125CF74500D17762 /* SBJsonBase.h */; };
+		3F54E167125CF74500D17762 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E146125CF74500D17762 /* SBJsonBase.m */; };
+		3F54E168125CF74500D17762 /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E147125CF74500D17762 /* SBJsonParser.h */; };
+		3F54E169125CF74500D17762 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E148125CF74500D17762 /* SBJsonParser.m */; };
+		3F54E16A125CF74500D17762 /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F54E149125CF74500D17762 /* SBJsonWriter.h */; };
+		3F54E16B125CF74500D17762 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F54E14A125CF74500D17762 /* SBJsonWriter.m */; };
+		3F54E16C125CF75000D17762 /* JONTUVideoLecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */; };
+		3F54E16D125CF75000D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
+		3F54E16E125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; };
+		3F54E16F125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
+		3F54E170125CF75000D17762 /* JONTUVideoLecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */; };
+		3F54E171125CF75000D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
+		3F54E172125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; };
+		3F54E173125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
+		3F54E174125CF75100D17762 /* JONTUVideoLecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */; };
+		3F54E175125CF75100D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
+		3F54E176125CF75100D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; };
+		3F54E177125CF75100D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
 		3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0012564C9F00FF2D80 /* Foundation.framework */; };
 		3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0412564CA300FF2D80 /* libicucore.dylib */; };
 		3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD2412564DB400FF2D80 /* Foundation.framework */; };
@@ -128,6 +173,17 @@
 /* Begin PBXFileReference section */
 		3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		3F54E140125CF74500D17762 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = "json-framework/Classes/JSON.h"; sourceTree = SOURCE_ROOT; };
+		3F54E141125CF74500D17762 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "json-framework/Classes/NSObject+SBJSON.h"; sourceTree = SOURCE_ROOT; };
+		3F54E142125CF74500D17762 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "json-framework/Classes/NSObject+SBJSON.m"; sourceTree = SOURCE_ROOT; };
+		3F54E143125CF74500D17762 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "json-framework/Classes/NSString+SBJSON.h"; sourceTree = SOURCE_ROOT; };
+		3F54E144125CF74500D17762 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "json-framework/Classes/NSString+SBJSON.m"; sourceTree = SOURCE_ROOT; };
+		3F54E145125CF74500D17762 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = "json-framework/Classes/SBJsonBase.h"; sourceTree = SOURCE_ROOT; };
+		3F54E146125CF74500D17762 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = "json-framework/Classes/SBJsonBase.m"; sourceTree = SOURCE_ROOT; };
+		3F54E147125CF74500D17762 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = "json-framework/Classes/SBJsonParser.h"; sourceTree = SOURCE_ROOT; };
+		3F54E148125CF74500D17762 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = "json-framework/Classes/SBJsonParser.m"; sourceTree = SOURCE_ROOT; };
+		3F54E149125CF74500D17762 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = "json-framework/Classes/SBJsonWriter.h"; sourceTree = SOURCE_ROOT; };
+		3F54E14A125CF74500D17762 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = "json-framework/Classes/SBJsonWriter.m"; sourceTree = SOURCE_ROOT; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
 		3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoStreamingServer.m; sourceTree = "<group>"; };
 		3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+htmlentitiesaddition.h"; path = "Classes/External/NSString+htmlentitiesaddition.h"; sourceTree = SOURCE_ROOT; };
@@ -209,6 +265,24 @@
 			name = JONTULocation;
 			sourceTree = "<group>";
 		};
+		3F54E13B125CF71C00D17762 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				3F54E140125CF74500D17762 /* JSON.h */,
+				3F54E141125CF74500D17762 /* NSObject+SBJSON.h */,
+				3F54E142125CF74500D17762 /* NSObject+SBJSON.m */,
+				3F54E143125CF74500D17762 /* NSString+SBJSON.h */,
+				3F54E144125CF74500D17762 /* NSString+SBJSON.m */,
+				3F54E145125CF74500D17762 /* SBJsonBase.h */,
+				3F54E146125CF74500D17762 /* SBJsonBase.m */,
+				3F54E147125CF74500D17762 /* SBJsonParser.h */,
+				3F54E148125CF74500D17762 /* SBJsonParser.m */,
+				3F54E149125CF74500D17762 /* SBJsonWriter.h */,
+				3F54E14A125CF74500D17762 /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		3F5EDCCC12564B8D00FF2D80 = {
 			isa = PBXGroup;
 			children = (
@@ -241,11 +315,12 @@
 		3F5EDCDB12564C6A00FF2D80 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				3F54E13B125CF71C00D17762 /* JSON */,
+				3F5EDCDE12564C6A00FF2D80 /* RegexKitLite */,
 				3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */,
 				3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */,
 				3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */,
 				3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */,
-				3F5EDCDE12564C6A00FF2D80 /* RegexKitLite */,
 				3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */,
 			);
 			name = External;
@@ -355,6 +430,14 @@
 				3F5EDD4012564E1200FF2D80 /* JONTUBusEngine.h in Headers */,
 				3F5EDD4112564E1200FF2D80 /* JONTUBusRoute.h in Headers */,
 				3F5EDD4212564E1200FF2D80 /* SynthesizeSingleton.h in Headers */,
+				3F54E161125CF74500D17762 /* JSON.h in Headers */,
+				3F54E162125CF74500D17762 /* NSObject+SBJSON.h in Headers */,
+				3F54E164125CF74500D17762 /* NSString+SBJSON.h in Headers */,
+				3F54E166125CF74500D17762 /* SBJsonBase.h in Headers */,
+				3F54E168125CF74500D17762 /* SBJsonParser.h in Headers */,
+				3F54E16A125CF74500D17762 /* SBJsonWriter.h in Headers */,
+				3F54E16C125CF75000D17762 /* JONTUVideoLecture.h in Headers */,
+				3F54E16E125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +457,14 @@
 				3F5EDD4C12564E1F00FF2D80 /* JONTUBusEngine.h in Headers */,
 				3F5EDD4D12564E1F00FF2D80 /* JONTUBusRoute.h in Headers */,
 				3F5EDD4E12564E1F00FF2D80 /* SynthesizeSingleton.h in Headers */,
+				3F54E156125CF74500D17762 /* JSON.h in Headers */,
+				3F54E157125CF74500D17762 /* NSObject+SBJSON.h in Headers */,
+				3F54E159125CF74500D17762 /* NSString+SBJSON.h in Headers */,
+				3F54E15B125CF74500D17762 /* SBJsonBase.h in Headers */,
+				3F54E15D125CF74500D17762 /* SBJsonParser.h in Headers */,
+				3F54E15F125CF74500D17762 /* SBJsonWriter.h in Headers */,
+				3F54E170125CF75000D17762 /* JONTUVideoLecture.h in Headers */,
+				3F54E172125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +484,14 @@
 				3F5EDDA412564FF600FF2D80 /* JONTUBusEngine.h in Headers */,
 				3F5EDDA512564FF600FF2D80 /* JONTUBusRoute.h in Headers */,
 				3F5EDDA612564FF600FF2D80 /* SynthesizeSingleton.h in Headers */,
+				3F54E14B125CF74500D17762 /* JSON.h in Headers */,
+				3F54E14C125CF74500D17762 /* NSObject+SBJSON.h in Headers */,
+				3F54E14E125CF74500D17762 /* NSString+SBJSON.h in Headers */,
+				3F54E150125CF74500D17762 /* SBJsonBase.h in Headers */,
+				3F54E152125CF74500D17762 /* SBJsonParser.h in Headers */,
+				3F54E154125CF74500D17762 /* SBJsonWriter.h in Headers */,
+				3F54E174125CF75100D17762 /* JONTUVideoLecture.h in Headers */,
+				3F54E176125CF75100D17762 /* JONTUVideoStreamingServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +609,13 @@
 				3F5EDD5712564E2C00FF2D80 /* RegexKitLite.m in Sources */,
 				3F5EDD5812564E2C00FF2D80 /* JONTUClass.m in Sources */,
 				3F5EDD5912564E2C00FF2D80 /* NSString+htmlentitiesaddition.m in Sources */,
+				3F54E163125CF74500D17762 /* NSObject+SBJSON.m in Sources */,
+				3F54E165125CF74500D17762 /* NSString+SBJSON.m in Sources */,
+				3F54E167125CF74500D17762 /* SBJsonBase.m in Sources */,
+				3F54E169125CF74500D17762 /* SBJsonParser.m in Sources */,
+				3F54E16B125CF74500D17762 /* SBJsonWriter.m in Sources */,
+				3F54E16D125CF75000D17762 /* JONTUVideoLecture.m in Sources */,
+				3F54E16F125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +634,13 @@
 				3F5EDD6212564E3500FF2D80 /* RegexKitLite.m in Sources */,
 				3F5EDD6312564E3500FF2D80 /* JONTUClass.m in Sources */,
 				3F5EDD6412564E3500FF2D80 /* NSString+htmlentitiesaddition.m in Sources */,
+				3F54E158125CF74500D17762 /* NSObject+SBJSON.m in Sources */,
+				3F54E15A125CF74500D17762 /* NSString+SBJSON.m in Sources */,
+				3F54E15C125CF74500D17762 /* SBJsonBase.m in Sources */,
+				3F54E15E125CF74500D17762 /* SBJsonParser.m in Sources */,
+				3F54E160125CF74500D17762 /* SBJsonWriter.m in Sources */,
+				3F54E171125CF75000D17762 /* JONTUVideoLecture.m in Sources */,
+				3F54E173125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +659,13 @@
 				3F5EDDAF1256500800FF2D80 /* RegexKitLite.m in Sources */,
 				3F5EDDB01256500800FF2D80 /* JONTUClass.m in Sources */,
 				3F5EDDB11256500800FF2D80 /* NSString+htmlentitiesaddition.m in Sources */,
+				3F54E14D125CF74500D17762 /* NSObject+SBJSON.m in Sources */,
+				3F54E14F125CF74500D17762 /* NSString+SBJSON.m in Sources */,
+				3F54E151125CF74500D17762 /* SBJsonBase.m in Sources */,
+				3F54E153125CF74500D17762 /* SBJsonParser.m in Sources */,
+				3F54E155125CF74500D17762 /* SBJsonWriter.m in Sources */,
+				3F54E175125CF75100D17762 /* JONTUVideoLecture.m in Sources */,
+				3F54E177125CF75100D17762 /* JONTUVideoStreamingServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
