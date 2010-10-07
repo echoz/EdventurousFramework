@@ -1,6 +1,0 @@
-[submodule "JONTUAuth"]
-	path = JONTUAuth
-	url = http://github.com/echoz/JONTUAuth.git
-[submodule "json-framework"]
-	path = json-framework
-	url = http://github.com/stig/json-framework.git
