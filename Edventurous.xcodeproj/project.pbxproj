@@ -144,6 +144,15 @@
 		3F5EDDB11256500800FF2D80 /* NSString+htmlentitiesaddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */; };
 		3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB21256505100FF2D80 /* Foundation.framework */; };
 		3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB41256505B00FF2D80 /* libicucore.dylib */; };
+		3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B2125E033400714C6B /* CoreLocation.framework */; };
+		3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B6125E034100714C6B /* CoreLocation.framework */; };
+		3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B8125E034D00714C6B /* CoreLocation.framework */; };
+		3F88B6E4125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
+		3F88B6E5125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
+		3F88B6E6125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
+		3F88B6E7125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
+		3F88B6E8125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
+		3F88B6E9125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,6 +232,11 @@
 		3F5EDDC61256513200FF2D80 /* libEdventurous-Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Debug.a"; path = "build/libEdventurous-Debug.a"; sourceTree = SOURCE_ROOT; };
 		3F5EDDCA1256515F00FF2D80 /* libEdventurous-iOS-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-iOS-Release.a"; path = "build/libEdventurous-iOS-Release.a"; sourceTree = SOURCE_ROOT; };
 		3F5EDDCB1256515F00FF2D80 /* libEdventurous-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Release.a"; path = "build/libEdventurous-Release.a"; sourceTree = SOURCE_ROOT; };
+		3F88B6B2125E033400714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F88B6B6125E034100714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F88B6B8125E034D00714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		3F88B6E2125E072300714C6B /* JOUTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOUTM.h; sourceTree = "<group>"; };
+		3F88B6E3125E072300714C6B /* JOUTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOUTM.m; sourceTree = "<group>"; };
 		3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoLecture.h; sourceTree = "<group>"; };
 		3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoLecture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -234,6 +248,7 @@
 			files = (
 				3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */,
+				3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +258,7 @@
 			files = (
 				3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD2912564DBD00FF2D80 /* libicucore.dylib in Frameworks */,
+				3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +268,7 @@
 			files = (
 				3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */,
+				3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +313,9 @@
 				3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */,
 				3F5EDDB21256505100FF2D80 /* Foundation.framework */,
 				3F5EDDB41256505B00FF2D80 /* libicucore.dylib */,
+				3F88B6B2125E033400714C6B /* CoreLocation.framework */,
+				3F88B6B6125E034100714C6B /* CoreLocation.framework */,
+				3F88B6B8125E034D00714C6B /* CoreLocation.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +342,8 @@
 				3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */,
 				3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */,
 				3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */,
+				3F88B6E2125E072300714C6B /* JOUTM.h */,
+				3F88B6E3125E072300714C6B /* JOUTM.m */,
 			);
 			name = External;
 			path = Classes/External;
@@ -438,6 +460,7 @@
 				3F2C8A40125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A42125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A44125D80C900B97B22 /* SBJsonWriter.h in Headers */,
+				3F88B6E4125E072300714C6B /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +488,7 @@
 				3F2C8A35125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A37125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A39125D80C900B97B22 /* SBJsonWriter.h in Headers */,
+				3F88B6E8125E072300714C6B /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +516,7 @@
 				3F2C8A2A125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A2C125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A2E125D80C900B97B22 /* SBJsonWriter.h in Headers */,
+				3F88B6E6125E072300714C6B /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +641,7 @@
 				3F2C8A41125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A43125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A45125D80C900B97B22 /* SBJsonWriter.m in Sources */,
+				3F88B6E5125E072300714C6B /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,6 +667,7 @@
 				3F2C8A36125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A38125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A3A125D80C900B97B22 /* SBJsonWriter.m in Sources */,
+				3F88B6E9125E072300714C6B /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +693,7 @@
 				3F2C8A2B125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A2D125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A2F125D80C900B97B22 /* SBJsonWriter.m in Sources */,
+				3F88B6E7125E072300714C6B /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
