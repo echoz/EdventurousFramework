@@ -36,11 +36,12 @@
 	NSString *color;
 	NSString *colorAlt;
 	BOOL dirty;
+	NSArray *polylines;
 	
 	// for atomic updates of stops
 	NSMutableArray *tempstops;
 }
--(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops;
+-(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops polylines:(NSArray *)plines;
 
 -(NSArray *)stopsWithRefresh:(BOOL)refresh;
 -(NSArray *)stops;
@@ -50,4 +51,5 @@
 @property (readonly) NSUInteger routeid;
 @property (readonly) NSString *name;
 @property (readwrite) BOOL dirty;
+@property (readonly) NSArray *polylines;
 @end

@@ -32,11 +32,11 @@
 
 @implementation JONTUBusRoute
 
-@synthesize routeid, name, dirty, color, colorAlt;
+@synthesize routeid, name, dirty, color, colorAlt, polylines;
 
 static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.php/main/getCurrentBusStop";
 
--(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops {
+-(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops polylines:(NSArray *)plines {
 	if (self = [super init]) {
 		routeid = rid;
 		name = [rname copy];
@@ -44,6 +44,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 		color = [clr copy];
 		colorAlt = [clrAlt copy];
 		tempstops = nil;
+		polylines = [plines copy];
 	}
 	return self;
 }
@@ -131,6 +132,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 	[colorAlt release];
 	[name release];
 	[stops release];
+	[polylines release];
 	[super dealloc];
 }
 

@@ -28,6 +28,7 @@
 
 #import "JONTUBusEngine.h"
 #import "RegexKitLite.h"
+#import "JOUTM.h"
 
 #define HTTP_USER_AGENT @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.4+ (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7"
 
@@ -39,7 +40,8 @@ static NSString *getBusPosition = @"http://campusbus.ntu.edu.sg/ntubus/index.php
 static NSString *indexPage = @"http://campusbus.ntu.edu.sg/ntubus/";
 
 static NSString *regexBusStop = @"ntu.busStop.push\\(\\{\\s*id:(\\d*),\\s*code:(\\d*),\\s*description:\"(.*)\",\\s*roadName:\"(.*)\",\\s*x:([\\d.]*),\\s*y:([\\d.]*),\\s*lon:([\\d.]*),\\s*lat:([\\d.]*),\\s*otherBus:\"(.*)\",\\s*marker:.*,\\s*markerShadow:.*\\s*\\}\\);";
-static NSString *regexRoute = @"ntu.routes.push\\(\\{\\s*id:([\\d]*),\\s*name:\"(.*)\",\\s*centerMetric:.*,\\s*centerLonLat:new GeoPoint\\(([\\d.]*), ([\\d.]*)\\),\\s*color:\"#(.*)\",\\s*colorAlt:\"#(.*)\",\\s*zone:.*,\\s*busStop:.*\\s*\\}\\);";
+static NSString *regexRoute = @"ntu.routes.push\\(\\{\\s*id:([\\d]*),\\s*name:\"(.*)\",\\s*centerMetric:.*,\\s*centerLonLat:new GeoPoint\\(([\\d.]*), ([\\d.]*)\\),\\s*color:\"#(.*)\",\\s*colorAlt:\"#(.*)\",\\s*zone:(.*),\\s*busStop:.*\\s*\\}\\);";
+static NSString *regexRoutePolylines = @"new Vertex\\(([0-9\\.]*),([0-9\\.]*)\\)";
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 
@@ -247,11 +249,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 		[matchString release];	
 		
 		for (int i=0;i<[busroutes count];i++) {
+			NSString *plines = [[busroutes objectAtIndex:i] objectAtIndex:7];
+			NSArray *UTMCoords = [plines arrayOfCaptureComponentsMatchedByRegex:regexRoutePolylines];
+			
+			NSMutableArray *routingInformation = [NSMutableArray arrayWithCapacity:[UTMCoords count]];
+			JOUTM *vertex = nil;
+			
+			for (int q=0;q<[UTMCoords count];q++) {
+				
+				vertex = [[JOUTM alloc] initWithX:[[[UTMCoords objectAtIndex:q] objectAtIndex:1] doubleValue]
+												Y:[[[UTMCoords objectAtIndex:q] objectAtIndex:2] doubleValue]
+											 zone:48 
+								  SouthHemisphere:NO];
+				[routingInformation addObject:vertex];
+				[vertex release];
+			}
+			
 			route = [[JONTUBusRoute alloc] initWithID:[[[busroutes objectAtIndex:i] objectAtIndex:1] intValue] 
 												 name:[[busroutes objectAtIndex:i] objectAtIndex:2] 
 												color:[[busroutes objectAtIndex:i] objectAtIndex:5]
 											 colorAlt:[[busroutes objectAtIndex:i] objectAtIndex:6]
-												stops:nil];
+												stops:nil
+											 polylines:routingInformation];
 			route.dirty = YES;
 			[temproutes addObject:route];
 			[route release];
@@ -383,6 +402,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 		[request setHTTPBody:postData];
 		
 	}
+	[request setTimeoutInterval:20];
 	
 	[request setURL:[NSURL URLWithString:url]];
 	
