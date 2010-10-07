@@ -10,8 +10,8 @@
 #import <math.h>
 
 typedef struct {
-	float x;
-	float y;
+	double x;
+	double y;
 } JOMapXY;
 
 typedef struct {
@@ -22,25 +22,26 @@ typedef struct {
 
 // UTMMethods are "private"
 @interface JOUTM (UTMMethods)
--(float) DegToRad:(float)deg;
--(float) RadToDeg:(float)rad;
--(float) ArcLengthOfMeridian:(float)phi;
--(float) UTMCentralMeridian:(int)zone;
--(float) FootpointLatitude:(float)y;
--(CLLocation *) LatLonFromMapX:(float)x Y:(float)y lambda0:(float)lambda0;
--(CLLocation *) LatLonFromUTMCoordinateX:(float)x Y:(float)y Zone:(int)zone SouthHemisphere:(BOOL) southhemi;
--(JOUTMCoordinate) UTMCoordinateFromLatitude:(float)lat Longitude:(float)lon;
--(JOMapXY) MapXYFromLatLonWithPhi:(float)phi lambda:(float)lambda lambda0:(float)lambda0;
+-(double) DegToRad:(double)deg;
+-(double) RadToDeg:(double)rad;
+-(long double) ArcLengthOfMeridian:(long double)phi;
+-(double) UTMCentralMeridian:(int)zone;
+-(double) FootpointLatitude:(double)y;
+-(CLLocation *) LatLonFromMapX:(double)x Y:(double)y lambda0:(double)lambda0;
+-(CLLocation *) LatLonFromUTMCoordinateX:(double)x Y:(double)y Zone:(int)zone SouthHemisphere:(BOOL) southhemi;
+-(JOUTMCoordinate) UTMCoordinateFromLatitude:(double)lat Longitude:(double)lon;
+-(JOMapXY) MapXYFromLatLonWithPhi:(double)phi lambda:(double)lambda lambda0:(double)lambda0;
 
 @end
 
 @implementation JOUTM (UTMethods) 
-// ellipsoid model constants (actual values here are for WGS84)
-#define SM_A 6378137.0
-#define SM_B 6356752.314
-#define SM_ECCSQUARED 6.69437999013e-03
 
-#define UTM_SCALEFACTOR 0.9996
+#define PI 3.14159265358979
+// ellipsoid model constants (actual values here are for WGS84)
+#define SM_A (double)6378137.0
+#define SM_B (double)6356752.314
+#define SM_ECCSQUARED (double)6.69437999013e-03
+#define UTM_SCALEFACTOR (double)0.9996
 
 /*
  * DegToRad
@@ -48,9 +49,9 @@ typedef struct {
  * Converts degrees to radians.
  *
  */
--(float) DegToRad:(float)deg
+-(double) DegToRad:(double)deg
 {
-	return (deg / 180.0 * M_PI);
+	return (double)(deg / 180.0 * PI);
 }
 
 
@@ -62,9 +63,9 @@ typedef struct {
  * Converts radians to degrees.
  *
  */
--(float) RadToDeg:(float)rad
+-(double) RadToDeg:(double)rad
 {
-	return (rad / M_PI * 180.0);
+	return (double)(rad / PI * 180.0);
 }
 
 
@@ -90,10 +91,10 @@ typedef struct {
  *     The ellipsoidal distance of the point from the equator, in meters.
  *
  */
--(float) ArcLengthOfMeridian:(float)phi
+-(long double) ArcLengthOfMeridian:(long double)phi
 {
-	float alpha, beta, gamma, delta, epsilon, n;
-	float result;
+	long double alpha, beta, gamma, delta, epsilon, n;
+	long double result;
 	
 	/* Precalculate n */
 	n = (SM_A - SM_B) / (SM_A + SM_B);
@@ -124,7 +125,7 @@ typedef struct {
 	   + (delta * sin (6.0 * phi))
 	   + (epsilon * sin (8.0 * phi)));
 	
-    return result;
+    return (long double)result;
 }
 
 
@@ -143,9 +144,9 @@ typedef struct {
  *   Range of the central meridian is the radian equivalent of [-177,+177].
  *
  */
--(float) UTMCentralMeridian:(int)zone
+-(double) UTMCentralMeridian:(int)zone
 {
-	return [self DegToRad:(-183.0 + (zone * 6.0))];
+	return (double)[self DegToRad:(-183.0 + ((double)zone * 6.0))];
 }
 
 
@@ -166,10 +167,10 @@ typedef struct {
  *   The footpoint latitude, in radians.
  *
  */
--(float) FootpointLatitude:(float)y
+-(double) FootpointLatitude:(double)y
 {
-	float y_, alpha_, beta_, gamma_, delta_, epsilon_, n;
-	float result;
+	double y_, alpha_, beta_, gamma_, delta_, epsilon_, n;
+	double result;
 	
 	/* Precalculate n (Eq. 10.18) */
 	n = (SM_A - SM_B) / (SM_A + SM_B);
@@ -203,7 +204,7 @@ typedef struct {
 	+ (delta_ * sin (6.0 * y_))
 	+ (epsilon_ * sin (8.0 * y_));
 	
-	return result;
+	return (double)result;
 }
 
 
@@ -231,12 +232,12 @@ typedef struct {
  *    The function does not return a value.
  *
  */
--(JOMapXY) MapXYFromLatLonWithPhi:(float)phi lambda:(float)lambda lambda0:(float)lambda0
+-(JOMapXY) MapXYFromLatLonWithPhi:(double)phi lambda:(double)lambda lambda0:(double)lambda0
 {
-	float N, nu2, ep2, t, t2, l;
-	float l3coef, l4coef, l5coef, l6coef, l7coef, l8coef;
-	float tmp;
-	float xy[2];
+	long double N, nu2, ep2, t, t2, l;
+	long double l3coef, l4coef, l5coef, l6coef, l7coef, l8coef;
+	long double tmp;
+	long double xy[2];
 	
 	/* Precalculate ep2 */
 	ep2 = (pow (SM_A, 2.0) - pow (SM_B, 2.0)) / pow (SM_B, 2.0);
@@ -254,7 +255,7 @@ typedef struct {
 	
 	/* Precalculate l */
 	l = lambda - lambda0;
-    
+	    
 	/* Precalculate coefficients for l**n in the equations below
 	 so a normal human being can read the expressions for easting
 	 and northing
@@ -272,6 +273,7 @@ typedef struct {
 	l7coef = 61.0 - 479.0 * t2 + 179.0 * (t2 * t2) - (t2 * t2 * t2);
     
 	l8coef = 1385.0 - 3111.0 * t2 + 543.0 * (t2 * t2) - (t2 * t2 * t2);
+	
     
 	/* Calculate easting (x) */
 	xy[0] = N * cos (phi) * l
@@ -280,15 +282,15 @@ typedef struct {
 	+ (N / 5040.0 * pow (cos (phi), 7.0) * l7coef * pow (l, 7.0));
     
 	/* Calculate northing (y) */
-	xy[1] = [self ArcLengthOfMeridian:phi];
+	xy[1] = [self ArcLengthOfMeridian:phi]
 	+ (t / 2.0 * N * pow (cos (phi), 2.0) * pow (l, 2.0))
 	+ (t / 24.0 * N * pow (cos (phi), 4.0) * l4coef * pow (l, 4.0))
 	+ (t / 720.0 * N * pow (cos (phi), 6.0) * l6coef * pow (l, 6.0))
 	+ (t / 40320.0 * N * pow (cos (phi), 8.0) * l8coef * pow (l, 8.0));
     
 	JOMapXY mapxy;
-	mapxy.x = xy[0];
-	mapxy.y = xy[1];
+	mapxy.x = (double)xy[0];
+	mapxy.y = (double)xy[1];
 	
 	return mapxy;
 }
@@ -326,12 +328,13 @@ typedef struct {
  *   to optimize computations.
  *
  */
--(CLLocation *) LatLonFromMapX:(float)x Y:(float)y lambda0:(float)lambda0
+-(CLLocation *) LatLonFromMapX:(double)x Y:(double)y lambda0:(double)lambda0
 {
-	float phif, Nf, Nfpow, nuf2, ep2, tf, tf2, tf4, cf;
-	float x1frac, x2frac, x3frac, x4frac, x5frac, x6frac, x7frac, x8frac;
-	float x2poly, x3poly, x4poly, x5poly, x6poly, x7poly, x8poly;
 	
+	long double phif, Nf, Nfpow, nuf2, ep2, tf, tf2, tf4, cf;
+	long double x1frac, x2frac, x3frac, x4frac, x5frac, x6frac, x7frac, x8frac;
+	long double x2poly, x3poly, x4poly, x5poly, x6poly, x7poly, x8poly;
+
 	/* Get the value of phif, the footpoint latitude. */
 	phif = [self FootpointLatitude:y];
 	
@@ -341,7 +344,7 @@ typedef struct {
 	
 	/* Precalculate cos (phif) */
 	cf = cos (phif);
-	
+		
 	/* Precalculate nuf2 */
 	nuf2 = ep2 * pow (cf, 2.0);
 	
@@ -357,10 +360,10 @@ typedef struct {
 	/* Precalculate fractional coefficients for x**n in the equations
 	 below to simplify the expressions for latitude and longitude. */
 	x1frac = 1.0 / (Nfpow * cf);
-	
+			
 	Nfpow *= Nf;   /* now equals Nf**2) */
 	x2frac = tf / (2.0 * Nfpow);
-	
+		
 	Nfpow *= Nf;   /* now equals Nf**3) */
 	x3frac = 1.0 / (6.0 * Nfpow * cf);
 	
@@ -378,7 +381,7 @@ typedef struct {
 	
 	Nfpow *= Nf;   /* now equals Nf**8) */
 	x8frac = tf / (40320.0 * Nfpow);
-	
+		
 	/* Precalculate polynomial coefficients for x**n.
 	 -- x**1 does not have a polynomial coefficient. */
 	x2poly = -1.0 - nuf2;
@@ -398,18 +401,18 @@ typedef struct {
 	x8poly = 1385.0 + 3633.0 * tf2 + 4095.0 * tf4 + 1575 * (tf4 * tf2);
 	
 	/* Calculate latitude */
-	float lat = phif + x2frac * x2poly * (x * x)
+	long double lat = phif + x2frac * x2poly * (x * x)
 	+ x4frac * x4poly * pow (x, 4.0)
 	+ x6frac * x6poly * pow (x, 6.0)
 	+ x8frac * x8poly * pow (x, 8.0);
 	
 	/* Calculate longitude */
-	float lon = lambda0 + x1frac * x
+	long double lon = lambda0 + x1frac * x
 	+ x3frac * x3poly * pow (x, 3.0)
 	+ x5frac * x5poly * pow (x, 5.0)
 	+ x7frac * x7poly * pow (x, 7.0);
 	
-	return [[[CLLocation alloc] initWithLatitude:lat longitude:lon] autorelease];
+	return [[[CLLocation alloc] initWithLatitude:[self RadToDeg:lat] longitude:[self RadToDeg:lon]] autorelease];
 }
 
 
@@ -435,12 +438,12 @@ typedef struct {
  *   The UTM zone used for calculating the values of x and y.
  *
  */
--(JOUTMCoordinate) UTMCoordinateFromLatitude:(float)lat Longitude:(float)lon
+-(JOUTMCoordinate) UTMCoordinateFromLatitude:(double)lat Longitude:(double)lon
 {
 	
-	float zone = floor ((lon + 180.0) / 6) + 1;
+	int zone = floor ((lon + 180.0) / (double)6) + 1;
 
-	JOMapXY xy = [self MapXYFromLatLonWithPhi:lat lambda:lon lambda0:[self UTMCentralMeridian:zone]];
+	JOMapXY xy = [self MapXYFromLatLonWithPhi:[self DegToRad:lat] lambda:[self DegToRad:lon] lambda0:[self UTMCentralMeridian:zone]];
 	
 	/* Adjust easting and northing for UTM system. */
 	xy.x = xy.x * UTM_SCALEFACTOR + 500000.0;
@@ -484,10 +487,9 @@ typedef struct {
  *	The function does not return a value.
  *
  */
--(CLLocation *) LatLonFromUTMCoordinateX:(float)x Y:(float)y Zone:(int)zone SouthHemisphere:(BOOL) southhemi
+-(CLLocation *) LatLonFromUTMCoordinateX:(double)x Y:(double)y Zone:(int)zone SouthHemisphere:(BOOL) southhemi
 {
-	float cmeridian;
-	
+
 	x -= 500000.0;
 	x /= UTM_SCALEFACTOR;
 	
@@ -497,8 +499,9 @@ typedef struct {
 	
 	y /= UTM_SCALEFACTOR;
 	
-	cmeridian = [self UTMCentralMeridian:zone];
-	return [self LatLonFromMapX:x Y:x lambda0:cmeridian];
+	double cmeridian = [self UTMCentralMeridian:zone];
+	
+	return [self LatLonFromMapX:x Y:y lambda0:cmeridian];
 	
 }
 
@@ -513,7 +516,7 @@ typedef struct {
 	}
 	return self;
 }
--(id)initWithLatitude:(float)lat Longtitude:(float)lon {
+-(id)initWithLatitude:(double)lat Longtitude:(double)lon {
 	if (self = [super init]) {
 		latitude = lat;
 		longitude = lon;
@@ -526,7 +529,7 @@ typedef struct {
 	return self;
 }
 
--(id)initWithX:(float)x Y:(float)y zone:(int)zone SouthHemisphere:(BOOL)southhemi {
+-(id)initWithX:(double)x Y:(double)y zone:(int)zone SouthHemisphere:(BOOL)southhemi {
 	if (self = [super init]) {
 		utm_x = x;
 		utm_y = y;

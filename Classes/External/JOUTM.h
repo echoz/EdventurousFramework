@@ -10,26 +10,26 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface JOUTM : NSObject {
-	float utm_x;
-	float utm_y;
+	double utm_x;
+	double utm_y;
 	int utm_zone;
 	BOOL utm_southHemi;
-	float latitude;
-	float longitude;
+	double latitude;
+	double longitude;
 }
-@property (readonly) float utm_x;
-@property (readonly) float utm_y;
-@property (readonly) float latitude;
-@property (readonly) float longitude;
+@property (readonly) double utm_x;
+@property (readonly) double utm_y;
+@property (readonly) double latitude;
+@property (readonly) double longitude;
 @property (readonly) int utm_zone;
 @property (readonly) BOOL utm_southHemi;
 
 -(CLLocation *)location;
 -(CLLocationCoordinate2D)coordinate;
 
--(id)initWithLatitude:(float)lat Longtitude:(float)lon;
+-(id)initWithLatitude:(double)lat Longtitude:(double)lon;
 -(id)initWithLocation:(CLLocation *)location;
--(id)initWithX:(float)x Y:(float)y zone:(int)zone SouthHemisphere:(BOOL)southhemi;
+-(id)initWithX:(double)x Y:(double)y zone:(int)zone SouthHemisphere:(BOOL)southhemi;
 
 
 @end
