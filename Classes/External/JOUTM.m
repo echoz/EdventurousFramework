@@ -553,4 +553,8 @@ typedef struct {
 	return coord;
 }
 
+-(NSString *)description {
+	return [NSString stringWithFormat:@"JOUTM, X: %f, Y: %f, Zone: %i, SouthHemisphere: %@", self.utm_x, self.utm_y, self.utm_zone, (self.utm_southHemi)?@"YES":@"NO"];
+}
+
 @end
