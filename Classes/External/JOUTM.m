@@ -518,6 +518,13 @@ typedef struct {
 }
 -(id)initWithLatitude:(double)lat Longtitude:(double)lon {
 	if (self = [super init]) {
+		
+		if ((lon < -180.0) || (180.0 <= lon))
+			return nil;
+		
+		if ((lat < -90.0) || (90.0 < lat))
+			return nil;
+		
 		latitude = lat;
 		longitude = lon;
 		JOUTMCoordinate coord = [self UTMCoordinateFromLatitude:lat Longitude:lon];
@@ -531,6 +538,10 @@ typedef struct {
 
 -(id)initWithX:(double)x Y:(double)y zone:(int)zone SouthHemisphere:(BOOL)southhemi {
 	if (self = [super init]) {
+		
+		if ((zone < 1) || (60 < zone)) 
+			return nil;
+		
 		utm_x = x;
 		utm_y = y;
 		utm_zone = zone;
