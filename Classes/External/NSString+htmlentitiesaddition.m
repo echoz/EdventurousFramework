@@ -28,13 +28,12 @@ alpha:1.0]
 	return self;
 }
 
-/*
-
-+(UIColor *) colorFromHexString:(NSString *)colorString {
+#if (TARGET_OS_IPHONE||TARGET_IPHONE_SIMULATOR)
+-(UIColor *) UIColorValue {
 	unsigned int colorValue;
-	[[NSScanner scannerWithString:colorString] scanHexInt:&colorValue];
+	[[NSScanner scannerWithString:self] scanHexInt:&colorValue];
 	return HEXCOLOR(colorValue);
 }
-*/
+#endif
 
 @end

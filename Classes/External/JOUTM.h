@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface JOUTM : NSObject {
+@interface JOUTM : NSObject <NSCoding> {
 	double utm_x;
 	double utm_y;
 	int utm_zone;

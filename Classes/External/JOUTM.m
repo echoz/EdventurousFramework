@@ -576,7 +576,30 @@ typedef struct {
 	return self;
 }
 
--(CLLocation *)location {
+-(id)initWithCoder:(NSCoder *)aDecoder {
+	if (self = [super init]) {
+		utm_x = [aDecoder decodeDoubleForKey:@"utm_x"];
+		utm_y = [aDecoder decodeDoubleForKey:@"utm_y"];
+		utm_zone = [aDecoder decodeIntForKey:@"utm_zone"];
+		utm_southHemi = [aDecoder decodeBoolForKey:@"utm_southHemi"];
+		latitude = [aDecoder decodeDoubleForKey:@"latitude"];
+		longitude = [aDecoder decodeDoubleForKey:@"longitude"];
+	}
+	return self;
+	
+}
+
+-(void)encodeWithCoder:(NSCoder *)aCoder {	
+	[aCoder encodeDouble:utm_x forKey:@"utm_x"];
+	[aCoder encodeDouble:utm_x forKey:@"utm_y"];
+	[aCoder encodeInt:utm_zone forKey:@"utm_zone"];
+	[aCoder encodeBool:utm_southHemi forKey:@"utm_southHemi"];
+	[aCoder encodeDouble:latitude forKey:@"latitude"];
+	[aCoder encodeDouble:longitude forKey:@"longitude"];
+	
+}
+
+-(CLLocation *)location {	
 	return [[[CLLocation alloc] initWithLatitude:latitude longitude:longitude] autorelease];
 }
 -(CLLocationCoordinate2D)coordinate {
