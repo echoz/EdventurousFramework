@@ -208,17 +208,24 @@
 
 	return [request autorelease];
 }
-
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
+	
+	return [self sendSyncXHRToURL:url postValues:postValues withToken:token returningResponse:nil error:nil];
+}
+
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error {
     
 	if ([self canAuth]) {
 		NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
 		//	[request setTimeoutInterval:60.0];
-		NSHTTPURLResponse *response;
 		
-		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+		if (!response) {
+			NSHTTPURLResponse **response;			
+		}
 		
-		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[request URL]];
+		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
+		
+		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
 		
 		// temporary array to store auth cookies
 		NSMutableArray *specialCookies = [NSMutableArray arrayWithCapacity:2];

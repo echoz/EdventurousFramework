@@ -53,6 +53,7 @@
 -(BOOL)singleSignOn;
 
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token;
+-(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error;
 
 -(void)clearStaleCookies;
 -(NSString *)escapeString:(NSString *) str;
