@@ -25,6 +25,7 @@
 @property (readonly) NSUInteger gatewayPort;
 @property (readonly) NSUInteger timeout;
 
--(id)initFromPage:(NSData *)html;
+-(id)initWithName:(NSString *)iName IISHost:(NSString *)iIISHost WMSHost:(NSString *)iWMSHost GatewayHost:(NSString *)iGatewayHost GatewayPort:(NSUInteger)iGatewayPort Timeout:(NSUInteger)iTimeout;
 
++(NSArray *)streamingServersFromHTML:(NSData *)html;
 @end
