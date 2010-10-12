@@ -210,7 +210,9 @@
 }
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
 	
-	return [self sendSyncXHRToURL:url postValues:postValues withToken:token returningResponse:nil error:nil];
+	NSHTTPURLResponse *response;
+	
+	return [self sendSyncXHRToURL:url postValues:postValues withToken:token returningResponse:&response error:nil];
 }
 
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error {
@@ -218,11 +220,7 @@
 	if ([self canAuth]) {
 		NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
 		//	[request setTimeoutInterval:60.0];
-		
-		if (!response) {
-			NSHTTPURLResponse **response;			
-		}
-		
+				
 		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
 		
 		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
