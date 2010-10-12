@@ -144,6 +144,18 @@
 		3F5EDDB11256500800FF2D80 /* NSString+htmlentitiesaddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */; };
 		3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB21256505100FF2D80 /* Foundation.framework */; };
 		3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB41256505B00FF2D80 /* libicucore.dylib */; };
+		3F7D66FC1264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; };
+		3F7D66FD1264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
+		3F7D66FE1264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; };
+		3F7D66FF1264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
+		3F7D67001264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; };
+		3F7D67011264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
+		3F7D67051264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; };
+		3F7D67061264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
+		3F7D67071264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; };
+		3F7D67081264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
+		3F7D67091264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; };
+		3F7D670A1264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
 		3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B2125E033400714C6B /* CoreLocation.framework */; };
 		3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B6125E034100714C6B /* CoreLocation.framework */; };
 		3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B8125E034D00714C6B /* CoreLocation.framework */; };
@@ -232,6 +244,10 @@
 		3F5EDDC61256513200FF2D80 /* libEdventurous-Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Debug.a"; path = "build/libEdventurous-Debug.a"; sourceTree = SOURCE_ROOT; };
 		3F5EDDCA1256515F00FF2D80 /* libEdventurous-iOS-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-iOS-Release.a"; path = "build/libEdventurous-iOS-Release.a"; sourceTree = SOURCE_ROOT; };
 		3F5EDDCB1256515F00FF2D80 /* libEdventurous-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Release.a"; path = "build/libEdventurous-Release.a"; sourceTree = SOURCE_ROOT; };
+		3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUAculearnV7.h; sourceTree = "<group>"; };
+		3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUAculearnV7.m; sourceTree = "<group>"; };
+		3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUAculearnV4.h; sourceTree = "<group>"; };
+		3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUAculearnV4.m; sourceTree = "<group>"; };
 		3F88B6B2125E033400714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F88B6B6125E034100714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F88B6B8125E034D00714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -422,9 +438,21 @@
 			name = lipo;
 			sourceTree = "<group>";
 		};
+		3F7D67021264C5EC008059BA /* AculeanTypes */ = {
+			isa = PBXGroup;
+			children = (
+				3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */,
+				3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */,
+				3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */,
+				3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */,
+			);
+			path = AculeanTypes;
+			sourceTree = "<group>";
+		};
 		3FAFD1B2125A3CD30089E5C1 /* JONTUVideoLecture */ = {
 			isa = PBXGroup;
 			children = (
+				3F7D67021264C5EC008059BA /* AculeanTypes */,
 				3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */,
 				3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */,
 				3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */,
@@ -461,6 +489,8 @@
 				3F2C8A42125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A44125D80C900B97B22 /* SBJsonWriter.h in Headers */,
 				3F88B6E4125E072300714C6B /* JOUTM.h in Headers */,
+				3F7D66FE1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
+				3F7D67071264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +519,8 @@
 				3F2C8A37125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A39125D80C900B97B22 /* SBJsonWriter.h in Headers */,
 				3F88B6E8125E072300714C6B /* JOUTM.h in Headers */,
+				3F7D66FC1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
+				3F7D67051264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +549,8 @@
 				3F2C8A2C125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A2E125D80C900B97B22 /* SBJsonWriter.h in Headers */,
 				3F88B6E6125E072300714C6B /* JOUTM.h in Headers */,
+				3F7D67001264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
+				3F7D67091264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +676,8 @@
 				3F2C8A43125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A45125D80C900B97B22 /* SBJsonWriter.m in Sources */,
 				3F88B6E5125E072300714C6B /* JOUTM.m in Sources */,
+				3F7D66FF1264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
+				3F7D67081264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +704,8 @@
 				3F2C8A38125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A3A125D80C900B97B22 /* SBJsonWriter.m in Sources */,
 				3F88B6E9125E072300714C6B /* JOUTM.m in Sources */,
+				3F7D66FD1264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
+				3F7D67061264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +732,8 @@
 				3F2C8A2D125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A2F125D80C900B97B22 /* SBJsonWriter.m in Sources */,
 				3F88B6E7125E072300714C6B /* JOUTM.m in Sources */,
+				3F7D67011264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
+				3F7D670A1264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
