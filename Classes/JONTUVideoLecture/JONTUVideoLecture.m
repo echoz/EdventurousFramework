@@ -27,7 +27,9 @@
 //  THE SOFTWARE.
 
 #import "JONTUVideoLecture.h"
+#import "RegexKitLite.h"
 
+#define PARMS_REGEX @"var (\\w*)\\s*=\\s*\"?([^;'\"]*)\"?;";
 
 @implementation JONTUVideoLecture
 @synthesize version, presenturURL;

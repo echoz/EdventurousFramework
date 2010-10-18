@@ -15,12 +15,17 @@
 @implementation JONTUVideoStreamingServer
 @synthesize name, IISHost, WMSHost, gatewayHost, gatewayPort, timeout;
 
--(id)initFromPage:(NSData *)html {
++(NSArray *)streamingServersFromHTML:(NSData *)html {
+	return nil;
+}
+
+-(id)initWithName:(NSString *)iName IISHost:(NSString *)iIISHost WMSHost:(NSString *)iWMSHost GatewayHost:(NSString *)iGatewayHost GatewayPort:(NSUInteger)iGatewayPort Timeout:(NSUInteger)iTimeout {
 	if (self = [super init]) {
 		
 	}
 	return self;
 }
+
 
 -(void)dealloc {
 	[name release], name = nil;

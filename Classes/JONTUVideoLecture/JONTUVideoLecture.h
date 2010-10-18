@@ -35,6 +35,9 @@
 	NSArray *videos;
 	NSArray *images;
 	NSArray *thumbnails;
+	
+	NSArray *___streamingServers;
+	NSString *__presenturLinkResult;
 }
 
 @property (readonly) NSUInteger version;
