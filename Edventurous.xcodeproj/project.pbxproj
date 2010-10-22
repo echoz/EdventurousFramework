@@ -177,12 +177,12 @@
 		3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B2125E033400714C6B /* CoreLocation.framework */; };
 		3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B6125E034100714C6B /* CoreLocation.framework */; };
 		3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B8125E034D00714C6B /* CoreLocation.framework */; };
-		3F88B6E4125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
-		3F88B6E5125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
-		3F88B6E6125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
-		3F88B6E7125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
-		3F88B6E8125E072300714C6B /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F88B6E2125E072300714C6B /* JOUTM.h */; };
-		3F88B6E9125E072300714C6B /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F88B6E3125E072300714C6B /* JOUTM.m */; };
+		3FC7CE6F12719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; };
+		3FC7CE7012719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
+		3FC7CE7112719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; };
+		3FC7CE7212719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
+		3FC7CE7312719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; };
+		3FC7CE7412719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,10 +275,10 @@
 		3F88B6B2125E033400714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F88B6B6125E034100714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3F88B6B8125E034D00714C6B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		3F88B6E2125E072300714C6B /* JOUTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOUTM.h; sourceTree = "<group>"; };
-		3F88B6E3125E072300714C6B /* JOUTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOUTM.m; sourceTree = "<group>"; };
 		3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoLecture.h; sourceTree = "<group>"; };
 		3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoLecture.m; sourceTree = "<group>"; };
+		3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOUTM.h; sourceTree = "<group>"; };
+		3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOUTM.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +318,8 @@
 		3F4E9B49125B074400C6319F /* JONTULocation */ = {
 			isa = PBXGroup;
 			children = (
+				3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */,
+				3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */,
 				3F5240C5126809B9009698EA /* JONTULocation.h */,
 				3F5240C6126809B9009698EA /* JONTULocation.m */,
 				3F52415E1268243C009698EA /* JONTULocationDirections.h */,
@@ -326,7 +328,8 @@
 				3F5241671268244B009698EA /* JONTULocationRoute.m */,
 			);
 			name = JONTULocation;
-			sourceTree = "<group>";
+			path = Classes/JONTULocation;
+			sourceTree = SOURCE_ROOT;
 		};
 		3F54E13B125CF71C00D17762 /* JSON */ = {
 			isa = PBXGroup;
@@ -388,8 +391,6 @@
 				3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */,
 				3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */,
 				3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */,
-				3F88B6E2125E072300714C6B /* JOUTM.h */,
-				3F88B6E3125E072300714C6B /* JOUTM.m */,
 			);
 			name = External;
 			path = Classes/External;
@@ -518,12 +519,12 @@
 				3F2C8A40125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A42125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A44125D80C900B97B22 /* SBJsonWriter.h in Headers */,
-				3F88B6E4125E072300714C6B /* JOUTM.h in Headers */,
 				3F7D66FE1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
 				3F7D67071264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 				3F5240C7126809B9009698EA /* JONTULocation.h in Headers */,
 				3F5241601268243C009698EA /* JONTULocationDirections.h in Headers */,
 				3F5241681268244B009698EA /* JONTULocationRoute.h in Headers */,
+				3FC7CE6F12719E2A00CE1EFA /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,12 +552,12 @@
 				3F2C8A35125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A37125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A39125D80C900B97B22 /* SBJsonWriter.h in Headers */,
-				3F88B6E8125E072300714C6B /* JOUTM.h in Headers */,
 				3F7D66FC1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
 				3F7D67051264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 				3F5240CB126809B9009698EA /* JONTULocation.h in Headers */,
 				3F5241641268243C009698EA /* JONTULocationDirections.h in Headers */,
 				3F52416C1268244B009698EA /* JONTULocationRoute.h in Headers */,
+				3FC7CE7312719E2A00CE1EFA /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,12 +585,12 @@
 				3F2C8A2A125D80C900B97B22 /* SBJsonBase.h in Headers */,
 				3F2C8A2C125D80C900B97B22 /* SBJsonParser.h in Headers */,
 				3F2C8A2E125D80C900B97B22 /* SBJsonWriter.h in Headers */,
-				3F88B6E6125E072300714C6B /* JOUTM.h in Headers */,
 				3F7D67001264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
 				3F7D67091264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 				3F5240C9126809B9009698EA /* JONTULocation.h in Headers */,
 				3F5241621268243C009698EA /* JONTULocationDirections.h in Headers */,
 				3F52416A1268244B009698EA /* JONTULocationRoute.h in Headers */,
+				3FC7CE7112719E2A00CE1EFA /* JOUTM.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,12 +715,12 @@
 				3F2C8A41125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A43125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A45125D80C900B97B22 /* SBJsonWriter.m in Sources */,
-				3F88B6E5125E072300714C6B /* JOUTM.m in Sources */,
 				3F7D66FF1264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
 				3F7D67081264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 				3F5240C8126809B9009698EA /* JONTULocation.m in Sources */,
 				3F5241611268243C009698EA /* JONTULocationDirections.m in Sources */,
 				3F5241691268244B009698EA /* JONTULocationRoute.m in Sources */,
+				3FC7CE7012719E2A00CE1EFA /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -745,12 +746,12 @@
 				3F2C8A36125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A38125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A3A125D80C900B97B22 /* SBJsonWriter.m in Sources */,
-				3F88B6E9125E072300714C6B /* JOUTM.m in Sources */,
 				3F7D66FD1264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
 				3F7D67061264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 				3F5240CC126809B9009698EA /* JONTULocation.m in Sources */,
 				3F5241651268243C009698EA /* JONTULocationDirections.m in Sources */,
 				3F52416D1268244B009698EA /* JONTULocationRoute.m in Sources */,
+				3FC7CE7412719E2A00CE1EFA /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,12 +777,12 @@
 				3F2C8A2B125D80C900B97B22 /* SBJsonBase.m in Sources */,
 				3F2C8A2D125D80C900B97B22 /* SBJsonParser.m in Sources */,
 				3F2C8A2F125D80C900B97B22 /* SBJsonWriter.m in Sources */,
-				3F88B6E7125E072300714C6B /* JOUTM.m in Sources */,
 				3F7D67011264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
 				3F7D670A1264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
 				3F5240CA126809B9009698EA /* JONTULocation.m in Sources */,
 				3F5241631268243C009698EA /* JONTULocationDirections.m in Sources */,
 				3F52416B1268244B009698EA /* JONTULocationRoute.m in Sources */,
+				3FC7CE7212719E2A00CE1EFA /* JOUTM.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

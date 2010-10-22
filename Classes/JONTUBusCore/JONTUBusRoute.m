@@ -58,6 +58,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 		dirty = [aDecoder decodeBoolForKey:@"dirty"];
 		color = [[aDecoder decodeObjectForKey:@"color"] retain];
 		colorAlt = [[aDecoder decodeObjectForKey:@"colorAlt"] retain];
+		polylines = [[aDecoder decodeObjectForKey:@"polylines"] retain];
 	}
 	return self;
 }
@@ -71,6 +72,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 	[aCoder encodeBool:dirty forKey:@"dirty"];
 	[aCoder encodeObject:color forKey:@"color"];
 	[aCoder encodeObject:colorAlt forKey:@"colorAlt"];
+	[aCoder encodeObject:polylines forKey:@"polylines"];
 }
 
 
