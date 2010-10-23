@@ -7,14 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#if (TARGET_OS_IPHONE||TARGET_IPHONE_SIMULATOR)
-#import <UIKit/UIKit.h>
-#endif
 
 @interface NSString (JOHTMLEntitiesAddition)
 -(NSString *)removeHTMLEntities;
 
-#if (TARGET_OS_IPHONE||TARGET_IPHONE_SIMULATOR)
--(UIColor *) UIColorValue;
-#endif
 @end
