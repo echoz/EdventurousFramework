@@ -863,7 +863,7 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "-D__IPHONE_OS_VERSION_MIN_REQUIRED=040000";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
@@ -890,7 +890,7 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "-D__IPHONE_OS_VERSION_MIN_REQUIRED=040000";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
@@ -987,7 +987,7 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "-D__IPHONE_OS_VERSION_MIN_REQUIRED=040000";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
@@ -1013,7 +1013,7 @@
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "-D__IPHONE_OS_VERSION_MIN_REQUIRED=040000";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
