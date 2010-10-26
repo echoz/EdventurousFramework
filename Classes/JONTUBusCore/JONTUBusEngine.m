@@ -43,6 +43,18 @@ static NSString *regexBusStop = @"ntu.busStop.push\\(\\{\\s*id:(\\d*),\\s*code:(
 static NSString *regexRoute = @"ntu.routes.push\\(\\{\\s*id:([\\d]*),\\s*name:\"(.*)\",\\s*centerMetric:.*,\\s*centerLonLat:new GeoPoint\\(([\\d.]*), ([\\d.]*)\\),\\s*color:\"#(.*)\",\\s*colorAlt:\"#(.*)\",\\s*zone:(.*),\\s*busStop:.*\\s*\\}\\);";
 static NSString *regexRoutePolylines = @"new Vertex\\(([0-9\\.]*),([0-9\\.]*)\\)";
 
+/* better parsing methods
+// stop
+static NSString *regexStopJSON = @"ntu.busStop.push\\(({(([\\s\\r\\n\\t]*|.*)*)})\\);"; // captures json
+static NSString *regexStopContent = @"ntu.busStop.push\\(\\{(([\\s\\r\\n\\t]*|.*)*)}\\);"; // captures content
+static NSString *regexStopDetails = @"(.*):\"?([^,\\n\\r\"]*)\"?,?";
+// route
+static NSString *regexRouteJSON = @"ntu.routes.push\\(({(([\\s\\r\\n\\t]*|.*)*)})\\);";
+static NSString *regexRouteContent = @"ntu.routes.push\\(({(([\\s\\r\\n\\t]*|.*)*)})\\);";
+static NSString *regexRouteDetails = @"(.*):\"?([^,\\n\\r\"]*)\"?,?"; 
+//plus polylines parsing if not using JSON
+*/
+
 SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 
 +(void)saveState:(NSString *)archiveFilePath {

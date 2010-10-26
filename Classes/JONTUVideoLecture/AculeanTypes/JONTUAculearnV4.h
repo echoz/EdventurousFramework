@@ -27,9 +27,9 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "JONTUVideoLecture.h"
 
-
-@interface JONTUAculearnV4 : NSObject {
+@interface JONTUAculearnV4 : JONTUVideoLecture <NSXMLParserDelegate> {
 
 }
 

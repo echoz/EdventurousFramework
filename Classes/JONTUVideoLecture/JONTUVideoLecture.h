@@ -29,7 +29,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface JONTUVideoLecture : NSObject <NSXMLParserDelegate> {
+@interface JONTUVideoLecture : NSObject  {
 	NSUInteger version;
 	NSURL *presenturURL;
 	NSArray *videos;
