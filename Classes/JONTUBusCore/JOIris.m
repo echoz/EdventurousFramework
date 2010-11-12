@@ -165,7 +165,7 @@
 	
 	NSString *arrivalData = [[NSString alloc] initWithData:returnStr encoding:NSUTF8StringEncoding];
 	
-	NSArray *captureData = [[arrivalData stringByReplacingOccurrencesOfString:@"<br>" withString:@""] arrayOfCaptureComponentsMatchedByRegex:REGEX_BUS];
+	NSArray *captureData = [[arrivalData stringByReplacingOccurrencesOfRegex:@"<font size=\"-1\">|</font>|<br>" withString:@""] arrayOfCaptureComponentsMatchedByRegex:REGEX_BUS];
 	[arrivalData release];
 	
 	NSMutableArray *returnArr = nil;
