@@ -173,9 +173,11 @@
 	if ([captureData count] > 0) {
 		NSDictionary *busTiming;
 		returnArr = [NSMutableArray arrayWithCapacity:[captureData count]];
+		NSString *bus;
 		
 		for (NSArray *bus in captureData) {
-			busTiming = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[[bus objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], nil]
+			bus = [[[bus objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] stringByReplacingOccurrencesOfRegex:@"^0*" withString:@""];
+			busTiming = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:, [[bus objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], nil]
 													forKeys:[NSArray arrayWithObjects:@"service",@"eta", @"subsequent", nil]];
 			[returnArr addObject:busTiming];
 			busTiming = nil;
