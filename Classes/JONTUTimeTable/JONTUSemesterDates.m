@@ -114,9 +114,7 @@
 																 withToken:NO] 
 										   encoding:NSUTF8StringEncoding];
 	
-	page = [[page removeHTMLEntities] stringByReplacingOccurrencesOfRegex:@"[\\n|\\t|\\r]" withString:@""];
-	
-	NSArray *rows = [page componentsMatchedByRegex:REGEX_TABLE_ROW];
+	NSArray *rows = [[[page removeHTMLEntities] stringByReplacingOccurrencesOfRegex:@"[\\n|\\t|\\r]" withString:@""] componentsMatchedByRegex:REGEX_TABLE_ROW];
 	
 	[page release];
 	
