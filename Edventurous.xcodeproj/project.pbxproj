@@ -54,6 +54,12 @@
 		3F54E175125CF75100D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
 		3F54E176125CF75100D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F54E177125CF75100D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
+		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
+		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
+		3F57363B128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
+		3F57363C128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
+		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
+		3F57363E128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0012564C9F00FF2D80 /* Foundation.framework */; };
 		3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0412564CA300FF2D80 /* libicucore.dylib */; };
 		3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD2412564DB400FF2D80 /* Foundation.framework */; };
@@ -192,6 +198,27 @@
 		3FC7CE7212719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
 		3FC7CE7312719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC7CE7412719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
+		3FC99D06128ADD0A009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D05128ADD0A009E2B06 /* libxml2.dylib */; };
+		3FC99D08128ADD26009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D07128ADD26009E2B06 /* libxml2.dylib */; };
+		3FC99D0A128ADD39009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D09128ADD39009E2B06 /* libxml2.dylib */; };
+		3FC99E66128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E67128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
+		3FC99E68128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E69128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
+		3FC99E6A128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E6B128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
+		3FC99E6C128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E6D128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
+		3FC99E6E128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E6F128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
+		3FC99E70128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E71128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
+		3FC99E72128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E73128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
+		3FC99E74128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E75128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
+		3FC99E76128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		3FC99E77128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -227,6 +254,8 @@
 		3F52415F1268243C009698EA /* JONTULocationDirections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTULocationDirections.m; sourceTree = "<group>"; };
 		3F5241661268244B009698EA /* JONTULocationRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTULocationRoute.h; sourceTree = "<group>"; };
 		3F5241671268244B009698EA /* JONTULocationRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTULocationRoute.m; sourceTree = "<group>"; };
+		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
+		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
 		3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoStreamingServer.m; sourceTree = "<group>"; };
 		3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+htmlentitiesaddition.h"; path = "Classes/External/NSString+htmlentitiesaddition.h"; sourceTree = SOURCE_ROOT; };
@@ -291,6 +320,15 @@
 		3FC5E2331272ABD8004B991C /* SBProxyForJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBProxyForJson.h; path = JSON/Classes/SBProxyForJson.h; sourceTree = "<group>"; };
 		3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOUTM.h; sourceTree = "<group>"; };
 		3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOUTM.m; sourceTree = "<group>"; };
+		3FC99D05128ADD0A009E2B06 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = /usr/lib/libxml2.dylib; sourceTree = "<absolute>"; };
+		3FC99D07128ADD26009E2B06 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3FC99D09128ADD39009E2B06 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		3FC99E60128AEAC0009E2B06 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = Classes/External/hpple/TFHpple.h; sourceTree = SOURCE_ROOT; };
+		3FC99E61128AEAC0009E2B06 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = Classes/External/hpple/TFHpple.m; sourceTree = SOURCE_ROOT; };
+		3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = Classes/External/hpple/TFHppleElement.h; sourceTree = SOURCE_ROOT; };
+		3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Classes/External/hpple/TFHppleElement.m; sourceTree = SOURCE_ROOT; };
+		3FC99E64128AEAC0009E2B06 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Classes/External/hpple/XPathQuery.h; sourceTree = SOURCE_ROOT; };
+		3FC99E65128AEAC0009E2B06 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Classes/External/hpple/XPathQuery.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +339,7 @@
 				3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */,
 				3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */,
+				3FC99D06128ADD0A009E2B06 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +350,7 @@
 				3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD2912564DBD00FF2D80 /* libicucore.dylib in Frameworks */,
 				3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */,
+				3FC99D08128ADD26009E2B06 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +361,7 @@
 				3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */,
 				3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */,
+				3FC99D0A128ADD39009E2B06 /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,12 +400,16 @@
 				3F88B6B2125E033400714C6B /* CoreLocation.framework */,
 				3F88B6B6125E034100714C6B /* CoreLocation.framework */,
 				3F88B6B8125E034D00714C6B /* CoreLocation.framework */,
+				3FC99D05128ADD0A009E2B06 /* libxml2.dylib */,
+				3FC99D07128ADD26009E2B06 /* libxml2.dylib */,
+				3FC99D09128ADD39009E2B06 /* libxml2.dylib */,
 			);
 			sourceTree = "<group>";
 		};
 		3F5EDCDA12564C6A00FF2D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3FC99CF7128AD549009E2B06 /* JONTUStudent */,
 				3F5EDCDB12564C6A00FF2D80 /* External */,
 				3F4E9B49125B074400C6319F /* JONTULocation */,
 				3FAFD1B2125A3CD30089E5C1 /* JONTUVideoLecture */,
@@ -378,6 +423,7 @@
 		3F5EDCDB12564C6A00FF2D80 /* External */ = {
 			isa = PBXGroup;
 			children = (
+				3FC99E5B128AEAAF009E2B06 /* hpple */,
 				3FC5E2241272ABCF004B991C /* JSON */,
 				3F5EDCDE12564C6A00FF2D80 /* RegexKitLite */,
 				3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */,
@@ -421,6 +467,8 @@
 				3F5EDCEB12564C6A00FF2D80 /* JONTUBusRoute.m */,
 				3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */,
 				3F5EDCED12564C6A00FF2D80 /* JONTUBusStop.m */,
+				3F573637128CE9B30063C313 /* JOIris.h */,
+				3F573638128CE9B30063C313 /* JOIris.m */,
 			);
 			name = JONTUBusCore;
 			path = Classes/JONTUBusCore;
@@ -507,6 +555,26 @@
 			name = JSON;
 			sourceTree = "<group>";
 		};
+		3FC99CF7128AD549009E2B06 /* JONTUStudent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = JONTUStudent;
+			sourceTree = "<group>";
+		};
+		3FC99E5B128AEAAF009E2B06 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				3FC99E60128AEAC0009E2B06 /* TFHpple.h */,
+				3FC99E61128AEAC0009E2B06 /* TFHpple.m */,
+				3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */,
+				3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */,
+				3FC99E64128AEAC0009E2B06 /* XPathQuery.h */,
+				3FC99E65128AEAC0009E2B06 /* XPathQuery.m */,
+			);
+			name = hpple;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -542,6 +610,10 @@
 				3FC5E23D1272ABD8004B991C /* SBJsonStreamWriter.h in Headers */,
 				3FC5E23F1272ABD8004B991C /* SBJsonWriter.h in Headers */,
 				3FC5E2411272ABD8004B991C /* SBProxyForJson.h in Headers */,
+				3FC99E66128AEAC0009E2B06 /* TFHpple.h in Headers */,
+				3FC99E68128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
+				3FC99E6A128AEAC0009E2B06 /* XPathQuery.h in Headers */,
+				3F573639128CE9B30063C313 /* JOIris.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +649,10 @@
 				3FC5E2591272ABD8004B991C /* SBJsonStreamWriter.h in Headers */,
 				3FC5E25B1272ABD8004B991C /* SBJsonWriter.h in Headers */,
 				3FC5E25D1272ABD8004B991C /* SBProxyForJson.h in Headers */,
+				3FC99E72128AEAC0009E2B06 /* TFHpple.h in Headers */,
+				3FC99E74128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
+				3FC99E76128AEAC0009E2B06 /* XPathQuery.h in Headers */,
+				3F57363D128CE9B30063C313 /* JOIris.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +688,10 @@
 				3FC5E24B1272ABD8004B991C /* SBJsonStreamWriter.h in Headers */,
 				3FC5E24D1272ABD8004B991C /* SBJsonWriter.h in Headers */,
 				3FC5E24F1272ABD8004B991C /* SBProxyForJson.h in Headers */,
+				3FC99E6C128AEAC0009E2B06 /* TFHpple.h in Headers */,
+				3FC99E6E128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
+				3FC99E70128AEAC0009E2B06 /* XPathQuery.h in Headers */,
+				3F57363B128CE9B30063C313 /* JOIris.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +823,10 @@
 				3FC5E23C1272ABD8004B991C /* SBJsonParser.m in Sources */,
 				3FC5E23E1272ABD8004B991C /* SBJsonStreamWriter.m in Sources */,
 				3FC5E2401272ABD8004B991C /* SBJsonWriter.m in Sources */,
+				3FC99E67128AEAC0009E2B06 /* TFHpple.m in Sources */,
+				3FC99E69128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
+				3FC99E6B128AEAC0009E2B06 /* XPathQuery.m in Sources */,
+				3F57363A128CE9B30063C313 /* JOIris.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +859,10 @@
 				3FC5E2581272ABD8004B991C /* SBJsonParser.m in Sources */,
 				3FC5E25A1272ABD8004B991C /* SBJsonStreamWriter.m in Sources */,
 				3FC5E25C1272ABD8004B991C /* SBJsonWriter.m in Sources */,
+				3FC99E73128AEAC0009E2B06 /* TFHpple.m in Sources */,
+				3FC99E75128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
+				3FC99E77128AEAC0009E2B06 /* XPathQuery.m in Sources */,
+				3F57363E128CE9B30063C313 /* JOIris.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +895,10 @@
 				3FC5E24A1272ABD8004B991C /* SBJsonParser.m in Sources */,
 				3FC5E24C1272ABD8004B991C /* SBJsonStreamWriter.m in Sources */,
 				3FC5E24E1272ABD8004B991C /* SBJsonWriter.m in Sources */,
+				3FC99E6D128AEAC0009E2B06 /* TFHpple.m in Sources */,
+				3FC99E6F128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
+				3FC99E71128AEAC0009E2B06 /* XPathQuery.m in Sources */,
+				3F57363C128CE9B30063C313 /* JOIris.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -862,6 +954,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
@@ -889,12 +982,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				ZERO_LINK = "";
 			};
@@ -916,6 +1010,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
@@ -941,6 +1036,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
@@ -986,6 +1082,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
@@ -1012,6 +1109,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
