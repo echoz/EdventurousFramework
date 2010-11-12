@@ -151,38 +151,47 @@
 }
 
 -(NSArray *)arrivalsForService:(NSString *)serviceNumber atBusStop:(NSString *)buscode {
-	
-	if (!hash) {
-		[self serviceHash];
-	}
-	
-	NSString *webservice = [NSString stringWithFormat:IRISARRIVAL, buscode, serviceNumber];
-	NSData *returnStr = [self sendSyncXHRToURL:[NSURL URLWithString:[self URLStringWithWebService:webservice]]
-									postValues:nil 
-									   referer:nil
-							 returningResponse:nil 
-										 error:nil];
-	
-	NSString *arrivalData = [[NSString alloc] initWithData:returnStr encoding:NSUTF8StringEncoding];
-	
-	NSArray *captureData = [[arrivalData stringByReplacingOccurrencesOfRegex:@"<font size=\"-1\">|</font>|<br>" withString:@""] arrayOfCaptureComponentsMatchedByRegex:REGEX_BUS];
-	[arrivalData release];
-	
-	NSMutableArray *returnArr = nil;
-	
-	if ([captureData count] > 0) {
-		NSDictionary *busTiming;
-		returnArr = [NSMutableArray arrayWithCapacity:[captureData count]];
-		NSString *service;
 		
-		for (NSArray *bus in captureData) {
-			service = [[[bus objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] stringByReplacingOccurrencesOfRegex:@"^0*" withString:@""];
-			busTiming = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:service, [[bus objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], nil]
-													forKeys:[NSArray arrayWithObjects:@"service",@"eta", @"subsequent", nil]];
-			[returnArr addObject:busTiming];
-			busTiming = nil;
+	NSArray *busnumber = [serviceNumber captureComponentsMatchedByRegex:@"([0-9]*)([A-Za-z]?)"];
+	NSMutableArray *returnArr = nil;
+
+	if ([busnumber count] == 3) {
+		if ([[busnumber objectAtIndex:1] length] < 3) {
+			serviceNumber = [NSString stringWithFormat:@"%03d%@", [[busnumber objectAtIndex:1] intValue], [busnumber objectAtIndex:2]];
 		}
 		
+		if (!hash) {
+			[self serviceHash];
+		}
+		
+		NSString *webservice = [NSString stringWithFormat:IRISARRIVAL, buscode, serviceNumber];
+		NSData *returnStr = [self sendSyncXHRToURL:[NSURL URLWithString:[self URLStringWithWebService:webservice]]
+										postValues:nil 
+										   referer:nil
+								 returningResponse:nil 
+											 error:nil];
+		
+		NSString *arrivalData = [[NSString alloc] initWithData:returnStr encoding:NSUTF8StringEncoding];
+		
+		NSArray *captureData = [[arrivalData stringByReplacingOccurrencesOfRegex:@"<font size=\"-1\">|</font>|<br>" withString:@""] arrayOfCaptureComponentsMatchedByRegex:REGEX_BUS];
+		[arrivalData release];
+		
+		
+		if ([captureData count] > 0) {
+			NSDictionary *busTiming;
+			returnArr = [NSMutableArray arrayWithCapacity:[captureData count]];
+			NSString *service = nil;
+			
+			for (NSArray *bus in captureData) {
+				service = [[[bus objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] stringByReplacingOccurrencesOfRegex:@"^0*" withString:@""];
+				
+				busTiming = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:service, [[bus objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], nil]
+														forKeys:[NSArray arrayWithObjects:@"service",@"eta", @"subsequent", nil]];
+				[returnArr addObject:busTiming];
+				busTiming = nil;
+			}
+			
+		}
 	}
 	
 	return returnArr;
