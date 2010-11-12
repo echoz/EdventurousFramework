@@ -176,7 +176,7 @@
 		
 		for (NSArray *bus in captureData) {
 			busTiming = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[[bus objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], [[bus objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]], nil]
-													forKeys:[NSArray arrayWithObjects:@"bus",@"arriving", @"subsequent", nil]];
+													forKeys:[NSArray arrayWithObjects:@"service",@"eta", @"subsequent", nil]];
 			[returnArr addObject:busTiming];
 			busTiming = nil;
 		}
@@ -209,7 +209,7 @@
 
 		for (NSArray *roadcode in roadcodes) {
 			roadcodepair = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[roadcode objectAtIndex:1], [roadcode objectAtIndex:2], nil]
-													   forKeys:[NSArray arrayWithObjects:@"CODE",@"ROAD",nil]];
+													   forKeys:[NSArray arrayWithObjects:@"code",@"road",nil]];
 			[returnval addObject:roadcodepair];
 			roadcodepair = nil;
 		}
@@ -241,7 +241,7 @@
 		
 		for (NSArray *stop in stops) {
 			stopcodepair = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[stop objectAtIndex:1], [stop objectAtIndex:3], nil]
-													   forKeys:[NSArray arrayWithObjects:@"CODE",@"STOPNAME",nil]];
+													   forKeys:[NSArray arrayWithObjects:@"code",@"stop",nil]];
 			[returnval addObject:stopcodepair];
 			stopcodepair = nil;
 		}
@@ -281,8 +281,8 @@
 	if ([stopdetails count] > 0) {
 		
 		dict = [NSMutableDictionary dictionary];
-		[dict setObject:[stopdetails objectAtIndex:1] forKey:@"STOPNAME"];
-		[dict setObject:[stopdetails objectAtIndex:2] forKey:@"STOPLOC"];
+		[dict setObject:[stopdetails objectAtIndex:1] forKey:@"stop"];
+		[dict setObject:[stopdetails objectAtIndex:2] forKey:@"location"];
 		
 		NSMutableArray *busnumbers = [NSMutableArray arrayWithCapacity:[buses count]];
 		
@@ -290,7 +290,7 @@
 			[busnumbers addObject:[bus objectAtIndex:1]];
 		}
 		
-		[dict setObject:busnumbers forKey:@"BUSES"];
+		[dict setObject:busnumbers forKey:@"buses"];
 		
 	}
 	
