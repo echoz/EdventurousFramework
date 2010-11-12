@@ -33,8 +33,6 @@
 @implementation JONTUBusStop
 
 static NSString *getEta = @"http://campusbus.ntu.edu.sg/ntubus/index.php/xml/getEta";
-static NSString *irisQuery = @"http://www.sbstransit.com.sg/mobileiris/(dgqpm3555wxvql55dpcezqnm)/index_mobresult.aspx?stop=%@&svc=%@";
-static NSString *irisRegex = @"Service (.*)\\s*Next bus:\\s*(.*)\\s*Subsequent bus:\\s*(.*)\\s*";
 
 @synthesize busstopid, code, desc, roadName, lon, lat, otherBus;
 @synthesize routes;
@@ -106,48 +104,6 @@ static NSString *irisRegex = @"Service (.*)\\s*Next bus:\\s*(.*)\\s*Subsequent b
 	
 	return arrivals;
 }
-
--(NSDictionary *)irisQueryForService:(NSString *)serviceNumber {
-	return [JONTUBusStop irisQueryForService:serviceNumber atStop:[self code]];
-	
-}
-
-+(NSDictionary *)irisQueryForService:(NSString *)serviceNumber atStop:(NSString *)busstopcode {
-	NSMutableDictionary *irisQueryReturn = [NSMutableDictionary dictionary];
-	
-	JONTUBusEngine *engine = [JONTUBusEngine sharedJONTUBusEngine];
-	NSData *queryData = [engine sendXHRToURL:[NSString stringWithFormat:irisQuery,busstopcode, serviceNumber] PostValues:nil];
-	NSString *matchString = [[[NSString alloc] initWithData:queryData encoding:NSASCIIStringEncoding] autorelease];	
-	matchString = [matchString stringByReplacingOccurrencesOfString:@"<font size=\"-1\">" withString:@""];
-	matchString = [matchString stringByReplacingOccurrencesOfString:@"</font>" withString:@""];
-	matchString = [matchString stringByReplacingOccurrencesOfString:@"<br>" withString:@""];
-
-	NSArray *busstops = [matchString arrayOfCaptureComponentsMatchedByRegex:irisRegex];
-
-	NSArray *properties = nil;
-
-	if ([busstops count] > 0) {
-		if ([busstops count] > 1) {
-			for (int i=0;i<[busstops count];i++) {
-				if ([[[busstops objectAtIndex:i] objectAtIndex:1] isEqualToString:serviceNumber]) {
-					properties = [busstops objectAtIndex:i];
-					break;
-				}
-			}
-		} else {
-			properties = [busstops objectAtIndex:0];
-		}
-		
-		[irisQueryReturn setValue:[[properties objectAtIndex:1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"service"];
-		[irisQueryReturn setValue:[[properties objectAtIndex:2] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"eta"];
-		[irisQueryReturn setValue:[[properties objectAtIndex:3] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forKey:@"subsequent"];
-		
-	}
-	
-	
-	return irisQueryReturn;
-}
-
 
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
 	
