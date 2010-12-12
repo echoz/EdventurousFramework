@@ -38,7 +38,7 @@
 #define REGEX_UFPS @"action=\"index.aspx\\?__ufps=([0-9a-zA-Z]*)\""
 #define REGEX_STOPDETAILS @"<font size=\"-1\">(.*)<br>\\s*(.*)</font><br>"
 #define REGEX_BUSES @"<a href=\"index_mobresult.aspx?[^\"]*\">(.*)</a>"
-#define REGEX_BUS @"Service (.*)\\s*Next bus: (.*)\\s*Subsequent bus: (.*)"
+#define REGEX_BUS @"Service (.*)[\\n\\r\\t]*Next bus: (.*)[\\n\\r\\t]*Subsequent bus: (.*)"
 #define REGEX_ROADCODES @"<a href=\"mobresult_stoplist.aspx\\?roadcode=([a-zA-Z0-9]*)\">(.*)</a>"
 #define REGEX_STOPS @"<a href=\"mobresult_svclist.aspx\\?stopcode=([0-9a-zA-Z]*)\">([0-9A-Za-z]*) - (.*)</a>"
 
