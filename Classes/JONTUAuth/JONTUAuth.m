@@ -40,7 +40,7 @@
 
 @implementation JONTUAuth
 
-@synthesize cookies, user, pass, domain, studentid, authCookies;
+@synthesize cookies, user, pass, domain, studentid;
 
 -(id)init {
     if (self = [super init]) {
@@ -62,6 +62,10 @@
 	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(" ()<>#%{}|\\^~[]`;/?:@=&$"), kCFStringEncodingUTF8) autorelease];
 }
 
+-(NSArray *)authCookies {
+	return authCookies;
+}
+
 -(BOOL)wisAuth {
 	
 	// sso_express provides the real authentication variables on top of the cookies.
@@ -69,30 +73,43 @@
 
 	BOOL auth = NO;
 	
-	NSMutableDictionary *postvalues = [NSMutableDictionary dictionaryWithCapacity:3];
-	[postvalues setValue:self.user forKey:@"UserName"];
-	[postvalues setValue:self.pass forKey:@"PIN"];
-	[postvalues setValue:self.domain forKey:@"Domain"];
-	
-	NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO] encoding:NSUTF8StringEncoding];
-	
-	if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
+	if (![self auth]) {
+		NSMutableDictionary *postvalues = [NSMutableDictionary dictionaryWithCapacity:3];
+		[postvalues setValue:self.user forKey:@"UserName"];
+		[postvalues setValue:self.pass forKey:@"PIN"];
+		[postvalues setValue:self.domain forKey:@"Domain"];
 		
-		NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self escapeString:self.user],[self escapeString:self.pass]]];
+		NSHTTPURLResponse *response;
+		NSError *error;
 		
-		[test release], test = nil;
+		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO returningResponse:&response error:&error] encoding:NSUTF8StringEncoding];
 		
-		// grab tokens!
-		test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
-		studentid = [[test stringByMatching:TOKEN_REGEX capture:1] retain]; // p1
-		secretToken = [[test stringByMatching:TOKEN_REGEX capture:2] retain]; // p2
+		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
+			
+			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self escapeString:self.user],[self escapeString:self.pass]]];
+			
+			[test release], test = nil;
+			
+			// grab tokens!
+			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
+			studentid = [[test stringByMatching:TOKEN_REGEX capture:1] retain]; // p1
+			secretToken = [[test stringByMatching:TOKEN_REGEX capture:2] retain]; // p2
+			
+			// deal with cookies
+			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[NSURL URLWithString:AUTH_URL]];
+			for (NSHTTPCookie *cookie in pastry) {
+				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
+					[authCookies addObject:cookie];
+				}
+			}
+			
+			auth = YES;
+		} else {
+			auth = NO;
+		}
 		
-		auth = YES;
-	} else {
-		auth = NO;
-	}
-	
-	[test release];
+		[test release];
+	}	
 
 	return auth;
 }
@@ -100,32 +117,49 @@
 -(BOOL)edventureAuth {
 	BOOL auth = NO;
 	
-	[self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login?action=logout"] postValues:nil withToken:NO];
-	
-	NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
-	[dict setObject:@"login" forKey:@"action"];
-	[dict setObject:@"" forKey:@"remote-user"];
-	[dict setObject:@"/webapps/portal/frameset.jsp" forKey:@"new_loc"];
-	[dict setObject:@"" forKey:@"auth_type"];
-	[dict setObject:@"" forKey:@"one_time_token"];
-	[dict setObject:[[self.pass dataUsingEncoding:NSASCIIStringEncoding] base64Encoding] forKey:@"encoded_pw"];
-	[dict setObject:[[self.pass dataUsingEncoding:NSUTF16LittleEndianStringEncoding] base64Encoding] forKey:@"encoded_pw_unicode"];
-	[dict setObject:self.user forKey:@"user_id"];
-	[dict setObject:@"" forKey:@"password"];
-	
-	NSData *test = [self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login/"]
-							   postValues:dict 
-								withToken:NO];
-	
-	NSString *testString = [[NSString alloc] initWithData:test encoding:NSUTF8StringEncoding];
-	
-	if ([[testString lowercaseString] rangeOfString:EDVENTURE_LOGIN_CHECK].location == NSNotFound) {
-		auth = YES;
-	} else {
-		auth = NO;
+	if (![self auth]) {
+		
+		[self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login?action=logout"] postValues:nil withToken:NO];
+		
+		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
+		[dict setObject:@"login" forKey:@"action"];
+		[dict setObject:@"" forKey:@"remote-user"];
+		[dict setObject:@"/webapps/portal/frameset.jsp" forKey:@"new_loc"];
+		[dict setObject:@"" forKey:@"auth_type"];
+		[dict setObject:@"" forKey:@"one_time_token"];
+		[dict setObject:[[self.pass dataUsingEncoding:NSASCIIStringEncoding] base64Encoding] forKey:@"encoded_pw"];
+		[dict setObject:[[self.pass dataUsingEncoding:NSUTF16LittleEndianStringEncoding] base64Encoding] forKey:@"encoded_pw_unicode"];
+		[dict setObject:self.user forKey:@"user_id"];
+		[dict setObject:@"" forKey:@"password"];
+		
+		NSHTTPURLResponse *response;
+		NSError *error;
+		
+		NSData *test = [self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login/"]
+								   postValues:dict 
+									withToken:NO
+							returningResponse:&response 
+										error:&error];
+		
+		NSString *testString = [[NSString alloc] initWithData:test encoding:NSUTF8StringEncoding];
+		
+		if ([[testString lowercaseString] rangeOfString:EDVENTURE_LOGIN_CHECK].location == NSNotFound) {
+			auth = YES;
+			
+			// deal with cookies
+			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[NSURL URLWithString:AUTH_URL]];
+			for (NSHTTPCookie *cookie in pastry) {
+				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
+					[authCookies addObject:cookie];
+				}
+			}
+			
+		} else {
+			auth = NO;
+		}
+		
+		[testString release];	
 	}
-	
-	[testString release];
 	
 	return auth;
 }
@@ -143,6 +177,7 @@
 -(BOOL)singleSignOn {
 	
 	[authCookies release], authCookies = nil;
+	authCookies = [[NSMutableArray arrayWithCapacity:2] retain];
 	
 	authing = YES;
 	wisAuth = [self wisAuth];
@@ -223,35 +258,16 @@
 				
 		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
 		
-		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
-		
-		// temporary array to store auth cookies
-		NSMutableArray *specialCookies = [NSMutableArray arrayWithCapacity:2];
-				
-		for (NSHTTPCookie *cookie in pastry) {
-			if (authing) {
-				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
-					[specialCookies addObject:cookie];
-				}
-			} else {
+		if ([self auth]) {
+			
+			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
+			
+			// add other cookies
+			for (NSHTTPCookie *cookie in pastry) {
 				[cookies addObject:cookie];
-			}
+			}	
 		}
-		
-		// has auth cookies! update internal cookie store for authentication tokens
-		if (authing) {
-			if ([specialCookies count] > 0) {
 				
-				NSMutableArray *tempcookies = [NSMutableArray arrayWithCapacity:3];
-				[tempcookies addObjectsFromArray:authCookies];
-				[tempcookies addObjectsFromArray:specialCookies];
-				
-								
-				[authCookies release];
-				authCookies = [tempcookies retain];
-			}			
-		}
-		
 		return recvData;
 		
 	} else {
