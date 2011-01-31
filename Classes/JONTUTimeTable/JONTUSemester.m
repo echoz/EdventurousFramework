@@ -75,7 +75,7 @@
 	
 	NSLog(@"JONTUTimeTable: Begin login");
 	
-	if ([sem auth]) {
+	if ([sem singleSignOn]) {
 		NSLog(@"JONTUTimeTable: Login success. Getting list of semesters");
 		NSString *html = [[NSString alloc] initWithData:[sem sendSyncXHRToURL:[NSURL URLWithString:XHR_URL] postValues:[NSDictionary dictionary] withToken:YES] encoding:NSUTF8StringEncoding];
 		NSArray *sems = [html componentsMatchedByRegex:REGEX_SEM_LIST];
