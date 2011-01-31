@@ -109,6 +109,11 @@
 	NSArray *semesterNames = [NSArray arrayWithObjects:@"SEMESTER 1", @"SEMESTER 2", @"SPECIAL TERM II", @"SPECIAL TERM I", nil];
 	
 	NSString *toYearString = [NSString stringWithFormat:@"%i", year+1];
+	
+	self.user = @"";
+	self.pass = @"";
+	self.domain = @"";
+	
 	NSString *page = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:[YEAR_URL stringByReplacingOccurrencesOfString:@"(year)" withString:[NSString stringWithFormat:@"%i-%@", year, [toYearString stringByMatching:@"([0-9][0-9])$" capture:1]]]] 
 																postValues:nil 
 																 withToken:NO] 
