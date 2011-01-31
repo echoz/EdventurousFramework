@@ -36,6 +36,8 @@
 	NSString *__time;
 	NSString *venue;
 	NSString *remark;
+	
+	NSArray *__activeWeeks;
 }
 
 @property (readonly) NSString *type;
@@ -50,4 +52,5 @@
 -(NSString *)fromTimeString;
 -(NSString *)toTimeString;
 -(NSArray *)activeWeeks;
+-(BOOL)isActiveForWeek:(NSUInteger)week
 @end

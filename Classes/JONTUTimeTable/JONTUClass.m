@@ -44,6 +44,7 @@
 		remark = [classremark retain];
 		__day = [classday retain];
 		__time = [classtime retain];
+		__activeWeeks = nil;
 	}
 	return self;
 }
@@ -88,29 +89,46 @@
 }
 
 -(NSArray *)activeWeeks {
-	NSArray *weeks = [remark captureComponentsMatchedByRegex:REGEX_RECURRENCE_THROUGH];
-	if ([weeks count] == 0) {
-		weeks = [[remark stringByReplacingOccurrencesOfString:@"Wk" withString:@""] componentsSeparatedByString:@","];
-	} else {
-		NSMutableArray *tempweeks = [NSMutableArray array];
-		for (int i=[[weeks objectAtIndex:1] intValue];i<[[weeks objectAtIndex:2] intValue]+1;i++) {
-			[tempweeks addObject:[NSNumber numberWithInt:i]];
-		}
-		weeks = tempweeks;
-	}
-	
-	NSMutableArray *returnedvalues = [NSMutableArray array];
-	
-	for (int i=0;i<[[weeks lastObject] intValue];i++) {
-		if ([self array:weeks hasNumber:[NSNumber numberWithInt:i+1]]) {
-			[returnedvalues addObject:[NSNumber numberWithBool:YES]];
+	if (!__activeWeeks) {
+		NSArray *weeks = [remark captureComponentsMatchedByRegex:REGEX_RECURRENCE_THROUGH];
+		
+		if ([weeks count] == 0) {
+			// seperated by commas or not
+			weeks = [[remark stringByReplacingOccurrencesOfString:@"Wk" withString:@""] componentsSeparatedByString:@","];
 		} else {
-			[returnedvalues addObject:[NSNumber numberWithBool:NO]];
+			
+			// this is weeks from a number to another
+			
+			NSMutableArray *tempweeks = [NSMutableArray array];
+			for (int i=[[weeks objectAtIndex:1] intValue];i<[[weeks objectAtIndex:2] intValue]+1;i++) {
+				[tempweeks addObject:[NSString stringWithFormat:@"%d",i]];
+			}
+			weeks = tempweeks;
 		}
+		
+		__activeWeeks = [weeks retain];
 	}
 	
+	return __activeWeeks;
+}
+
+-(BOOL)isActiveForWeek:(NSUInteger)week {
+	BOOL active = NO;
 	
-	return returnedvalues;
+	if (week > 0) {
+		NSString *weekStr = [NSString stringWithFormat:@"%d", week];
+		
+		for (NSString *wk in __activeWeeks) {
+			if ([wk isEqualToString:weekStr]) {
+				active = YES;
+				break;
+			}
+		}
+		
+	}
+	
+
+	return active;
 }
 
 -(NSString *)fromTimeString {
@@ -152,6 +170,7 @@
 	[remark release], remark = nil;
 	[__day release], __day = nil;
 	[__time release], __time = nil;
+	[__activeWeeks release], __activeWeeks = nil;
 	[super dealloc];
 }
 

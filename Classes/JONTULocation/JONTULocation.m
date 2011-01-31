@@ -40,6 +40,8 @@
 	xhr.pass = @"";
 	xhr.domain = @"";
 	
+	[xhr release];
+	
 	return nil;
 }
 
