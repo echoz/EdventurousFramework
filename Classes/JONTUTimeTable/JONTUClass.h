@@ -52,5 +52,5 @@
 -(NSString *)fromTimeString;
 -(NSString *)toTimeString;
 -(NSArray *)activeWeeks;
--(BOOL)isActiveForWeek:(NSUInteger)week
+-(BOOL)isActiveForWeek:(NSUInteger)week;
 @end
