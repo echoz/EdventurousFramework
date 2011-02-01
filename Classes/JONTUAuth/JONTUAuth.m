@@ -41,6 +41,7 @@
 @implementation JONTUAuth
 
 @synthesize cookies, user, pass, domain, studentid;
+@synthesize timeout;
 
 -(id)init {
     if (self = [super init]) {
@@ -54,6 +55,7 @@
 		wisAuth = NO;
 		edventureAuth = NO;
 		authing = NO;
+		timeout = 60.0;
     }
     return self;
 }
@@ -252,27 +254,22 @@
 
 -(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error {
     
-	if ([self canAuth]) {
-		NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
-		//	[request setTimeoutInterval:60.0];
-				
-		NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
-		
-		if ([self auth]) {
+	NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
+	[request setTimeoutInterval:self.timeout];
 			
-			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
-			
-			// add other cookies
-			for (NSHTTPCookie *cookie in pastry) {
-				[cookies addObject:cookie];
-			}	
-		}
-				
-		return recvData;
+	NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
+	
+	if ([self canAuth] && [self auth]) {
 		
-	} else {
-		return nil;
+		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
+		
+		// add other cookies
+		for (NSHTTPCookie *cookie in pastry) {
+			[cookies addObject:cookie];
+		}	
 	}
+			
+	return recvData;
 	
 }
 

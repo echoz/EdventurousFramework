@@ -40,6 +40,8 @@
     BOOL wisAuth;
 	BOOL edventureAuth;
 	BOOL authing;
+	
+	double timeout;
 }
 
 @property (readonly) NSMutableArray *cookies;
@@ -47,6 +49,7 @@
 @property (nonatomic, retain) NSString *pass;
 @property (nonatomic, retain) NSString *domain;
 @property (readonly) NSString *studentid;
+@property (nonatomic, readwrite) double timeout;
 -(BOOL)auth;
 -(BOOL)canAuth;
 -(BOOL)singleSignOn;
