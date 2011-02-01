@@ -27,13 +27,30 @@
 //  THE SOFTWARE.
 
 #import "JONTUCourse.h"
+#import "RegexKitLite.h"
+#import "JONTUSemester.h"
 
 #define QUERY_URL @"https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1"
+
+// first 4 captures
+#define REGEX_MOD_BASE @"<TD\\b[^>]*><B><FONT\\b[^>]*>(.*?)</FONT></B></TD>" 
+
+// defined in key value pairs
+#define REGEX_MOD_SPECIALREQ @"<TD><B><FONT\\b[^>]*>(.*?)</FONT></B></TD>\\n<TD COLSPAN=\"2\"><B><FONT\\b[^>]*>(.*?)</FONT></B></TD>"
+#define REGEX_MOD_DESC @"<TD WIDTH=\"650\" colspan=\"4\"><FONT SIZE=2>\\n(.*)\\n*</TD>"
+
+#define REGEX_MOD_TERMINATE @"###No Courses found###"
+
+#define MOD_MATCH_PREREQ @"Prerequisite:"
+#define MOD_MATCH_MUTEX @"Mutually exclusive with: "
+#define MOD_MATCH_NOCORE @"Not available as Core to Programme: "
+#define MOD_MATCH_NOUE @"Not available as UE to Programme: "
+#define MOD_MATCH_NOPE @"Not available as PE to Programme: "
 
 @implementation JONTUCourse
 
 @synthesize name, au, type, su, gepre, index, status, choice, classes;
-@synthesize title, runBy, prerequisite, notAvailPE, notAvailUE, details;
+@synthesize title, runBy, prerequisite, notAvailPE, notAvailUE, notAvailCORE, details;
 @synthesize semester;
 
 -(id)initWithName:(NSString *)coursename academicUnits:(NSUInteger) acadunit courseType:(NSString *)coursetype suOption:(NSString *)suopt gePreType:(NSString *)gepretype
@@ -51,17 +68,29 @@
 		classes = [[NSArray array] retain];
 		
 		if (additionalInfo) {
-			[self parseModuleInfo];
+			[self parse];
 		}
 	}
 	
 	return self;
 }
 
--(id)initWithCourseCode:(NSString *)ccode {
+-(id)initWithCourseCode:(NSString *)ccode year:(NSUInteger)year semester:(NSString *)sem {
+	JONTUSemester *josem = [[JONTUSemester alloc] initWithName:@"" year:year semester:sem];
+	
+	if (self = [self initWithCourseCode:ccode Semester:josem]) {
+
+	}
+	
+	[josem release];
+	
+	return self;
+}
+
+-(id)initWithCourseCode:(NSString *)ccode Semester:(JONTUSemester *)sem {
 	if (self = [super init]) {
 		name = [ccode retain];
-		[self parseModuleInfo];
+		self.semester = sem;
 	}
 	return self;
 }
@@ -83,6 +112,7 @@
 		prerequisite = [[aDecoder decodeObjectForKey:@"prerequisite"] retain];
 		notAvailPE = [[aDecoder decodeObjectForKey:@"notAvailPE"] retain];
 		notAvailUE = [[aDecoder decodeObjectForKey:@"notAvailUE"] retain];
+		notAvailCORE = [[aDecoder decodeObjectForKey:@"notAvailCORE"] retain];
 		details = [[aDecoder decodeObjectForKey:@"details"] retain];
 	}
 	return self;
@@ -104,17 +134,79 @@
 	[aCoder encodeObject:prerequisite forKey:@"prerequisite"];
 	[aCoder encodeObject:notAvailPE forKey:@"notAvailPE"];
 	[aCoder encodeObject:notAvailUE forKey:@"notAvailUE"];
+	[aCoder encodeObject:notAvailCORE forKey:@"notAvailCORE"];	
 	[aCoder encodeObject:details forKey:@"details"];
 
 }
 
--(void)parseModuleInfo {
+-(NSString *)stringFromArray:(NSArray *)array outterIndex:(NSUInteger)outterIndex innerIndex:(NSUInteger)innerIndex {
+	if ([array count] >= outterIndex+1) {
+		if ([[array objectAtIndex:outterIndex] count] >= innerIndex+1) {
+			return [[array objectAtIndex:outterIndex] objectAtIndex:innerIndex];
+		}
+	}
+	return nil;
+}
+
+-(NSArray *)stringsFromArray:(NSArray *)array forKey:(NSString *)key {
+	
+	NSMutableArray *stuff = [NSMutableArray arrayWithCapacity:0];
+	
+	for (NSArray *arr in array) {
+		if ([[arr objectAtIndex:1] isEqualToString:key]) {
+			[stuff addObjectsFromArray:[[arr objectAtIndex:2] componentsSeparatedByString:@", "]];
+		}
+	}
+	
+	return stuff;
+}
+
+-(BOOL)parse {
+	BOOL parsestatus = NO;
 	NSMutableDictionary *postValues = [NSMutableDictionary dictionary];
 	[postValues setObject:[semester semester] forKey:@"semester"];
 	[postValues setObject:[NSString stringWithFormat:@"%i",[semester year]] forKey:@"acad"];
 	[postValues setObject:[NSString stringWithFormat:@"%i_%@",[semester year], [semester semester]] forKey:@"acadsem"];
+	[postValues setObject:@"Search" forKey:@"boption"];
+	[postValues setObject:self.name forKey:@"r_subj_code"];
+	[postValues setObject:@"" forKey:@"r_course_yr"];
 	
-	[semester sendSyncXHRToURL:[NSURL URLWithString:QUERY_URL] postValues:postValues withToken:NO];
+	NSData *courseInfoData = nil;
+	
+	if (semester) {
+		courseInfoData = [semester sendSyncXHRToURL:[NSURL URLWithString:QUERY_URL] postValues:postValues withToken:NO];
+	} else {
+		courseInfoData = [self sendSyncXHRToURL:[NSURL URLWithString:QUERY_URL] postValues:postValues withToken:NO];
+	}
+	
+	
+	NSString *courseInfoStr = [[NSString alloc] initWithData:courseInfoData encoding:NSUTF8StringEncoding];
+	
+	if (![courseInfoStr isMatchedByRegex:REGEX_MOD_TERMINATE]) {
+		NSArray *courseBase = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_BASE];
+		NSArray *courseSpecialReq = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_SPECIALREQ];
+		NSArray *courseDesc = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_DESC];
+		
+		// deal with course base first
+		title = [[self stringFromArray:courseBase outterIndex:1 innerIndex:1] retain];
+		au = [[self stringFromArray:courseBase outterIndex:2 innerIndex:1] intValue];
+		runBy = [[self stringFromArray:courseBase outterIndex:3 innerIndex:1] retain];
+		
+		// next special req shit
+		prerequisite = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_PREREQ] retain];
+		notAvailCORE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOCORE] retain];
+		notAvailUE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOUE] retain];
+		notAvailPE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOPE] retain];
+		
+		// description
+		details = [[self stringFromArray:courseDesc outterIndex:0 innerIndex:1] retain];
+		
+		parsestatus = YES;
+	}
+	
+	[courseInfoStr release];
+	
+	return parsestatus;
 }
 
 -(NSString *)description {
@@ -139,7 +231,10 @@
 	[prerequisite release], prerequisite = nil;
 	[notAvailPE release], notAvailPE = nil;
 	[notAvailUE release], notAvailUE = nil;
+	[notAvailCORE release], notAvailCORE = nil;
 	[details release], details = nil;
+	
+	[semester release], semester = nil;
 	
 	[super dealloc];
 }
