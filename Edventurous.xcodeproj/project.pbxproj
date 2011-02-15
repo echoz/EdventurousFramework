@@ -928,6 +928,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -936,6 +937,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -961,6 +963,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				ZERO_LINK = "";
 			};
@@ -989,6 +992,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Device";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				ZERO_LINK = "";
 			};
@@ -1017,6 +1021,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-OSX";
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SKIP_INSTALL = YES;
 				ZERO_LINK = "";
 			};
 			name = Debug;
@@ -1043,6 +1048,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-OSX";
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				SKIP_INSTALL = YES;
 				ZERO_LINK = "";
 			};
 			name = Release;
@@ -1089,6 +1095,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
 				SDKROOT = iphonesimulator4.0;
+				SKIP_INSTALL = YES;
 				VALID_ARCHS = i386;
 				ZERO_LINK = "";
 			};
@@ -1116,6 +1123,7 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Edventurous-Simulator";
 				SDKROOT = iphonesimulator4.0;
+				SKIP_INSTALL = YES;
 				VALID_ARCHS = i386;
 				ZERO_LINK = "";
 			};
