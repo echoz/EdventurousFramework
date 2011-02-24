@@ -1,13 +1,35 @@
 //
 //  JOURLRequestHelper.m
-//  lbciphone
+//  JONetwork
 //
 //  Created by Jeremy Foo on 2/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
+//  The MIT License
+//  
+//  Copyright (c) 2010 Jeremy Foo
+//  
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//  
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//  
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+//  THE SOFTWARE.
 
 #import "JOURLRequest.h"
+#import <CommonCrypto/CommonDigest.h>
 
+#define HTTP_MULTIPART_BOUNDARY @"ihsdfo843290098fdji-08342-0fdipoa-0-0435"
 
 @implementation JOURLRequest
 @synthesize response = __response, request = __request, data = __data;
@@ -206,6 +228,147 @@
 }
 
 #endif
+
+#pragma mark -
+#pragma mark NSURLRequest prep
+
+// doesn't setup other parameters other than request
+
++(NSMutableURLRequest *)prepareRequestUsing:(NSDictionary *)postValues {
+	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+	
+	BOOL hasNSData = NO;
+	for (NSString *key in postValues) {
+		if ([[postValues objectForKey:key] isKindOfClass:[NSData class]]) {
+			hasNSData = YES;
+			break;
+		}
+	}
+	
+	if (hasNSData) {
+		// multipart/formdata
+		
+		
+		NSMutableData *postData = [NSMutableData data];
+		for (NSString *key in postValues) {
+			[postData appendData:[[NSString stringWithFormat:@"--%@\r\n", HTTP_MULTIPART_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+			
+			if ([[postValues objectForKey:key] isKindOfClass:[NSData class]]) {
+				
+				// calculate MD5 of nsdata for filename
+				unsigned char result[CC_MD5_DIGEST_LENGTH];
+				CC_MD5([postValues objectForKey:key], [[postValues objectForKey:key] length], result);
+				
+				NSMutableString *hash = [NSMutableString string];
+				
+				for (int i = 0; i < 16; i++)
+					[hash appendFormat:@"%02X", result[i]];
+				
+				
+				[postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key, hash] dataUsingEncoding:NSUTF8StringEncoding]];
+				[postData appendData:[[NSString stringWithFormat:@"Content-Type: application/octet-stream\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+				[postData appendData:[[NSString stringWithFormat:@"Content-Transfer-Encoding: base64\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+				
+				[postData appendData:[[NSString stringWithString:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+				[postData appendData:[NSData dataWithData:[postValues objectForKey:key]]];
+				[postData appendData:[[NSString stringWithString:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+			} else {
+				// write content disposition
+				[postData appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+				
+				// write value
+				[postData appendData:[[NSString stringWithFormat:@"\r\n%@\r\n",[postValues objectForKey:key]] dataUsingEncoding:NSUTF8StringEncoding]];
+			}
+		}
+		
+		if (postValues) {
+			[postData appendData:[[NSString stringWithFormat:@"--%@--\r\n", HTTP_MULTIPART_BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+			
+			[request setValue:[NSString stringWithFormat:@"multipart/form-data; boundary=%@", HTTP_MULTIPART_BOUNDARY] forHTTPHeaderField:@"Content-Type"];
+			
+			NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+			[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+			[request setHTTPBody:postData];
+			
+			[request setHTTPMethod:@"POST"];
+			
+		}
+	} else {
+		// x-www-form-urlencoded method
+		
+		// generate post string for posting
+		NSMutableString *post = [NSMutableString string];	
+		for (NSString *key in postValues) {
+			if ([post length] > 0) {
+				[post appendString:@"&"];
+			}
+			[post appendFormat:@"%@=%@",[self escapeString:key],[self escapeString:[postValues objectForKey:key]]];
+		}
+		
+		if (postValues) {
+			// add post data
+			NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+			NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+			[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+			[request setHTTPBody:postData];
+			
+			[request setHTTPMethod:@"POST"];
+			[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+		}
+	}
+	
+	return [request autorelease];
+	
+}
+
++(NSString *)escapeString:(NSString *)str withEscapees:(NSString *)escapees {
+	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, (CFStringRef)escapees, kCFStringEncodingUTF8) autorelease];
+}
+
++(NSString *)escapeString:(NSString *) str {
+	return [self escapeString:str withEscapees:@" ()<>#%{}|\\^~[]`;/?:@=&$"];
+}
+
+#pragma mark -
+#pragma mark String utility functions
+
++(NSString *)deNullify:(NSString *)str {
+	if (str == (id)[NSNull null]) {
+		return nil;
+	} else {
+		return str;
+	}
+}
+
++(NSString *)prepareEncodingForString:(NSString *)str {
+	if (str) {
+		return str;
+	} else {
+		return [NSString string];
+	}
+}
+
++(NSString *)stringFromArray:(NSArray *)array outterIndex:(NSUInteger)outterIndex innerIndex:(NSUInteger)innerIndex {
+	if ([array count] >= outterIndex+1) {
+		if ([[array objectAtIndex:outterIndex] count] >= innerIndex+1) {
+			return [[array objectAtIndex:outterIndex] objectAtIndex:innerIndex];
+		}
+	}
+	return nil;
+}
+
++(NSArray *)stringsFromArray:(NSArray *)array forKey:(NSString *)key {
+	
+	NSMutableArray *stuff = [NSMutableArray arrayWithCapacity:0];
+	
+	for (NSArray *arr in array) {
+		if ([[arr objectAtIndex:1] isEqualToString:key]) {
+			[stuff addObjectsFromArray:[[arr objectAtIndex:2] componentsSeparatedByString:@", "]];
+		}
+	}
+	
+	return stuff;
+}
 
 #pragma mark -
 #pragma mark Request Helper methods
