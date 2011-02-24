@@ -27,27 +27,29 @@
 		wasStarted = NO;
 		
 		timeout = 60.0;
-		
-		requestRechability = [[Reachability reachabilityForInternetConnection] retain];
-		
-		//UIApplicationDidEnterBackgroundNotification
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(didEnterBackground:) 
-													 name:UIApplicationDidEnterBackgroundNotification
-												   object:nil];
-		
-		//UIApplicationDidBecomeActiveNotification
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(didBecomeActive:)
-													 name:UIApplicationDidBecomeActiveNotification
-												   object:nil];
-		
-		[[NSNotificationCenter defaultCenter] addObserver:self
-												 selector:@selector(reachabilityChanged:)
-													 name:kReachabilityChangedNotification 
-												   object:nil];
-		
-		[requestRechability startNotifier];		
+		#ifdef TARGET_OS_IPHONE
+				
+				requestRechability = [[Reachability reachabilityForInternetConnection] retain];
+				
+				//UIApplicationDidEnterBackgroundNotification
+				[[NSNotificationCenter defaultCenter] addObserver:self
+														 selector:@selector(didEnterBackground:) 
+															 name:UIApplicationDidEnterBackgroundNotification
+														   object:nil];
+				
+				//UIApplicationDidBecomeActiveNotification
+				[[NSNotificationCenter defaultCenter] addObserver:self
+														 selector:@selector(didBecomeActive:)
+															 name:UIApplicationDidBecomeActiveNotification
+														   object:nil];
+				
+				[[NSNotificationCenter defaultCenter] addObserver:self
+														 selector:@selector(reachabilityChanged:)
+															 name:kReachabilityChangedNotification 
+														   object:nil];
+				
+				[requestRechability startNotifier];		
+		#endif
 		
 	}
 	return self;
@@ -97,8 +99,11 @@
 }
 
 -(void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[requestRechability release], requestRechability = nil;
+	#ifdef TARGET_OS_IPHONE
+		
+		[[NSNotificationCenter defaultCenter] removeObserver:self];
+		[requestRechability release], requestRechability = nil;
+	#endif
 	
 	[completionBlock release];
 	[postProcessBlock release];
@@ -114,6 +119,7 @@
 
 #pragma mark -
 #pragma mark Network events
+#ifdef TARGET_OS_IPHONE
 
 -(void)didBecomeActive:(NSNotification *)notification {
 	
@@ -198,6 +204,8 @@
 	}
 	
 }
+
+#endif
 
 #pragma mark -
 #pragma mark Request Helper methods

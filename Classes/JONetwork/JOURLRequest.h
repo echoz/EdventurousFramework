@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Reachability.h"
+
+#ifdef TARGET_OS_IPHONE
+	#import "Reachability.h"
+	#import <UIKit/UIKit.h>
+#endif
 
 typedef id (^ProcessingBlock)(id, id);
 typedef void (^CompletionBlock)(id,id,id);
@@ -36,7 +40,6 @@ typedef enum {
 
 @interface JOURLRequest : NSObject {
 	NSURLConnection *__connection;
-	Reachability *requestRechability;
 	NSTimeInterval timeout;
 	
     NSMutableURLRequest *__request;
@@ -51,6 +54,11 @@ typedef enum {
 	
 	BOOL autoResume;
 	BOOL wasStarted;
+	
+	#ifdef TARGET_OS_IPHONE
+		Reachability *requestRechability;
+	#endif
+	
 }
 
 @property (nonatomic, readwrite) NSTimeInterval timeout;
