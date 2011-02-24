@@ -6,40 +6,27 @@
 	objectVersion = 42;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		3F5EDD2B12564DCC00FF2D80 /* Edventurous */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 3F5EDD3612564DFF00FF2D80 /* Build configuration list for PBXAggregateTarget "Edventurous" */;
-			buildPhases = (
-				3F5EDD7812564F3000FF2D80 /* ShellScript */,
-			);
-			dependencies = (
-				3F5EDD2F12564DD500FF2D80 /* PBXTargetDependency */,
-				3F5EDD3112564DD800FF2D80 /* PBXTargetDependency */,
-				3F5EDDB71256506500FF2D80 /* PBXTargetDependency */,
-			);
-			name = Edventurous;
-			productName = Edventurous;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
+		3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; };
+		3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; };
+		3F33A8811316009200F95F8E /* JORequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87B1316009200F95F8E /* JORequestQueue.m */; };
+		3F33A8821316009200F95F8E /* JORequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87B1316009200F95F8E /* JORequestQueue.m */; };
+		3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; };
+		3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; };
+		3F33A8871316009200F95F8E /* JOURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87D1316009200F95F8E /* JOURLRequest.m */; };
+		3F33A8881316009200F95F8E /* JOURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87D1316009200F95F8E /* JOURLRequest.m */; };
+		3F33A8C81316127200F95F8E /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A8C61316127100F95F8E /* Reachability.h */; };
+		3F33A8CB1316127200F95F8E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A8C71316127100F95F8E /* Reachability.m */; };
 		3F5240C7126809B9009698EA /* JONTULocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5240C5126809B9009698EA /* JONTULocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F5240C8126809B9009698EA /* JONTULocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5240C6126809B9009698EA /* JONTULocation.m */; };
-		3F5240C9126809B9009698EA /* JONTULocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5240C5126809B9009698EA /* JONTULocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5240CA126809B9009698EA /* JONTULocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5240C6126809B9009698EA /* JONTULocation.m */; };
 		3F5240CB126809B9009698EA /* JONTULocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5240C5126809B9009698EA /* JONTULocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F5240CC126809B9009698EA /* JONTULocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5240C6126809B9009698EA /* JONTULocation.m */; };
 		3F5241601268243C009698EA /* JONTULocationDirections.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F52415E1268243C009698EA /* JONTULocationDirections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F5241611268243C009698EA /* JONTULocationDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52415F1268243C009698EA /* JONTULocationDirections.m */; };
-		3F5241621268243C009698EA /* JONTULocationDirections.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F52415E1268243C009698EA /* JONTULocationDirections.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5241631268243C009698EA /* JONTULocationDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52415F1268243C009698EA /* JONTULocationDirections.m */; };
 		3F5241641268243C009698EA /* JONTULocationDirections.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F52415E1268243C009698EA /* JONTULocationDirections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F5241651268243C009698EA /* JONTULocationDirections.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F52415F1268243C009698EA /* JONTULocationDirections.m */; };
 		3F5241681268244B009698EA /* JONTULocationRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5241661268244B009698EA /* JONTULocationRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F5241691268244B009698EA /* JONTULocationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5241671268244B009698EA /* JONTULocationRoute.m */; };
-		3F52416A1268244B009698EA /* JONTULocationRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5241661268244B009698EA /* JONTULocationRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F52416B1268244B009698EA /* JONTULocationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5241671268244B009698EA /* JONTULocationRoute.m */; };
 		3F52416C1268244B009698EA /* JONTULocationRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5241661268244B009698EA /* JONTULocationRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F52416D1268244B009698EA /* JONTULocationRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5241671268244B009698EA /* JONTULocationRoute.m */; };
 		3F54E16C125CF75000D17762 /* JONTUVideoLecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -50,14 +37,8 @@
 		3F54E171125CF75000D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
 		3F54E172125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F54E173125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
-		3F54E174125CF75100D17762 /* JONTUVideoLecture.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FAFD1B8125A3D7F0089E5C1 /* JONTUVideoLecture.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F54E175125CF75100D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
-		3F54E176125CF75100D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F54E177125CF75100D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
-		3F57363B128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
-		3F57363C128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363E128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0012564C9F00FF2D80 /* Foundation.framework */; };
@@ -110,46 +91,16 @@
 		3F5EDD6212564E3500FF2D80 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE012564C6A00FF2D80 /* RegexKitLite.m */; };
 		3F5EDD6312564E3500FF2D80 /* JONTUClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */; };
 		3F5EDD6412564E3500FF2D80 /* NSString+htmlentitiesaddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */; };
-		3F5EDD9B12564FF600FF2D80 /* JONTUBusStop.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEC12564C6A00FF2D80 /* JONTUBusStop.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDD9C12564FF600FF2D80 /* JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDD9D12564FF600FF2D80 /* JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDD9E12564FF600FF2D80 /* JONTUAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE312564C6A00FF2D80 /* JONTUAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDD9F12564FF600FF2D80 /* JONTUBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE612564C6A00FF2D80 /* JONTUBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA012564FF600FF2D80 /* RegexKitLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3F5EDDA112564FF600FF2D80 /* JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA212564FF600FF2D80 /* NSString+htmlentitiesaddition.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA312564FF600FF2D80 /* JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA412564FF600FF2D80 /* JONTUBusEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE812564C6A00FF2D80 /* JONTUBusEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA512564FF600FF2D80 /* JONTUBusRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCEA12564C6A00FF2D80 /* JONTUBusRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F5EDDA612564FF600FF2D80 /* SynthesizeSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3F5EDDA71256500800FF2D80 /* JONTUSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */; };
-		3F5EDDA81256500800FF2D80 /* JONTUBusRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCEB12564C6A00FF2D80 /* JONTUBusRoute.m */; };
-		3F5EDDA91256500800FF2D80 /* JONTUBusEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE912564C6A00FF2D80 /* JONTUBusEngine.m */; };
-		3F5EDDAA1256500800FF2D80 /* JONTUAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE412564C6A00FF2D80 /* JONTUAuth.m */; };
-		3F5EDDAB1256500800FF2D80 /* JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF612564C6B00FF2D80 /* JONTUSemesterDates.m */; };
-		3F5EDDAC1256500800FF2D80 /* JONTUCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF212564C6A00FF2D80 /* JONTUCourse.m */; };
-		3F5EDDAD1256500800FF2D80 /* JONTUBus.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE712564C6A00FF2D80 /* JONTUBus.m */; };
-		3F5EDDAE1256500800FF2D80 /* JONTUBusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCED12564C6A00FF2D80 /* JONTUBusStop.m */; };
-		3F5EDDAF1256500800FF2D80 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCE012564C6A00FF2D80 /* RegexKitLite.m */; };
-		3F5EDDB01256500800FF2D80 /* JONTUClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */; };
-		3F5EDDB11256500800FF2D80 /* NSString+htmlentitiesaddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */; };
-		3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB21256505100FF2D80 /* Foundation.framework */; };
-		3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDDB41256505B00FF2D80 /* libicucore.dylib */; };
 		3F7D66FC1264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F7D66FD1264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
 		3F7D66FE1264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F7D66FF1264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
-		3F7D67001264C5E8008059BA /* JONTUAculearnV7.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F7D67011264C5E8008059BA /* JONTUAculearnV7.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */; };
 		3F7D67051264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F7D67061264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
 		3F7D67071264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F7D67081264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
-		3F7D67091264C5FB008059BA /* JONTUAculearnV4.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3F7D670A1264C5FB008059BA /* JONTUAculearnV4.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F7D67041264C5FB008059BA /* JONTUAculearnV4.m */; };
 		3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B2125E033400714C6B /* CoreLocation.framework */; };
 		3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B6125E034100714C6B /* CoreLocation.framework */; };
-		3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F88B6B8125E034D00714C6B /* CoreLocation.framework */; };
 		3FC5E2341272ABD8004B991C /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2261272ABD8004B991C /* JSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2351272ABD8004B991C /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2271272ABD8004B991C /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2361272ABD8004B991C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2281272ABD8004B991C /* NSObject+SBJSON.m */; };
@@ -164,20 +115,6 @@
 		3FC5E23F1272ABD8004B991C /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2311272ABD8004B991C /* SBJsonWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2401272ABD8004B991C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2321272ABD8004B991C /* SBJsonWriter.m */; };
 		3FC5E2411272ABD8004B991C /* SBProxyForJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2331272ABD8004B991C /* SBProxyForJson.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E2421272ABD8004B991C /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2261272ABD8004B991C /* JSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E2431272ABD8004B991C /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2271272ABD8004B991C /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E2441272ABD8004B991C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2281272ABD8004B991C /* NSObject+SBJSON.m */; };
-		3FC5E2451272ABD8004B991C /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2291272ABD8004B991C /* NSString+SBJSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E2461272ABD8004B991C /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E22A1272ABD8004B991C /* NSString+SBJSON.m */; };
-		3FC5E2471272ABD8004B991C /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E22B1272ABD8004B991C /* SBJsonBase.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E2481272ABD8004B991C /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E22C1272ABD8004B991C /* SBJsonBase.m */; };
-		3FC5E2491272ABD8004B991C /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E22D1272ABD8004B991C /* SBJsonParser.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E24A1272ABD8004B991C /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E22E1272ABD8004B991C /* SBJsonParser.m */; };
-		3FC5E24B1272ABD8004B991C /* SBJsonStreamWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E22F1272ABD8004B991C /* SBJsonStreamWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E24C1272ABD8004B991C /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2301272ABD8004B991C /* SBJsonStreamWriter.m */; };
-		3FC5E24D1272ABD8004B991C /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2311272ABD8004B991C /* SBJsonWriter.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC5E24E1272ABD8004B991C /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2321272ABD8004B991C /* SBJsonWriter.m */; };
-		3FC5E24F1272ABD8004B991C /* SBProxyForJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2331272ABD8004B991C /* SBProxyForJson.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2501272ABD8004B991C /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2261272ABD8004B991C /* JSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2511272ABD8004B991C /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2271272ABD8004B991C /* NSObject+SBJSON.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC5E2521272ABD8004B991C /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC5E2281272ABD8004B991C /* NSObject+SBJSON.m */; };
@@ -194,25 +131,16 @@
 		3FC5E25D1272ABD8004B991C /* SBProxyForJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC5E2331272ABD8004B991C /* SBProxyForJson.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC7CE6F12719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC7CE7012719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
-		3FC7CE7112719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3FC7CE7212719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
 		3FC7CE7312719E2A00CE1EFA /* JOUTM.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC7CE6D12719E2A00CE1EFA /* JOUTM.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FC7CE7412719E2A00CE1EFA /* JOUTM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC7CE6E12719E2A00CE1EFA /* JOUTM.m */; };
 		3FC99D06128ADD0A009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D05128ADD0A009E2B06 /* libxml2.dylib */; };
 		3FC99D08128ADD26009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D07128ADD26009E2B06 /* libxml2.dylib */; };
-		3FC99D0A128ADD39009E2B06 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC99D09128ADD39009E2B06 /* libxml2.dylib */; };
 		3FC99E66128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC99E67128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
 		3FC99E68128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC99E69128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
 		3FC99E6A128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC99E6B128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
-		3FC99E6C128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC99E6D128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
-		3FC99E6E128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC99E6F128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
-		3FC99E70128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		3FC99E71128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
 		3FC99E72128AEAC0009E2B06 /* TFHpple.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E60128AEAC0009E2B06 /* TFHpple.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC99E73128AEAC0009E2B06 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E61128AEAC0009E2B06 /* TFHpple.m */; };
 		3FC99E74128AEAC0009E2B06 /* TFHppleElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E62128AEAC0009E2B06 /* TFHppleElement.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -221,33 +149,15 @@
 		3FC99E77128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		3F5EDD2E12564DD500FF2D80 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F5EDCFA12564C9100FF2D80;
-			remoteInfo = "Edventurous-Device";
-		};
-		3F5EDD3012564DD800FF2D80 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F5EDD1712564D7600FF2D80;
-			remoteInfo = "Edventurous-OSX";
-		};
-		3F5EDDB61256506500FF2D80 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3F5EDD9412564F8100FF2D80;
-			remoteInfo = "Edventurous-Simulator";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
 		3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		3F33A87A1316009200F95F8E /* JORequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JORequestQueue.h; sourceTree = "<group>"; };
+		3F33A87B1316009200F95F8E /* JORequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JORequestQueue.m; sourceTree = "<group>"; };
+		3F33A87C1316009200F95F8E /* JOURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOURLRequest.h; sourceTree = "<group>"; };
+		3F33A87D1316009200F95F8E /* JOURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOURLRequest.m; sourceTree = "<group>"; };
+		3F33A8C61316127100F95F8E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		3F33A8C71316127100F95F8E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		3F5240C5126809B9009698EA /* JONTULocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTULocation.h; sourceTree = "<group>"; };
 		3F5240C6126809B9009698EA /* JONTULocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTULocation.m; sourceTree = "<group>"; };
 		3F52415E1268243C009698EA /* JONTULocationDirections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTULocationDirections.h; sourceTree = "<group>"; };
@@ -288,7 +198,6 @@
 		3F5EDD1812564D7600FF2D80 /* libEdventurous-OSX.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libEdventurous-OSX.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EDD2412564DB400FF2D80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		3F5EDD9512564F8100FF2D80 /* libEdventurous-Simulator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libEdventurous-Simulator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F5EDDB21256505100FF2D80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F5EDDB41256505B00FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		3F5EDDC51256513200FF2D80 /* libEdventurous-iOS-Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-iOS-Debug.a"; path = "build/libEdventurous-iOS-Debug.a"; sourceTree = SOURCE_ROOT; };
@@ -354,20 +263,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3F5EDD9312564F8100FF2D80 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F5EDDB31256505100FF2D80 /* Foundation.framework in Frameworks */,
-				3F5EDDB51256505B00FF2D80 /* libicucore.dylib in Frameworks */,
-				3F88B6B9125E034D00714C6B /* CoreLocation.framework in Frameworks */,
-				3FC99D0A128ADD39009E2B06 /* libxml2.dylib in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F33A8781316000A00F95F8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F5EDD0012564C9F00FF2D80 /* Foundation.framework */,
+				3F5EDD0412564CA300FF2D80 /* libicucore.dylib */,
+				3F5EDD2412564DB400FF2D80 /* Foundation.framework */,
+				3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */,
+				3F5EDDB21256505100FF2D80 /* Foundation.framework */,
+				3F5EDDB41256505B00FF2D80 /* libicucore.dylib */,
+				3F88B6B2125E033400714C6B /* CoreLocation.framework */,
+				3F88B6B6125E034100714C6B /* CoreLocation.framework */,
+				3F88B6B8125E034D00714C6B /* CoreLocation.framework */,
+				3FC99D05128ADD0A009E2B06 /* libxml2.dylib */,
+				3FC99D07128ADD26009E2B06 /* libxml2.dylib */,
+				3FC99D09128ADD39009E2B06 /* libxml2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F33A8791316002300F95F8E /* JONetwork */ = {
+			isa = PBXGroup;
+			children = (
+				3F33A8C61316127100F95F8E /* Reachability.h */,
+				3F33A8C71316127100F95F8E /* Reachability.m */,
+				3F33A87A1316009200F95F8E /* JORequestQueue.h */,
+				3F33A87B1316009200F95F8E /* JORequestQueue.m */,
+				3F33A87C1316009200F95F8E /* JOURLRequest.h */,
+				3F33A87D1316009200F95F8E /* JOURLRequest.m */,
+			);
+			path = JONetwork;
+			sourceTree = "<group>";
+		};
 		3F4E9B49125B074400C6319F /* JONTULocation */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,28 +317,18 @@
 		3F5EDCCC12564B8D00FF2D80 = {
 			isa = PBXGroup;
 			children = (
+				3F33A8781316000A00F95F8E /* Frameworks */,
 				3F5EDD0612564CB600FF2D80 /* Edventurous.pch */,
 				3F5EDCDA12564C6A00FF2D80 /* Classes */,
 				3F5EDDC1125650E000FF2D80 /* lipo */,
 				3F5EDCFC12564C9100FF2D80 /* Products */,
-				3F5EDD0012564C9F00FF2D80 /* Foundation.framework */,
-				3F5EDD0412564CA300FF2D80 /* libicucore.dylib */,
-				3F5EDD2412564DB400FF2D80 /* Foundation.framework */,
-				3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */,
-				3F5EDDB21256505100FF2D80 /* Foundation.framework */,
-				3F5EDDB41256505B00FF2D80 /* libicucore.dylib */,
-				3F88B6B2125E033400714C6B /* CoreLocation.framework */,
-				3F88B6B6125E034100714C6B /* CoreLocation.framework */,
-				3F88B6B8125E034D00714C6B /* CoreLocation.framework */,
-				3FC99D05128ADD0A009E2B06 /* libxml2.dylib */,
-				3FC99D07128ADD26009E2B06 /* libxml2.dylib */,
-				3FC99D09128ADD39009E2B06 /* libxml2.dylib */,
 			);
 			sourceTree = "<group>";
 		};
 		3F5EDCDA12564C6A00FF2D80 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F33A8791316002300F95F8E /* JONetwork */,
 				3FC99CF7128AD549009E2B06 /* JONTUStudent */,
 				3F5EDCDB12564C6A00FF2D80 /* External */,
 				3F4E9B49125B074400C6319F /* JONTULocation */,
@@ -495,7 +415,6 @@
 			children = (
 				3F5EDCFB12564C9100FF2D80 /* libEdventurous-Device.a */,
 				3F5EDD1812564D7600FF2D80 /* libEdventurous-OSX.a */,
-				3F5EDD9512564F8100FF2D80 /* libEdventurous-Simulator.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -614,6 +533,9 @@
 				3FC99E68128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
 				3FC99E6A128AEAC0009E2B06 /* XPathQuery.h in Headers */,
 				3F573639128CE9B30063C313 /* JOIris.h in Headers */,
+				3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */,
+				3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */,
+				3F33A8C81316127200F95F8E /* Reachability.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,45 +575,8 @@
 				3FC99E74128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
 				3FC99E76128AEAC0009E2B06 /* XPathQuery.h in Headers */,
 				3F57363D128CE9B30063C313 /* JOIris.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3F5EDD9112564F8100FF2D80 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F5EDD9B12564FF600FF2D80 /* JONTUBusStop.h in Headers */,
-				3F5EDD9C12564FF600FF2D80 /* JONTUClass.h in Headers */,
-				3F5EDD9D12564FF600FF2D80 /* JONTUCourse.h in Headers */,
-				3F5EDD9E12564FF600FF2D80 /* JONTUAuth.h in Headers */,
-				3F5EDD9F12564FF600FF2D80 /* JONTUBus.h in Headers */,
-				3F5EDDA012564FF600FF2D80 /* RegexKitLite.h in Headers */,
-				3F5EDDA112564FF600FF2D80 /* JONTUSemester.h in Headers */,
-				3F5EDDA212564FF600FF2D80 /* NSString+htmlentitiesaddition.h in Headers */,
-				3F5EDDA312564FF600FF2D80 /* JONTUSemesterDates.h in Headers */,
-				3F5EDDA412564FF600FF2D80 /* JONTUBusEngine.h in Headers */,
-				3F5EDDA512564FF600FF2D80 /* JONTUBusRoute.h in Headers */,
-				3F5EDDA612564FF600FF2D80 /* SynthesizeSingleton.h in Headers */,
-				3F54E174125CF75100D17762 /* JONTUVideoLecture.h in Headers */,
-				3F54E176125CF75100D17762 /* JONTUVideoStreamingServer.h in Headers */,
-				3F7D67001264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
-				3F7D67091264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
-				3F5240C9126809B9009698EA /* JONTULocation.h in Headers */,
-				3F5241621268243C009698EA /* JONTULocationDirections.h in Headers */,
-				3F52416A1268244B009698EA /* JONTULocationRoute.h in Headers */,
-				3FC7CE7112719E2A00CE1EFA /* JOUTM.h in Headers */,
-				3FC5E2421272ABD8004B991C /* JSON.h in Headers */,
-				3FC5E2431272ABD8004B991C /* NSObject+SBJSON.h in Headers */,
-				3FC5E2451272ABD8004B991C /* NSString+SBJSON.h in Headers */,
-				3FC5E2471272ABD8004B991C /* SBJsonBase.h in Headers */,
-				3FC5E2491272ABD8004B991C /* SBJsonParser.h in Headers */,
-				3FC5E24B1272ABD8004B991C /* SBJsonStreamWriter.h in Headers */,
-				3FC5E24D1272ABD8004B991C /* SBJsonWriter.h in Headers */,
-				3FC5E24F1272ABD8004B991C /* SBProxyForJson.h in Headers */,
-				3FC99E6C128AEAC0009E2B06 /* TFHpple.h in Headers */,
-				3FC99E6E128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
-				3FC99E70128AEAC0009E2B06 /* XPathQuery.h in Headers */,
-				3F57363B128CE9B30063C313 /* JOIris.h in Headers */,
+				3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */,
+				3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,23 +617,6 @@
 			productReference = 3F5EDD1812564D7600FF2D80 /* libEdventurous-OSX.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		3F5EDD9412564F8100FF2D80 /* Edventurous-Simulator */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3F5EDD9A12564F8F00FF2D80 /* Build configuration list for PBXNativeTarget "Edventurous-Simulator" */;
-			buildPhases = (
-				3F5EDD9112564F8100FF2D80 /* Headers */,
-				3F5EDD9212564F8100FF2D80 /* Sources */,
-				3F5EDD9312564F8100FF2D80 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Edventurous-Simulator";
-			productName = "Edventurous-Simulator";
-			productReference = 3F5EDD9512564F8100FF2D80 /* libEdventurous-Simulator.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -771,27 +639,9 @@
 			targets = (
 				3F5EDCFA12564C9100FF2D80 /* Edventurous-Device */,
 				3F5EDD1712564D7600FF2D80 /* Edventurous-OSX */,
-				3F5EDD9412564F8100FF2D80 /* Edventurous-Simulator */,
-				3F5EDD2B12564DCC00FF2D80 /* Edventurous */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3F5EDD7812564F3000FF2D80 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -fr build/${BUILD_STYLE}/libEdventurous-iOS-${BUILD_STYLE}.a\nrm -fr build/${BUILD_STYLE}/libEdventurous-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-Simulator.a\" \\\n-output build/libEdventurous-iOS-${BUILD_STYLE}.a\n\nlipo -create \\\n\"build/${BUILD_STYLE}/libEdventurous-Device.a\" \\\n\"build/${BUILD_STYLE}/libEdventurous-OSX.a\" \\\n-output build/libEdventurous-${BUILD_STYLE}.a";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F5EDCF812564C9100FF2D80 /* Sources */ = {
@@ -827,6 +677,9 @@
 				3FC99E69128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
 				3FC99E6B128AEAC0009E2B06 /* XPathQuery.m in Sources */,
 				3F57363A128CE9B30063C313 /* JOIris.m in Sources */,
+				3F33A8811316009200F95F8E /* JORequestQueue.m in Sources */,
+				3F33A8871316009200F95F8E /* JOURLRequest.m in Sources */,
+				3F33A8CB1316127200F95F8E /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,64 +716,12 @@
 				3FC99E75128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
 				3FC99E77128AEAC0009E2B06 /* XPathQuery.m in Sources */,
 				3F57363E128CE9B30063C313 /* JOIris.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3F5EDD9212564F8100FF2D80 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3F5EDDA71256500800FF2D80 /* JONTUSemester.m in Sources */,
-				3F5EDDA81256500800FF2D80 /* JONTUBusRoute.m in Sources */,
-				3F5EDDA91256500800FF2D80 /* JONTUBusEngine.m in Sources */,
-				3F5EDDAA1256500800FF2D80 /* JONTUAuth.m in Sources */,
-				3F5EDDAB1256500800FF2D80 /* JONTUSemesterDates.m in Sources */,
-				3F5EDDAC1256500800FF2D80 /* JONTUCourse.m in Sources */,
-				3F5EDDAD1256500800FF2D80 /* JONTUBus.m in Sources */,
-				3F5EDDAE1256500800FF2D80 /* JONTUBusStop.m in Sources */,
-				3F5EDDAF1256500800FF2D80 /* RegexKitLite.m in Sources */,
-				3F5EDDB01256500800FF2D80 /* JONTUClass.m in Sources */,
-				3F5EDDB11256500800FF2D80 /* NSString+htmlentitiesaddition.m in Sources */,
-				3F54E175125CF75100D17762 /* JONTUVideoLecture.m in Sources */,
-				3F54E177125CF75100D17762 /* JONTUVideoStreamingServer.m in Sources */,
-				3F7D67011264C5E8008059BA /* JONTUAculearnV7.m in Sources */,
-				3F7D670A1264C5FB008059BA /* JONTUAculearnV4.m in Sources */,
-				3F5240CA126809B9009698EA /* JONTULocation.m in Sources */,
-				3F5241631268243C009698EA /* JONTULocationDirections.m in Sources */,
-				3F52416B1268244B009698EA /* JONTULocationRoute.m in Sources */,
-				3FC7CE7212719E2A00CE1EFA /* JOUTM.m in Sources */,
-				3FC5E2441272ABD8004B991C /* NSObject+SBJSON.m in Sources */,
-				3FC5E2461272ABD8004B991C /* NSString+SBJSON.m in Sources */,
-				3FC5E2481272ABD8004B991C /* SBJsonBase.m in Sources */,
-				3FC5E24A1272ABD8004B991C /* SBJsonParser.m in Sources */,
-				3FC5E24C1272ABD8004B991C /* SBJsonStreamWriter.m in Sources */,
-				3FC5E24E1272ABD8004B991C /* SBJsonWriter.m in Sources */,
-				3FC99E6D128AEAC0009E2B06 /* TFHpple.m in Sources */,
-				3FC99E6F128AEAC0009E2B06 /* TFHppleElement.m in Sources */,
-				3FC99E71128AEAC0009E2B06 /* XPathQuery.m in Sources */,
-				3F57363C128CE9B30063C313 /* JOIris.m in Sources */,
+				3F33A8821316009200F95F8E /* JORequestQueue.m in Sources */,
+				3F33A8881316009200F95F8E /* JOURLRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3F5EDD2F12564DD500FF2D80 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F5EDCFA12564C9100FF2D80 /* Edventurous-Device */;
-			targetProxy = 3F5EDD2E12564DD500FF2D80 /* PBXContainerItemProxy */;
-		};
-		3F5EDD3112564DD800FF2D80 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F5EDD1712564D7600FF2D80 /* Edventurous-OSX */;
-			targetProxy = 3F5EDD3012564DD800FF2D80 /* PBXContainerItemProxy */;
-		};
-		3F5EDDB71256506500FF2D80 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3F5EDD9412564F8100FF2D80 /* Edventurous-Simulator */;
-			targetProxy = 3F5EDDB61256506500FF2D80 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		3F5EDCCF12564B8D00FF2D80 /* Debug */ = {
@@ -965,6 +766,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv6 armv7 i386";
 				ZERO_LINK = "";
 			};
 			name = Debug;
@@ -994,6 +796,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv6 armv7 i386";
 				ZERO_LINK = "";
 			};
 			name = Release;
@@ -1053,82 +856,6 @@
 			};
 			name = Release;
 		};
-		3F5EDD2C12564DCD00FF2D80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = Edventurous;
-			};
-			name = Debug;
-		};
-		3F5EDD2D12564DCD00FF2D80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PRODUCT_NAME = Edventurous;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		3F5EDD9612564F8100FF2D80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
-				PRODUCT_NAME = "Edventurous-Simulator";
-				SDKROOT = iphonesimulator4.0;
-				SKIP_INSTALL = YES;
-				VALID_ARCHS = i386;
-				ZERO_LINK = "";
-			};
-			name = Debug;
-		};
-		3F5EDD9712564F8100FF2D80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)";
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = s;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				HEADER_SEARCH_PATHS = /usr/include/libxml2;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PREBINDING = NO;
-				PRODUCT_NAME = "Edventurous-Simulator";
-				SDKROOT = iphonesimulator4.0;
-				SKIP_INSTALL = YES;
-				VALID_ARCHS = i386;
-				ZERO_LINK = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1155,24 +882,6 @@
 			buildConfigurations = (
 				3F5EDD1912564D7700FF2D80 /* Debug */,
 				3F5EDD1A12564D7700FF2D80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F5EDD3612564DFF00FF2D80 /* Build configuration list for PBXAggregateTarget "Edventurous" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F5EDD2C12564DCD00FF2D80 /* Debug */,
-				3F5EDD2D12564DCD00FF2D80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3F5EDD9A12564F8F00FF2D80 /* Build configuration list for PBXNativeTarget "Edventurous-Simulator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3F5EDD9612564F8100FF2D80 /* Debug */,
-				3F5EDD9712564F8100FF2D80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
