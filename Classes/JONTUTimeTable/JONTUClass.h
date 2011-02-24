@@ -45,7 +45,8 @@
 @property (readonly) NSString *venue;
 @property (readonly) NSString *remark;
 
--(id)initWithType:(NSString *)classtype classGroup:(NSString *)classgroup venue:(NSString *)classvenue remark:(NSString *)classremark day:(NSString *)classday time:(NSString *)classtime;
+-(id)initWithTimeTableValues:(NSDictionary *)values;
+
 -(NSDateComponents *) fromTime;
 -(NSDateComponents *) toTime;
 -(NSUInteger)dayIndex;

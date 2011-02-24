@@ -36,14 +36,14 @@
 @implementation JONTUClass
 @synthesize type, group, venue, remark;
 
--(id)initWithType:(NSString *)classtype classGroup:(NSString *)classgroup venue:(NSString *)classvenue remark:(NSString *)classremark day:(NSString *)classday time:(NSString *)classtime {
+-(id)initWithTimeTableValues:(NSDictionary *)values {
 	if ((self = [super init])) {
-		type = [classtype retain];
-		group = [classgroup retain];
-		venue = [classvenue retain];
-		remark = [classremark retain];
-		__day = [classday retain];
-		__time = [classtime retain];
+		type = [[values objectForKey:@"type"] retain];
+		group = [[values objectForKey:@"group"] retain];
+		venue = [[values objectForKey:@"venue"] retain];
+		remark = [[values objectForKey:@"remark"] retain];
+		__day = [[values objectForKey:@"day"] retain];
+		__time = [[values objectForKey:@"time"] retain];
 		__activeWeeks = nil;
 	}
 	return self;

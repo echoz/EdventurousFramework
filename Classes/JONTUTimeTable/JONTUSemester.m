@@ -142,6 +142,7 @@
 		NSArray *timetableitems;
 		NSMutableArray *t_courses = [NSMutableArray array];
 		NSMutableArray *t_classes = nil;
+		NSMutableDictionary *valuesdict = nil;
 		
 		for (int i=0;i<[timetablelines count];i++) {
 			timetableitems = [[timetablelines objectAtIndex:i] captureComponentsMatchedByRegex:REGEX_TABLE_ROW];
@@ -149,32 +150,39 @@
 			// handle if its a row with course information
 			if (![[timetableitems objectAtIndex:1] isEqualToString:@""]) {
 				NSLog(@"JONTUTimeTable: Found course %@", [timetableitems objectAtIndex:1]);
+				
+				valuesdict = [NSMutableDictionary dictionaryWithCapacity:9];
+				[valuesdict setObject:[timetableitems objectAtIndex:1] forKey:@"name"];
+				[valuesdict setObject:[timetableitems objectAtIndex:2] forKey:@"au"];
+				[valuesdict setObject:[timetableitems objectAtIndex:3] forKey:@"type"];
+				[valuesdict setObject:[timetableitems objectAtIndex:4] forKey:@"su"];
+				[valuesdict setObject:[timetableitems objectAtIndex:5] forKey:@"gepre"];
+				[valuesdict setObject:[timetableitems objectAtIndex:6] forKey:@"index"];
+				[valuesdict setObject:[timetableitems objectAtIndex:7] forKey:@"status"];
+				[valuesdict setObject:[timetableitems objectAtIndex:8] forKey:@"choice"];
 
-				JONTUCourse *t_course = [[JONTUCourse alloc] initWithName:[timetableitems objectAtIndex:1]
-														academicUnits:[[timetableitems objectAtIndex:2] intValue]
-														   courseType:[timetableitems objectAtIndex:3]
-															 suOption:[timetableitems objectAtIndex:4]
-															gePreType:[timetableitems objectAtIndex:5]
-														  indexNumber:[timetableitems objectAtIndex:6]
-												   registrationStatus:[timetableitems objectAtIndex:7]
-															   choice:[[timetableitems objectAtIndex:8] intValue]
-													pullAditionalInfo:NO];
+				JONTUCourse *t_course = [[JONTUCourse alloc] initWithTimeTableValues:valuesdict];
 				t_course.semester = self;
 				
 				[t_courses addObject:t_course];
 				[t_course release], t_course = nil;
 				t_classes = [NSMutableArray array];
+
 			}
 			
 			// deal with class information
-		   NSLog(@"JONTUTimeTable: Found class %@", [timetableitems objectAtIndex:9]);
+			NSLog(@"JONTUTimeTable: Found class %@", [timetableitems objectAtIndex:9]);
+			
+			valuesdict = [NSMutableDictionary dictionaryWithCapacity:6];
+			[valuesdict setObject:[timetableitems objectAtIndex:9] forKey:@"type"];
+			[valuesdict setObject:[timetableitems objectAtIndex:10] forKey:@"group"];
+			[valuesdict setObject:[timetableitems objectAtIndex:13] forKey:@"venue"];
+			[valuesdict setObject:[timetableitems objectAtIndex:14] forKey:@"remark"];			
+			[valuesdict setObject:[timetableitems objectAtIndex:11] forKey:@"day"];
+			[valuesdict setObject:[timetableitems objectAtIndex:12] forKey:@"time"];
 
-			JONTUClass *t_class = [[JONTUClass alloc] initWithType:[timetableitems objectAtIndex:9]
-													classGroup:[timetableitems objectAtIndex:10]
-														 venue:[timetableitems objectAtIndex:13]
-														remark:[timetableitems objectAtIndex:14] 
-														   day:[timetableitems objectAtIndex:11] 
-														  time:[timetableitems objectAtIndex:12]];
+			JONTUClass *t_class = [[JONTUClass alloc] initWithTimeTableValues:valuesdict];
+			
 			[t_classes addObject:t_class];		
 			[t_class release], t_class = nil;	
 			
