@@ -41,7 +41,7 @@
 @synthesize name, year, semester, courses;
 
 -(id)initWithName:(NSString *)semname year:(NSUInteger)semyear semester:(NSString *)semsem {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		name = [semname retain];
 		year = semyear;
 		semester = [semsem retain];
@@ -50,7 +50,7 @@
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		name = [[aDecoder decodeObjectForKey:@"name"] retain];
 		year = [aDecoder decodeIntForKey:@"year"];
 		semester = [[aDecoder decodeObjectForKey:@"semester"] retain];

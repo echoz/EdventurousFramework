@@ -44,7 +44,7 @@
 @synthesize timeout;
 
 -(id)init {
-    if (self = [super init]) {
+    if ((self = [super init])) {
         cookies = [[NSMutableArray alloc] initWithCapacity:0];
 		authCookies = nil;
 		studentid = nil;

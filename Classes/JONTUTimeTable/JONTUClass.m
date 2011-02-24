@@ -37,7 +37,7 @@
 @synthesize type, group, venue, remark;
 
 -(id)initWithType:(NSString *)classtype classGroup:(NSString *)classgroup venue:(NSString *)classvenue remark:(NSString *)classremark day:(NSString *)classday time:(NSString *)classtime {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		type = [classtype retain];
 		group = [classgroup retain];
 		venue = [classvenue retain];
@@ -50,7 +50,7 @@
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		type = [[aDecoder decodeObjectForKey:@"type"] retain];
 		group = [[aDecoder decodeObjectForKey:@"group"] retain];
 		venue = [[aDecoder decodeObjectForKey:@"venue"] retain];

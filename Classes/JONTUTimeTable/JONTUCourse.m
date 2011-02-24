@@ -56,7 +56,7 @@
 -(id)initWithName:(NSString *)coursename academicUnits:(NSUInteger) acadunit courseType:(NSString *)coursetype suOption:(NSString *)suopt gePreType:(NSString *)gepretype
 	  indexNumber:(NSString *)indexNumber registrationStatus:(NSString *)regstat choice:(NSUInteger) coursechoice pullAditionalInfo:(BOOL)additionalInfo {
 	
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		name = [coursename retain];
 		au = acadunit;
 		type = [coursetype retain];
@@ -78,7 +78,7 @@
 -(id)initWithCourseCode:(NSString *)ccode year:(NSUInteger)year semester:(NSString *)sem {
 	JONTUSemester *josem = [[JONTUSemester alloc] initWithName:@"" year:year semester:sem];
 	
-	if (self = [self initWithCourseCode:ccode Semester:josem]) {
+	if ((self = [self initWithCourseCode:ccode Semester:josem])) {
 
 	}
 	
@@ -88,7 +88,7 @@
 }
 
 -(id)initWithCourseCode:(NSString *)ccode Semester:(JONTUSemester *)sem {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		name = [ccode retain];
 		self.semester = sem;
 	}
@@ -96,7 +96,7 @@
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		name = [[aDecoder decodeObjectForKey:@"name"] retain];
 		au = [aDecoder decodeIntForKey:@"acadunit"];
 		type = [[aDecoder decodeObjectForKey:@"type"] retain];
