@@ -27,7 +27,7 @@
 		wasStarted = NO;
 		
 		timeout = 60.0;
-		#ifdef TARGET_OS_IPHONE
+		#if TARGET_OS_IPHONE
 				
 				requestRechability = [[Reachability reachabilityForInternetConnection] retain];
 				
@@ -99,7 +99,7 @@
 }
 
 -(void)dealloc {
-	#ifdef TARGET_OS_IPHONE
+	#if TARGET_OS_IPHONE
 		
 		[[NSNotificationCenter defaultCenter] removeObserver:self];
 		[requestRechability release], requestRechability = nil;
@@ -119,7 +119,7 @@
 
 #pragma mark -
 #pragma mark Network events
-#ifdef TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
 
 -(void)didBecomeActive:(NSNotification *)notification {
 	

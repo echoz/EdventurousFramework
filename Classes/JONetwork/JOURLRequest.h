@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#ifdef TARGET_OS_IPHONE
+#if TARGET_OS_IPHONE
 	#import "Reachability.h"
 	#import <UIKit/UIKit.h>
 #endif
@@ -55,7 +55,11 @@ typedef enum {
 	BOOL autoResume;
 	BOOL wasStarted;
 	
-	#ifdef TARGET_OS_IPHONE
+	CompletionBlock completionBlock;
+	ProcessingBlock postProcessBlock;
+	CompletionBlock cancelBlock;
+	
+	#if TARGET_OS_IPHONE
 		Reachability *requestRechability;
 	#endif
 	
