@@ -28,8 +28,11 @@
 
 #import <Foundation/Foundation.h>
 #import "JONTUSemester.h"
+#import "JOURLRequest.h"
 
 @interface JONTUCourse : JONTUAuth <NSCoding> {
+	
+	JOURLRequest *request;	
 	
 	// from time table
 	NSString *name;
@@ -76,9 +79,9 @@
 
 @property (nonatomic, retain) JONTUSemester *semester;
 
--(id)initWithName:(NSString *)coursename academicUnits:(NSUInteger) acadunit courseType:(NSString *)coursetype suOption:(NSString *)suopt gePreType:(NSString *)gepretype indexNumber:(NSString *)indexNumber registrationStatus:(NSString *)regstat choice:(NSUInteger) coursechoice pullAditionalInfo:(BOOL)additionalInfo;
--(id)initWithCourseCode:(NSString *)ccode year:(NSUInteger)year semester:(NSString *)sem;
--(id)initWithCourseCode:(NSString *)ccode Semester:(JONTUSemester *)sem;
++(JOURLRequest *)courseWithCode:(NSString *)code forYear:(NSUInteger)year semester:(NSString *)sem;
+-(id)initWithTimeTableValues:(NSDictionary *)values;
+-(id)initWithModuleValues:(NSDictionary *)values;
+
 -(NSUInteger)classesCount;
--(BOOL)parse;
 @end

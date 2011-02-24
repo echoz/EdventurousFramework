@@ -53,44 +53,108 @@
 @synthesize title, runBy, prerequisite, notAvailPE, notAvailUE, notAvailCORE, details;
 @synthesize semester;
 
--(id)initWithName:(NSString *)coursename academicUnits:(NSUInteger) acadunit courseType:(NSString *)coursetype suOption:(NSString *)suopt gePreType:(NSString *)gepretype
-	  indexNumber:(NSString *)indexNumber registrationStatus:(NSString *)regstat choice:(NSUInteger) coursechoice pullAditionalInfo:(BOOL)additionalInfo {
+
++(JOURLRequest *)courseWithCode:(NSString *)code forYear:(NSUInteger)year semester:(NSString *)sem {
+	NSMutableDictionary *postValues = [NSMutableDictionary dictionary];
+	[postValues setObject:sem forKey:@"semester"];
+	[postValues setObject:[NSString stringWithFormat:@"%i",year] forKey:@"acad"];
+	[postValues setObject:[NSString stringWithFormat:@"%i_%@",year, sem] forKey:@"acadsem"];
+	[postValues setObject:@"Search" forKey:@"boption"];
+	[postValues setObject:code forKey:@"r_subj_code"];
+	[postValues setObject:@"" forKey:@"r_course_yr"];
 	
-	if ((self = [super init])) {
-		name = [coursename retain];
-		au = acadunit;
-		type = [coursetype retain];
-		su = [suopt retain];
-		gepre = [gepretype retain];
-		index = [indexNumber retain];
-		status = [regstat retain];
-		choice = coursechoice;
-		classes = [[NSArray array] retain];
+	NSMutableURLRequest *request = [JOURLRequest prepareRequestUsing:postValues];
+	[request setURL:[NSURL URLWithString:QUERY_URL]];
+	
+	JOURLRequest *urlrequest = [[JOURLRequest alloc] initWithRequest:request startImmediately:NO];
+	ProcessingBlock processblk = ^(id _data, id _response) {
+		NSString *courseInfoStr = [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding];
+		id returning = nil;
 		
-		if (additionalInfo) {
-			[self parse];
+		if (![courseInfoStr isMatchedByRegex:REGEX_MOD_TERMINATE]) {
+			NSMutableDictionary *returnvalues = [NSMutableDictionary dictionaryWithCapacity:11];
+						
+			NSArray *courseBase = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_BASE];
+			NSArray *courseSpecialReq = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_SPECIALREQ];
+			NSArray *courseDesc = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_DESC];
+			
+			// deal with course base first
+			[returnvalues setObject:[JOURLRequest stringFromArray:courseBase outterIndex:1 innerIndex:1] forKey:@"title"];
+			[returnvalues setObject:[JOURLRequest stringFromArray:courseBase outterIndex:2 innerIndex:1] forKey:@"au"];
+			[returnvalues setObject:[JOURLRequest stringFromArray:courseBase outterIndex:3 innerIndex:1] forKey:@"runBy"];
+			
+			// next special req shit
+			[returnvalues setObject:[JOURLRequest stringsFromArray:courseSpecialReq forKey:MOD_MATCH_PREREQ] forKey:@"prerequisite"];
+			[returnvalues setObject:[JOURLRequest stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOCORE] forKey:@"notAvailCORE"];
+			[returnvalues setObject:[JOURLRequest stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOUE] forKey:@"notAvailUE"];
+			[returnvalues setObject:[JOURLRequest stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOPE] forKey:@"notAvailPE"];
+			
+			// description
+			[returnvalues setObject:[self stringFromArray:courseDesc outterIndex:0 innerIndex:1] forKey:@"details"];
+			
+			urlrequest.hasCompletionReturn = YES;
+			returning = [[[JONTUCourse alloc] initWithModuleValues:returnvalues] autorelease];
+			
 		}
-	}
+		[courseInfoStr release];
+		return returning;
+
+	};
 	
-	return self;
+	[urlrequest setPostProcessBlock:processblk];
+	
+	return [urlrequest autorelease];
 }
 
--(id)initWithCourseCode:(NSString *)ccode year:(NSUInteger)year semester:(NSString *)sem {
-	JONTUSemester *josem = [[JONTUSemester alloc] initWithName:@"" year:year semester:sem];
-	
-	if ((self = [self initWithCourseCode:ccode Semester:josem])) {
-
-	}
-	
-	[josem release];
-	
-	return self;
-}
-
--(id)initWithCourseCode:(NSString *)ccode Semester:(JONTUSemester *)sem {
+-(id)initWithModuleValues:(NSDictionary *)values {
 	if ((self = [super init])) {
-		name = [ccode retain];
-		self.semester = sem;
+		title = [[values objectForKey:@"title"] retain];
+		au = [[values objectForKey:@"au"] intValue];
+		runBy = [[values objectForKey:@"runBy"] retain];
+		
+		prerequisite = [[values objectForKey:@"prerequisite"] retain];
+		notAvailPE = [[values objectForKey:@"notAvailPE"] retain];
+		notAvailUE = [[values objectForKey:@"notAvailUE"] retain];
+		notAvailCORE = [[values objectForKey:@"notAvailCORE"] retain];
+		
+		details = [[values objectForKey:@"details"] retain];
+	}
+	return self;
+}
+
+-(id)initWithTimeTableValues:(NSDictionary *)values {
+	if ((self = [super init])) {
+		
+		// from timetable shit
+		name = [[values objectForKey:@"name"] retain];
+		au = [[values objectForKey:@"au"] intValue];
+		type = [[values objectForKey:@"coursetype"] retain];
+		su = [[values objectForKey:@"suopt"] retain];
+		gepre = [[values objectForKey:@"gepretype"] retain];
+		index = [[values objectForKey:@"indexNumber"] retain];
+		status = [[values objectForKey:@"regstat"] retain];
+		choice = [[values objectForKey:@"coursechoice"] intValue];
+		
+		semester = [[values objectForKey:@"semester"] retain];
+		classes = [[values objectForKey:@"classes"] retain];
+		
+		// course info
+		
+		request = [JONTUCourse courseWithCode:name forYear:semester.year semester:semester.semester];
+		request.completionBlock = ^(id _data, id _response, id _postprocessed) {
+			JONTUCourse *course = (JONTUCourse *)_postprocessed;
+			
+			title = [course.title retain];
+			runBy = [course.runBy retain];
+			prerequisite = [course.prerequisite retain];
+			notAvailUE = [course.notAvailUE retain];
+			notAvailPE = [course.notAvailPE retain];
+			notAvailCORE = [course.notAvailCORE retain];
+			details = [course.details retain];
+			
+			[request release];
+		};
+
 	}
 	return self;
 }
@@ -139,76 +203,6 @@
 
 }
 
--(NSString *)stringFromArray:(NSArray *)array outterIndex:(NSUInteger)outterIndex innerIndex:(NSUInteger)innerIndex {
-	if ([array count] >= outterIndex+1) {
-		if ([[array objectAtIndex:outterIndex] count] >= innerIndex+1) {
-			return [[array objectAtIndex:outterIndex] objectAtIndex:innerIndex];
-		}
-	}
-	return nil;
-}
-
--(NSArray *)stringsFromArray:(NSArray *)array forKey:(NSString *)key {
-	
-	NSMutableArray *stuff = [NSMutableArray arrayWithCapacity:0];
-	
-	for (NSArray *arr in array) {
-		if ([[arr objectAtIndex:1] isEqualToString:key]) {
-			[stuff addObjectsFromArray:[[arr objectAtIndex:2] componentsSeparatedByString:@", "]];
-		}
-	}
-	
-	return stuff;
-}
-
--(BOOL)parse {
-	BOOL parsestatus = NO;
-	NSMutableDictionary *postValues = [NSMutableDictionary dictionary];
-	[postValues setObject:[semester semester] forKey:@"semester"];
-	[postValues setObject:[NSString stringWithFormat:@"%i",[semester year]] forKey:@"acad"];
-	[postValues setObject:[NSString stringWithFormat:@"%i_%@",[semester year], [semester semester]] forKey:@"acadsem"];
-	[postValues setObject:@"Search" forKey:@"boption"];
-	[postValues setObject:self.name forKey:@"r_subj_code"];
-	[postValues setObject:@"" forKey:@"r_course_yr"];
-	
-	NSData *courseInfoData = nil;
-	
-	if (semester) {
-		courseInfoData = [semester sendSyncXHRToURL:[NSURL URLWithString:QUERY_URL] postValues:postValues withToken:NO];
-	} else {
-		courseInfoData = [self sendSyncXHRToURL:[NSURL URLWithString:QUERY_URL] postValues:postValues withToken:NO];
-	}
-	
-	
-	NSString *courseInfoStr = [[NSString alloc] initWithData:courseInfoData encoding:NSUTF8StringEncoding];
-	
-	if (![courseInfoStr isMatchedByRegex:REGEX_MOD_TERMINATE]) {
-		NSArray *courseBase = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_BASE];
-		NSArray *courseSpecialReq = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_SPECIALREQ];
-		NSArray *courseDesc = [courseInfoStr arrayOfCaptureComponentsMatchedByRegex:REGEX_MOD_DESC];
-		
-		// deal with course base first
-		title = [[self stringFromArray:courseBase outterIndex:1 innerIndex:1] retain];
-		au = [[self stringFromArray:courseBase outterIndex:2 innerIndex:1] intValue];
-		runBy = [[self stringFromArray:courseBase outterIndex:3 innerIndex:1] retain];
-		
-		// next special req shit
-		prerequisite = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_PREREQ] retain];
-		notAvailCORE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOCORE] retain];
-		notAvailUE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOUE] retain];
-		notAvailPE = [[self stringsFromArray:courseSpecialReq forKey:MOD_MATCH_NOPE] retain];
-		
-		// description
-		details = [[self stringFromArray:courseDesc outterIndex:0 innerIndex:1] retain];
-		
-		parsestatus = YES;
-	}
-	
-	[courseInfoStr release];
-	
-	return parsestatus;
-}
-
 -(NSString *)description {
 	return [NSString stringWithFormat:@"<NTUCourse: %@ with %i classes>",self.name, [self.classes count]];
 }
@@ -218,6 +212,8 @@
 }
 
 -(void)dealloc {
+	[request release], request = nil;
+	
 	[name release], name = nil;
 	[type release], type = nil;
 	[su release], su = nil;
