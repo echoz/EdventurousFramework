@@ -154,6 +154,7 @@
 			
 			[request release];
 		};
+		[request start];
 
 	}
 	return self;
