@@ -30,7 +30,7 @@
 #import "JONTUSemester.h"
 #import "JOURLRequest.h"
 
-@interface JONTUCourse : JONTUAuth <NSCoding> {
+@interface JONTUCourse : NSObject <NSCoding> {
 	
 	JOURLRequest *request;	
 	
