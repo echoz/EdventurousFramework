@@ -266,6 +266,27 @@
 	return [NSURLConnection sendSynchronousRequest:self.request returningResponse:response error:error];
 }
 
+-(id)synchronousRequestWithProcessing {
+	NSHTTPURLResponse *response;
+	NSError *error;
+	
+	NSData *final = [self synchronousRequestWithResponse:&response error:&error];
+	
+	return postProcessBlock(final,response);
+}
+
+-(void)synchronousRequestWithCompletion {
+	NSHTTPURLResponse *response;
+	NSError *error;
+	
+	NSData *final = [self synchronousRequestWithResponse:&response error:&error];
+	
+	id postprocessed = postProcessBlock(final,response);
+	
+	self.completionBlock(final,response,postprocessed);
+}
+
+
 #pragma mark -
 #pragma mark NSURLConnection Delegate Methods
 

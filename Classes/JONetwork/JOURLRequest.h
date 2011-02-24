@@ -92,6 +92,8 @@ typedef enum {
 -(void)cancel;
 
 -(NSData *)synchronousRequest;
+-(id)synchronousRequestWithProcessing;
+-(void)synchronousRequestWithCompletion;
 -(NSData *)synchronousRequestWithResponse:(NSHTTPURLResponse **)response error:(NSError **)error;
 
 @end
