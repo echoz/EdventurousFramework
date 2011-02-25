@@ -36,13 +36,38 @@
 #define REGEX_STRIP_HTMLTAGS @"<(.|\\n)*?>"
 #define REGEX_DATE @"([0-9]+)[-| ]+([a-zA-Z]+)[-| ]+([0-9]+)"
 
+@interface JONTUSemesterDates ()
+-(void)parseData:(NSData *)data;
+@end
+
 @implementation JONTUSemesterDates
 @synthesize year, semesters;
 
--(id)initWithYear:(NSUInteger)yr {
-	if (self = [super init]) {
++(JOURLRequest *)semesterWithYear:(NSUInteger)yr {
+	NSString *toYearString = [NSString stringWithFormat:@"%i", yr+1];
+	NSURL *url = [NSURL URLWithString:[YEAR_URL stringByReplacingOccurrencesOfString:@"(year)" withString:[NSString stringWithFormat:@"%i-%@", yr, [toYearString stringByMatching:@"([0-9][0-9])$" capture:1]]]];
+	
+	JOURLRequest *request = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:nil] startImmediately:NO];
+	[request.request setURL:url];
+	
+	request.postProcessBlock = ^(id _data, id _response) {
+		
+		NSData *data = (NSData *)_data;
+		
+		JONTUSemesterDates *semdates = [[JONTUSemesterDates alloc] initWithPageData:data forYear:yr];
+		
+		request.hasCompletionReturn = YES;
+		return [semdates autorelease];
+	};
+	
+	return request;
+}
+
+-(id)initWithPageData:(NSData *)data forYear:(NSUInteger)yr {
+	if ((self = [super init])) {
 		year = yr;
 		semesters = nil;
+		[self parseData:data];
 	}
 	return self;
 }
@@ -103,17 +128,12 @@
 	
 }
 
--(void)parse {
+-(void)parseData:(NSData *)data {
 	
 	NSMutableDictionary *sems = [NSMutableDictionary dictionary];
 	NSArray *semesterNames = [NSArray arrayWithObjects:@"SEMESTER 1", @"SEMESTER 2", @"SPECIAL TERM II", @"SPECIAL TERM I", nil];
 	
-	NSString *toYearString = [NSString stringWithFormat:@"%i", year+1];
-	
-	NSString *page = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:[YEAR_URL stringByReplacingOccurrencesOfString:@"(year)" withString:[NSString stringWithFormat:@"%i-%@", year, [toYearString stringByMatching:@"([0-9][0-9])$" capture:1]]]] 
-																postValues:nil 
-																 withToken:NO] 
-										   encoding:NSUTF8StringEncoding];
+	NSString *page = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 	
 	NSArray *rows = [[[page removeHTMLEntities] stringByReplacingOccurrencesOfRegex:@"[\\n|\\t|\\r]" withString:@""] componentsMatchedByRegex:REGEX_TABLE_ROW];
 	

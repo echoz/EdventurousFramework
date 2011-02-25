@@ -27,17 +27,18 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "JONTUAuth.h"
+#import "JOURLRequest.h"
 
-@interface JONTUSemesterDates : JONTUAuth {
+@interface JONTUSemesterDates : NSObject {
 	NSUInteger year;
 	
 	NSDictionary *semesters;
 }
 @property (readonly) NSDictionary *semesters;
 @property (readonly) NSUInteger year;
--(id)initWithYear:(NSUInteger)yr;
--(void)parse;
+
++(JOURLRequest *)semesterWithYear:(NSUInteger)yr;
+-(id)initWithPageData:(NSData *)data forYear:(NSUInteger)yr;
 -(NSDictionary *)semesterWithCode:(NSString *)code;
 
 @end
