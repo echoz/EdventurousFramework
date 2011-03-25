@@ -101,7 +101,7 @@ typedef enum {
 @property (nonatomic, copy) CompletionBlock completionBlock;
 @property (nonatomic, copy) ProcessingBlock postProcessBlock;
 @property (nonatomic, copy) CompletionBlock cancelBlock;
-@property (nonatomic, copy) AuthChallengeBlock authChallengeblock; 
+@property (nonatomic, copy) AuthChallengeBlock authChallengeBlock; 
 @property (nonatomic, copy) AuthChallengeBlock authCancelChallengeBlock;
 @property (nonatomic, copy) AuthProtectSpaceBlock authProtectSpaceBlock;
 @property (nonatomic, assign) id<JOURLRequestDelegate> delegate;
