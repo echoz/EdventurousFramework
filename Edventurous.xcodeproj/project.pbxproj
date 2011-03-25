@@ -147,6 +147,8 @@
 		3FC99E75128AEAC0009E2B06 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */; };
 		3FC99E76128AEAC0009E2B06 /* XPathQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC99E64128AEAC0009E2B06 /* XPathQuery.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3FC99E77128AEAC0009E2B06 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC99E65128AEAC0009E2B06 /* XPathQuery.m */; };
+		3FE74C4D131620C900673DBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE74C4C131620C900673DBD /* Security.framework */; };
+		3FE74C4F131620D300673DBD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE74C4E131620D300673DBD /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,10 +202,6 @@
 		3F5EDD2812564DBD00FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		3F5EDDB21256505100FF2D80 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3F5EDDB41256505B00FF2D80 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		3F5EDDC51256513200FF2D80 /* libEdventurous-iOS-Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-iOS-Debug.a"; path = "build/libEdventurous-iOS-Debug.a"; sourceTree = SOURCE_ROOT; };
-		3F5EDDC61256513200FF2D80 /* libEdventurous-Debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Debug.a"; path = "build/libEdventurous-Debug.a"; sourceTree = SOURCE_ROOT; };
-		3F5EDDCA1256515F00FF2D80 /* libEdventurous-iOS-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-iOS-Release.a"; path = "build/libEdventurous-iOS-Release.a"; sourceTree = SOURCE_ROOT; };
-		3F5EDDCB1256515F00FF2D80 /* libEdventurous-Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libEdventurous-Release.a"; path = "build/libEdventurous-Release.a"; sourceTree = SOURCE_ROOT; };
 		3F7D66FA1264C5E8008059BA /* JONTUAculearnV7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUAculearnV7.h; sourceTree = "<group>"; };
 		3F7D66FB1264C5E8008059BA /* JONTUAculearnV7.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUAculearnV7.m; sourceTree = "<group>"; };
 		3F7D67031264C5FB008059BA /* JONTUAculearnV4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUAculearnV4.h; sourceTree = "<group>"; };
@@ -238,6 +236,8 @@
 		3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Classes/External/hpple/TFHppleElement.m; sourceTree = SOURCE_ROOT; };
 		3FC99E64128AEAC0009E2B06 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Classes/External/hpple/XPathQuery.h; sourceTree = SOURCE_ROOT; };
 		3FC99E65128AEAC0009E2B06 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Classes/External/hpple/XPathQuery.m; sourceTree = SOURCE_ROOT; };
+		3FE74C4C131620C900673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		3FE74C4E131620D300673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Security.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE74C4D131620C900673DBD /* Security.framework in Frameworks */,
 				3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */,
 				3F88B6B3125E033400714C6B /* CoreLocation.framework in Frameworks */,
@@ -256,6 +257,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE74C4F131620D300673DBD /* Security.framework in Frameworks */,
 				3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD2912564DBD00FF2D80 /* libicucore.dylib in Frameworks */,
 				3F88B6B7125E034100714C6B /* CoreLocation.framework in Frameworks */,
@@ -269,6 +271,8 @@
 		3F33A8781316000A00F95F8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3FE74C4E131620D300673DBD /* Security.framework */,
+				3FE74C4C131620C900673DBD /* Security.framework */,
 				3F5EDD0012564C9F00FF2D80 /* Foundation.framework */,
 				3F5EDD0412564CA300FF2D80 /* libicucore.dylib */,
 				3F5EDD2412564DB400FF2D80 /* Foundation.framework */,
@@ -320,7 +324,6 @@
 				3F33A8781316000A00F95F8E /* Frameworks */,
 				3F5EDD0612564CB600FF2D80 /* Edventurous.pch */,
 				3F5EDCDA12564C6A00FF2D80 /* Classes */,
-				3F5EDDC1125650E000FF2D80 /* lipo */,
 				3F5EDCFC12564C9100FF2D80 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -417,17 +420,6 @@
 				3F5EDD1812564D7600FF2D80 /* libEdventurous-OSX.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3F5EDDC1125650E000FF2D80 /* lipo */ = {
-			isa = PBXGroup;
-			children = (
-				3F5EDDCA1256515F00FF2D80 /* libEdventurous-iOS-Release.a */,
-				3F5EDDCB1256515F00FF2D80 /* libEdventurous-Release.a */,
-				3F5EDDC51256513200FF2D80 /* libEdventurous-iOS-Debug.a */,
-				3F5EDDC61256513200FF2D80 /* libEdventurous-Debug.a */,
-			);
-			name = lipo;
 			sourceTree = "<group>";
 		};
 		3F7D67021264C5EC008059BA /* AculeanTypes */ = {
@@ -756,7 +748,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
@@ -786,7 +778,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "";
@@ -816,7 +808,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_CFLAGS = "";
@@ -843,7 +835,7 @@
 				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Edventurous.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INSTALL_PATH = /usr/local/lib;
 				OTHER_CFLAGS = "";
