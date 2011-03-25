@@ -27,6 +27,7 @@
 //  THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
+#import "SynthesizeSingleton.h"
 
 @interface JONTUAuth : NSObject {
     NSMutableArray *cookies;
@@ -36,15 +37,19 @@
     NSString *domain;
     NSString *studentid;
 	NSString *secretToken;
-	NSMutableData *syncRecvData;
     BOOL wisAuth;
 	BOOL edventureAuth;
 	BOOL authing;
 	
+	NSURLCredential *credential;
+	
 	double timeout;
 }
 
+SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(JONTUAuth);
+
 @property (readonly) NSMutableArray *cookies;
+@property (readonly) NSURLCredential *credential;
 @property (nonatomic, retain) NSString *user;
 @property (nonatomic, retain) NSString *pass;
 @property (nonatomic, retain) NSString *domain;
@@ -52,16 +57,9 @@
 @property (nonatomic, readwrite) double timeout;
 -(BOOL)auth;
 -(BOOL)canAuth;
--(BOOL)singleSignOn;
-
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token;
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error;
+-(void)singleSignOn;
 
 -(void)clearStaleCookies;
--(NSString *)escapeString:(NSString *) str;
-
 -(NSArray *)authCookies;
-
-//-(BOOL) sendAsyncXHRToURL: (NSURL *)url postValues:(NSDictionary *)postValues; // implement soon!
 
 @end

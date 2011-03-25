@@ -29,6 +29,7 @@
 #import "JONTUAuth.h"
 #import "RegexKitLite.h"
 #import "NSDataAdditions.h"
+#import "JOURLRequest.h"
 
 #define HTTP_USER_AGENT @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.4+ (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7"
 #define AUTH_URL @"https://sso.wis.ntu.edu.sg/webexe88/owa/sso.asp"
@@ -40,8 +41,10 @@
 
 @implementation JONTUAuth
 
-@synthesize cookies, user, pass, domain, studentid;
+@synthesize cookies, user, pass, domain, studentid, credential;
 @synthesize timeout;
+
+SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 
 -(id)init {
     if ((self = [super init])) {
@@ -56,6 +59,7 @@
 		edventureAuth = NO;
 		authing = NO;
 		timeout = 60.0;
+		credential = nil;
     }
     return self;
 }
@@ -68,12 +72,41 @@
 	return authCookies;
 }
 
--(BOOL)wisAuth {
+-(JOURLRequest *)tokenRequest {
+	
+	JOURLRequest *tokenrequest = nil;
+	if (wisAuth) {
+		// assume credentail has been created from competion block?
+		tokenrequest = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:nil] startImmediately:NO];
+		[tokenrequest.request setURL:[NSURL URLWithString:TOKEN_URL]];
+		
+		tokenrequest.postProcessBlock = ^(id _data, id _response) {
+			NSString *test = [[NSString alloc] initWithData:(NSData *)_data encoding:NSUTF8StringEncoding];
+			
+			NSMutableDictionary *tokens = [NSMutableDictionary dictionaryWithCapacity:2];
+			
+			[tokens setObject:[test stringByMatching:TOKEN_REGEX capture:1] forKey:@"studentid"];
+			[tokens setObject:[test stringByMatching:TOKEN_REGEX capture:2] forKey:@"secretToken"];
+			
+			[test release];
+			
+			tokenrequest.hasCompletionReturn = YES;
+			
+			return (id)tokens;
+			
+		};
+		
+	}
+	
+	return [tokenrequest autorelease];
+}
+
+-(JOURLRequest *)wisAuthRequest {
 	
 	// sso_express provides the real authentication variables on top of the cookies.
 	// must grab p1 and p2.
-
-	BOOL auth = NO;
+	
+	JOURLRequest *wisrequest = nil;
 	
 	if (![self auth]) {
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionaryWithCapacity:3];
@@ -81,48 +114,50 @@
 		[postvalues setValue:self.pass forKey:@"PIN"];
 		[postvalues setValue:self.domain forKey:@"Domain"];
 		
-		NSHTTPURLResponse *response;
-		NSError *error;
-		
-		NSString *test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:AUTH_URL] postValues:postvalues withToken:NO returningResponse:&response error:&error] encoding:NSUTF8StringEncoding];
-		
-		if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
+		wisrequest = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:postvalues] startImmediately:NO];
+		[wisrequest.request setURL:[NSURL URLWithString:AUTH_URL]];
+
+		wisrequest.postProcessBlock = ^(id _data, id _response) {
 			
-			NSString *finalTokenURL = [TOKEN_URL stringByReplacingOccurrencesOfString:@"://" withString:[NSString stringWithFormat:@"://%@:%@@",[self escapeString:self.user],[self escapeString:self.pass]]];
+			NSString *test = [[NSString alloc] initWithData:(NSData *)_data encoding:NSUTF8StringEncoding];
+			NSMutableArray *theCookies = nil;
 			
-			[test release], test = nil;
-			
-			// grab tokens!
-			test = [[NSString alloc] initWithData:[self sendSyncXHRToURL:[NSURL URLWithString:finalTokenURL] postValues:nil withToken:NO] encoding:NSUTF8StringEncoding];
-			studentid = [[test stringByMatching:TOKEN_REGEX capture:1] retain]; // p1
-			secretToken = [[test stringByMatching:TOKEN_REGEX capture:2] retain]; // p2
-			
-			// deal with cookies
-			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[NSURL URLWithString:AUTH_URL]];
-			for (NSHTTPCookie *cookie in pastry) {
-				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
-					[authCookies addObject:cookie];
+			if ([test rangeOfString:@"may be invalid or has expired"].location == NSNotFound) {
+				NSArray *acookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)_response allHeaderFields] 
+																			  forURL:[NSURL URLWithString:AUTH_URL]];
+				
+				theCookies = [NSMutableArray arrayWithCapacity:2];
+				
+				for (NSHTTPCookie *cookie in acookies) {
+					if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
+						[theCookies addObject:cookie];
+					}
 				}
-			}
+				
+				wisrequest.hasCompletionReturn = YES;
+			} 
 			
-			auth = YES;
-		} else {
-			auth = NO;
-		}
+			[test release];
 		
-		[test release];
+			return (id)theCookies;
+		};
+		
 	}	
 
-	return auth;
+	return [wisrequest autorelease];
 }
 
--(BOOL)edventureAuth {
-	BOOL auth = NO;
+-(JOURLRequest *)edventureAuthRequest {
 	
+	JOURLRequest *edventurelogin = nil;
+
 	if (![self auth]) {
 		
-		[self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login?action=logout"] postValues:nil withToken:NO];
-		
+		/* need to do logout first
+		edventurelogin = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:nil] startImmediately:NO];
+		[edventurelogin.request setURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login?action=logout"]];
+		 */
+
 		NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithCapacity:0];
 		[dict setObject:@"login" forKey:@"action"];
 		[dict setObject:@"" forKey:@"remote-user"];
@@ -134,36 +169,36 @@
 		[dict setObject:self.user forKey:@"user_id"];
 		[dict setObject:@"" forKey:@"password"];
 		
-		NSHTTPURLResponse *response;
-		NSError *error;
+		edventurelogin = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:dict] startImmediately:NO];
+		[edventurelogin.request setURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login/"]];
 		
-		NSData *test = [self sendSyncXHRToURL:[NSURL URLWithString:@"https://edventure.ntu.edu.sg/webapps/login/"]
-								   postValues:dict 
-									withToken:NO
-							returningResponse:&response 
-										error:&error];
-		
-		NSString *testString = [[NSString alloc] initWithData:test encoding:NSUTF8StringEncoding];
-		
-		if ([[testString lowercaseString] rangeOfString:EDVENTURE_LOGIN_CHECK].location == NSNotFound) {
-			auth = YES;
+		edventurelogin.postProcessBlock = ^(id _data, id _response) {
+			NSString *test = [[NSString alloc] initWithData:(NSData *)_data encoding:NSUTF8StringEncoding];
+			NSMutableArray *theCookies = nil;
 			
-			// deal with cookies
-			NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:[NSURL URLWithString:AUTH_URL]];
-			for (NSHTTPCookie *cookie in pastry) {
-				if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
-					[authCookies addObject:cookie];
+			if ([[test lowercaseString] rangeOfString:EDVENTURE_LOGIN_CHECK].location == NSNotFound) {
+				NSArray *acookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[(NSHTTPURLResponse *)_response allHeaderFields] 
+																		   forURL:[NSURL URLWithString:AUTH_URL]];
+				
+				theCookies = [NSMutableArray arrayWithCapacity:2];
+				
+				for (NSHTTPCookie *cookie in acookies) {
+					if ([cookie.domain isEqualToString:@".wis.ntu.edu.sg"] || [cookie.domain isEqualToString:@"edventure.ntu.edu.sg"]) {
+						[theCookies addObject:cookie];
+					}
 				}
-			}
+				
+				edventurelogin.hasCompletionReturn = YES;
+
+			} 
 			
-		} else {
-			auth = NO;
-		}
-		
-		[testString release];	
+			[test release];
+			
+			return (id)theCookies;
+		};		
 	}
-	
-	return auth;
+
+	return [edventurelogin autorelease];
 }
 
 
@@ -176,101 +211,50 @@
 	return (wisAuth) && (edventureAuth);
 }
 
--(BOOL)singleSignOn {
+-(void)singleSignOn {
 	
 	[authCookies release], authCookies = nil;
 	authCookies = [[NSMutableArray arrayWithCapacity:2] retain];
 	
-	authing = YES;
-	wisAuth = [self wisAuth];
-	edventureAuth = [self edventureAuth];
-	authing = NO;
+	JOURLRequest *wis = [self wisAuthRequest];
+	JOURLRequest *tokens = [self tokenRequest];
+	JOURLRequest *edventure = [self edventureAuthRequest];
 	
-	[cookies removeAllObjects];
-	
-	return [self auth];
-}
-
--(NSMutableURLRequest *)prepareURLRequestUsing:(NSDictionary *)postValues toURL:(NSURL *)url withToken:(BOOL)token {
-	
-	// setup URL Request
-	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-	[request setURL:url];
-	[request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
-	
-	// add secret tokens if they are requested for and have been authed
-	NSMutableDictionary *mutPostValues = [NSMutableDictionary dictionaryWithCapacity:2];
-	if (([self auth]) && (token)) {
-		[mutPostValues setObject:studentid forKey:@"P1"];
-		[mutPostValues setObject:secretToken forKey:@"P2"];
-	}
-	
-	// add postvalues if they exist
-	if (postValues) {
-		[mutPostValues addEntriesFromDictionary:postValues];
-	}
-
-	// generate post string for posting
-	NSMutableString *post = [NSMutableString string];	
-	for (NSString *key in mutPostValues) {
-		if ([post length] > 0) {
-			[post appendString:@"&"];
+	edventure.completionBlock = ^(id _data, id _response, id _completion) {
+		if (edventure.hasCompletionReturn) {
+			[authCookies addObjectsFromArray:(NSArray *)_completion];
 		}
-		[post appendFormat:@"%@=%@",[self escapeString:key],[self escapeString:[mutPostValues objectForKey:key]]];
-	}
+	};
 	
-	// add other http attributes based upon tokens or not
-	if ((token) || (postValues)) {
-		// add post data
-		NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-		NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-		[request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-		[request setHTTPBody:postData];
-		
-		[request setHTTPMethod:@"POST"];
-		[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-	}
-	
-	[request setValue:HTTP_USER_AGENT forHTTPHeaderField:@"User-Agent"];
-	
-	// assemble cookies!
-	NSMutableArray *submitCookies = [NSMutableArray arrayWithArray:self.cookies];
-	for (NSHTTPCookie *cookie in authCookies) {
-		if ([url.host hasSuffix:cookie.domain]) {
-			[submitCookies addObject:cookie];
+	tokens.completionBlock = ^(id _data, id _response, id _compeletion) {
+		if (tokens.hasCompletionReturn) {
+			NSDictionary *dict = (NSDictionary *)_compeletion;
+			
+			studentid = [[dict objectForKey:@"studentid"] retain];
+			secretToken = [[dict objectForKey:@"secretToken"] retain];
 		}
-	}
+	};
 	
-	[request setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:submitCookies]];
-
-	return [request autorelease];
-}
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token {
+	tokens.useCredentialStorage = NO;
 	
-	NSHTTPURLResponse *response;
-	
-	return [self sendSyncXHRToURL:url postValues:postValues withToken:token returningResponse:&response error:nil];
-}
-
--(NSData *) sendSyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues withToken:(BOOL)token returningResponse:(NSHTTPURLResponse **) response error:(NSError **)error {
-    
-	NSMutableURLRequest *request = [self prepareURLRequestUsing:postValues toURL:url withToken:token];
-	[request setTimeoutInterval:self.timeout];
-			
-	NSData *recvData = [NSURLConnection sendSynchronousRequest:request returningResponse:response error:error];
-	
-	if ([self canAuth] && [self auth]) {
+	tokens.authChallengeBlock = ^(id _connection, id _authChallenge) {
 		
-		NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[*response allHeaderFields] forURL:[request URL]];
-		
-		// add other cookies
-		for (NSHTTPCookie *cookie in pastry) {
-			[cookies addObject:cookie];
-		}	
-	}
-			
-	return recvData;
+		NSURLAuthenticationChallenge *authChallenge = (NSURLAuthenticationChallenge *)_authChallenge;		
+		[[authChallenge sender] useCredential:self.credential forAuthenticationChallenge:authChallenge];
+
+	};
 	
+	wis.completionBlock = ^(id _data, id _response, id _completion) {
+		if (wis.hasCompletionReturn) {
+			[authCookies addObjectsFromArray:(NSArray *)_completion];
+			credential = [NSURLCredential credentialWithUser:self.user password:self.pass persistence:NSURLCredentialPersistenceNone];
+			
+			[tokens start];
+		}
+	};
+	
+	[wis start];
+	[edventure start];
 }
 
 -(void)clearStaleCookies {
@@ -284,109 +268,9 @@
 	[cookies removeObjectsInArray:staleCookies];
 }
 
-/* 
- 
- this for a later implementation if we really need a run loop based way of getting url
- 
--(BOOL) sendAsyncXHRToURL:(NSURL *)url postValues:(NSDictionary *)postValues {
-
-	NSMutableURLRequest *syncRequest = [self prepareURLRequestUsing:postValues toURL:url];
-	NSURLConnection *syncConnection = [[NSURLConnection alloc] initWithRequest:syncRequest delegate:self];
-	BOOL status = NO;	
-		
-	if (syncConnection) {
-		NSLog(@"Sent Request: %@ using %@", syncRequest, syncConnection);
-		status = YES;
-		syncRecvData = [[NSMutableData alloc] init];
-		
-	} else {
-		status = NO;
-	}
-	
-	return status;
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	// This method is called when the server has determined that it
-    // has enough information to create the NSURLResponse.
-	
-    // It can be called multiple times, for example in the case of a
-    // redirect, so each time we reset the data.
-	
-    // receivedData is an instance variable declared elsewhere.
-	
-	NSArray *pastry = [NSHTTPCookie cookiesWithResponseHeaderFields:[((NSHTTPURLResponse *)response) allHeaderFields] forURL:response.URL];
-    
-    for (NSHTTPCookie *cookie in pastry) {
-        if ([cookie.domain hasSuffix:@".wis.ntu.edu.sg"]) {
-            [cookies addObject:cookie];
-        }
-    }
-	
-    [syncRecvData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    // Append the new data to receivedData.
-    // receivedData is an instance variable declared elsewhere.
-    [syncRecvData appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    // do something with the data
-    // receivedData is declared as a method instance elsewhere
-    NSLog(@"Succeeded! Received %u bytes of data",[syncRecvData length]);
-	NSLog(@"%@", [[[NSString alloc] initWithData:syncRecvData encoding:NSUTF8StringEncoding] autorelease]);
-	
-    // release the connection, and the data object
-    [connection release];
-    [syncRecvData release];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    // release the connection, and the data object
-    [connection release];
-    // receivedData is declared as a method instance elsewhere
-    [syncRecvData release];
-	
-    // inform the user
-    NSLog(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey:NSURLErrorFailingURLStringErrorKey]);
-}
-
--(NSURLRequest *)connection:(NSURLConnection *)connection willSendRequest:(NSURLRequest *)request redirectResponse:(NSURLResponse *)redirectResponse
-{
-    NSURLRequest *newRequest = request;
-    if (redirectResponse) {
-        newRequest = nil;
-    }
-    return newRequest;
-}
-
--(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-{
-	
-    if ([challenge previousFailureCount] == 0) {
-        NSURLCredential *newCredential;
-        newCredential = [NSURLCredential credentialWithUser:self.user
-												   password:self.pass
-												persistence:NSURLCredentialPersistenceNone];
-        [[challenge sender] useCredential:newCredential
-               forAuthenticationChallenge:challenge];
-    } else {
-        [[challenge sender] cancelAuthenticationChallenge:challenge];
-        // inform the user that the user name and password
-        // in the preferences are incorrect
-		NSLog(@"Can't auth");
-    }
-}
- */
 
 -(void)dealloc {
+	[credential release], credential = nil;
 	[authCookies release], authCookies = nil;
 	[secretToken release], secretToken = nil;
 	[cookies release], cookies = nil;
