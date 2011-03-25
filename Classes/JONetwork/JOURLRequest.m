@@ -33,8 +33,8 @@
 
 @implementation JOURLRequest
 @synthesize response = __response, request = __request, data = __data;
-@synthesize delegate = __delegate, completionBlock, postProcessBlock, cancelBlock;
-@synthesize completionReturn, hasCompletionReturn;
+@synthesize delegate = __delegate, completionBlock, postProcessBlock, cancelBlock, authChallengeblock, authProtectSpaceBlock;
+@synthesize completionReturn, hasCompletionReturn, useCredentialStorage;
 @synthesize status = __status, autoResume;
 @synthesize timeout;
 
@@ -47,6 +47,7 @@
 		__status = JOURLRequestStatusNew;
 		
 		wasStarted = NO;
+		useCredentialStorage = NO;
 		
 		timeout = 60.0;
 		#if TARGET_OS_IPHONE
@@ -486,6 +487,34 @@
 		[self.delegate request:self didFailWithError:error];
 	}
 	
+}
+
+-(BOOL)connectionShouldUseCredentialStorage:(NSURLConnection *)connection {
+	return self.useCredentialStorage;
+}
+
+-(BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
+	BOOL how = NO;
+	
+	if (self.authProtectSpaceBlock) {
+		how = self.authProtectSpaceBlock(connection, protectionSpace);
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(request:canAuthAgainstProtectionSpace:)]) {
+		how = [self.delegate request:self canAuthAgainstProtectionSpace:protectionSpace];
+	}
+	
+	return how;
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	if (self.authChallengeblock) {
+		self.authChallengeblock(connection, challenge);		
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(request:didReceiveAuthChallenge:)]) {
+		[self.delegate request:self didReceiveAuthChallenge:challenge];
+	}
 }
 
 -(void)connectionDidFinishLoading:(NSURLConnection *)connection {

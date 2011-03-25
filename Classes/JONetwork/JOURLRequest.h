@@ -35,6 +35,8 @@
 
 typedef id (^ProcessingBlock)(id, id);
 typedef void (^CompletionBlock)(id,id,id);
+typedef void (^AuthChallengeBlock)(id,id);
+typedef BOOL (^AuthProtectSpaceBlock)(id,id);
 
 @class JOURLRequest;
 
@@ -56,6 +58,8 @@ typedef enum {
 -(void)request:(JOURLRequest *)request didFailWithError:(NSError *)error;
 -(void)request:(JOURLRequest *)request didRecieveResponse:(NSURLResponse *)response;
 -(void)request:(JOURLRequest *)request didRecieveData:(NSData *)data;
+-(void)request:(JOURLRequest *)request didReceiveAuthChallenge:(NSURLAuthenticationChallenge *)authChallenge;
+-(BOOL)request:(JOURLRequest *)request canAuthAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
 @end
 
 @interface JOURLRequest : NSObject {
@@ -79,6 +83,10 @@ typedef enum {
 	CompletionBlock completionBlock;
 	ProcessingBlock postProcessBlock;
 	CompletionBlock cancelBlock;
+	AuthChallengeBlock authChallengeBlock;
+	AuthProtectSpaceBlock authProtectSpaceBlock;
+	
+	BOOL useCredentialStorage;
 	
 	#if TARGET_OS_IPHONE
 		Reachability *requestRechability;
@@ -91,6 +99,8 @@ typedef enum {
 @property (nonatomic, copy) CompletionBlock completionBlock;
 @property (nonatomic, copy) ProcessingBlock postProcessBlock;
 @property (nonatomic, copy) CompletionBlock cancelBlock;
+@property (nonatomic, copy) AuthChallengeBlock authChallengeblock;
+@property (nonatomic, copy) AuthProtectSpaceBlock authProtectSpaceBlock;
 @property (nonatomic, assign) id<JOURLRequestDelegate> delegate;
 
 @property (readonly) NSMutableURLRequest *request;
@@ -103,6 +113,7 @@ typedef enum {
 @property (readonly) JOURLRequestStatus status;
 
 @property (nonatomic, readwrite) BOOL autoResume;
+@property (nonatomic, readwrite) BOOL useCredentialStorage;
 
 -(id)initWithRequest:(NSURLRequest *)request startImmediately:(BOOL)startImmediately;
 -(id)initWithRequest:(NSURLRequest *)request startImmediately:(BOOL)startImmediately delegate:(id<JOURLRequestDelegate>)delegate;
