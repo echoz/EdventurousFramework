@@ -33,7 +33,7 @@
 
 @implementation JOURLRequest
 @synthesize response = __response, request = __request, data = __data;
-@synthesize delegate = __delegate, completionBlock, postProcessBlock, cancelBlock, authChallengeblock, authProtectSpaceBlock;
+@synthesize delegate = __delegate, completionBlock, postProcessBlock, cancelBlock, authChallengeblock, authProtectSpaceBlock, authCancelChallengeBlock;
 @synthesize completionReturn, hasCompletionReturn, useCredentialStorage;
 @synthesize status = __status, autoResume;
 @synthesize timeout;
@@ -505,6 +505,16 @@
 	}
 	
 	return how;
+}
+
+-(void)connection:(NSURLConnection *)connection didCancelAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	if (self.authCancelChallengeBlock) {
+		self.authCancelChallengeBlock(connection, challenge);
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(request:didCancelAuthChallenge:)]) {
+		[self.delegate request:self didCancelAuthChallenge:challenge];
+	}
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {

@@ -60,6 +60,7 @@ typedef enum {
 -(void)request:(JOURLRequest *)request didRecieveData:(NSData *)data;
 -(void)request:(JOURLRequest *)request didReceiveAuthChallenge:(NSURLAuthenticationChallenge *)authChallenge;
 -(BOOL)request:(JOURLRequest *)request canAuthAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace;
+-(void)request:(JOURLRequest *)request didCancelAuthChallenge:(NSURLAuthenticationChallenge *)authChallenge;
 @end
 
 @interface JOURLRequest : NSObject {
@@ -84,6 +85,7 @@ typedef enum {
 	ProcessingBlock postProcessBlock;
 	CompletionBlock cancelBlock;
 	AuthChallengeBlock authChallengeBlock;
+	AuthChallengeBlock authCancelChallengeBlock;
 	AuthProtectSpaceBlock authProtectSpaceBlock;
 	
 	BOOL useCredentialStorage;
@@ -99,7 +101,8 @@ typedef enum {
 @property (nonatomic, copy) CompletionBlock completionBlock;
 @property (nonatomic, copy) ProcessingBlock postProcessBlock;
 @property (nonatomic, copy) CompletionBlock cancelBlock;
-@property (nonatomic, copy) AuthChallengeBlock authChallengeblock;
+@property (nonatomic, copy) AuthChallengeBlock authChallengeblock; 
+@property (nonatomic, copy) AuthChallengeBlock authCancelChallengeBlock;
 @property (nonatomic, copy) AuthProtectSpaceBlock authProtectSpaceBlock;
 @property (nonatomic, assign) id<JOURLRequestDelegate> delegate;
 
