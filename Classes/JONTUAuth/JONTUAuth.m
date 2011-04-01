@@ -328,7 +328,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 	}
 
 	
-	if (values) {
+	if ((values) || (tokens)) {
 		// post method
 		// fill post values with tokens if requested
 		NSMutableDictionary *dictvalues = [values mutableCopy];		
