@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; };
-		3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; };
+		3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87A1316009200F95F8E /* JORequestQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F33A8811316009200F95F8E /* JORequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87B1316009200F95F8E /* JORequestQueue.m */; };
 		3F33A8821316009200F95F8E /* JORequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87B1316009200F95F8E /* JORequestQueue.m */; };
-		3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; };
-		3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; };
+		3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A87C1316009200F95F8E /* JOURLRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F33A8871316009200F95F8E /* JOURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87D1316009200F95F8E /* JOURLRequest.m */; };
 		3F33A8881316009200F95F8E /* JOURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33A87D1316009200F95F8E /* JOURLRequest.m */; };
 		3F33A8C81316127200F95F8E /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F33A8C61316127100F95F8E /* Reachability.h */; };
@@ -57,8 +57,8 @@
 		3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE001346148800982DBE /* _JONTUSemesterDates.h */; };
 		3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
 		3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
-		3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; };
-		3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; };
+		3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
 		3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
 		3F56FE1D1346166600982DBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F56FE1C1346166600982DBE /* CoreData.framework */; };
@@ -71,9 +71,9 @@
 		3F56FEA2134625E400982DBE /* JOManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE9F134625E300982DBE /* JOManagedObject.h */; };
 		3F56FEA3134625E400982DBE /* JOManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FEA0134625E400982DBE /* JOManagedObject.m */; };
 		3F56FEA4134625E400982DBE /* JOManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FEA0134625E400982DBE /* JOManagedObject.m */; };
-		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
+		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
-		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
+		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F57363E128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F5D885913460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */; };
 		3F5D885A13460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */; };
@@ -594,6 +594,10 @@
 				3F7D66FE1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
 				3F7D67071264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
 				3F5240C7126809B9009698EA /* JONTULocation.h in Headers */,
+				3F573639128CE9B30063C313 /* JOIris.h in Headers */,
+				3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */,
+				3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */,
+				3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 				3F5241601268243C009698EA /* JONTULocationDirections.h in Headers */,
 				3F5241681268244B009698EA /* JONTULocationRoute.h in Headers */,
 				3FC7CE6F12719E2A00CE1EFA /* JOUTM.h in Headers */,
@@ -608,16 +612,12 @@
 				3FC99E66128AEAC0009E2B06 /* TFHpple.h in Headers */,
 				3FC99E68128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
 				3FC99E6A128AEAC0009E2B06 /* XPathQuery.h in Headers */,
-				3F573639128CE9B30063C313 /* JOIris.h in Headers */,
-				3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */,
-				3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */,
 				3F33A8C81316127200F95F8E /* Reachability.h in Headers */,
 				3F56FE021346148800982DBE /* _JONTUClass.h in Headers */,
 				3F56FE061346148800982DBE /* _JONTUCourse.h in Headers */,
 				3F56FE0A1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
 				3F56FE0E1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */,
-				3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 				3F56FE941346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
 				3F56FEA1134625E400982DBE /* JOManagedObject.h in Headers */,
 			);
@@ -643,6 +643,10 @@
 				3F54E172125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */,
 				3F7D66FC1264C5E8008059BA /* JONTUAculearnV7.h in Headers */,
 				3F7D67051264C5FB008059BA /* JONTUAculearnV4.h in Headers */,
+				3F57363D128CE9B30063C313 /* JOIris.h in Headers */,
+				3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */,
+				3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */,
+				3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */,
 				3F5240CB126809B9009698EA /* JONTULocation.h in Headers */,
 				3F5241641268243C009698EA /* JONTULocationDirections.h in Headers */,
 				3F52416C1268244B009698EA /* JONTULocationRoute.h in Headers */,
@@ -658,15 +662,11 @@
 				3FC99E72128AEAC0009E2B06 /* TFHpple.h in Headers */,
 				3FC99E74128AEAC0009E2B06 /* TFHppleElement.h in Headers */,
 				3FC99E76128AEAC0009E2B06 /* XPathQuery.h in Headers */,
-				3F57363D128CE9B30063C313 /* JOIris.h in Headers */,
-				3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */,
-				3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */,
 				3F56FE031346148800982DBE /* _JONTUClass.h in Headers */,
 				3F56FE071346148800982DBE /* _JONTUCourse.h in Headers */,
 				3F56FE0B1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
 				3F56FE0F1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */,
-				3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 				3F56FE951346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
 				3F56FEA2134625E400982DBE /* JOManagedObject.h in Headers */,
 			);
@@ -838,6 +838,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
 			};
@@ -847,6 +848,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SKIP_INSTALL = YES;
 			};
