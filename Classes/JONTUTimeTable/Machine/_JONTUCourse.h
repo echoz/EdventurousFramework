@@ -18,6 +18,11 @@
 
 
 
+
+
+
+
+
 @interface JONTUCourseID : NSManagedObjectID {}
 @end
 
@@ -29,13 +34,27 @@
 
 
 
-@property (nonatomic, retain) NSNumber *au;
+@property (nonatomic, retain) NSDate *lastParsed;
 
-@property short auValue;
-- (short)auValue;
-- (void)setAuValue:(short)value_;
+//- (BOOL)validateLastParsed:(id*)value_ error:(NSError**)error_;
 
-//- (BOOL)validateAu:(id*)value_ error:(NSError**)error_;
+
+
+@property (nonatomic, retain) NSString *gepre;
+
+//- (BOOL)validateGepre:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSDate *birthDate;
+
+//- (BOOL)validateBirthDate:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSDate *lastAccessed;
+
+//- (BOOL)validateLastAccessed:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -45,33 +64,25 @@
 
 
 
-@property (nonatomic, retain) NSString *su;
-
-//- (BOOL)validateSu:(id*)value_ error:(NSError**)error_;
-
-
-
 @property (nonatomic, retain) NSString *choice;
 
 //- (BOOL)validateChoice:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *index;
+@property (nonatomic, retain) NSString *su;
 
-//- (BOOL)validateIndex:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *code;
-
-//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateSu:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *status;
+@property (nonatomic, retain) NSNumber *infant;
 
-//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
+@property BOOL infantValue;
+- (BOOL)infantValue;
+- (void)setInfantValue:(BOOL)value_;
+
+//- (BOOL)validateInfant:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -85,9 +96,41 @@
 
 
 
-@property (nonatomic, retain) NSString *gepre;
+@property (nonatomic, retain) NSNumber *parsed;
 
-//- (BOOL)validateGepre:(id*)value_ error:(NSError**)error_;
+@property BOOL parsedValue;
+- (BOOL)parsedValue;
+- (void)setParsedValue:(BOOL)value_;
+
+//- (BOOL)validateParsed:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *index;
+
+//- (BOOL)validateIndex:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSNumber *au;
+
+@property short auValue;
+- (short)auValue;
+- (void)setAuValue:(short)value_;
+
+//- (BOOL)validateAu:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *code;
+
+//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *status;
+
+//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -122,11 +165,26 @@
 @interface _JONTUCourse (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveAu;
-- (void)setPrimitiveAu:(NSNumber*)value;
+- (NSDate*)primitiveLastParsed;
+- (void)setPrimitiveLastParsed:(NSDate*)value;
 
-- (short)primitiveAuValue;
-- (void)setPrimitiveAuValue:(short)value_;
+
+
+
+- (NSString*)primitiveGepre;
+- (void)setPrimitiveGepre:(NSString*)value;
+
+
+
+
+- (NSDate*)primitiveBirthDate;
+- (void)setPrimitiveBirthDate:(NSDate*)value;
+
+
+
+
+- (NSDate*)primitiveLastAccessed;
+- (void)setPrimitiveLastAccessed:(NSDate*)value;
 
 
 
@@ -137,32 +195,23 @@
 
 
 
-- (NSString*)primitiveSu;
-- (void)setPrimitiveSu:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveChoice;
 - (void)setPrimitiveChoice:(NSString*)value;
 
 
 
 
-- (NSString*)primitiveIndex;
-- (void)setPrimitiveIndex:(NSString*)value;
+- (NSString*)primitiveSu;
+- (void)setPrimitiveSu:(NSString*)value;
 
 
 
 
-- (NSString*)primitiveCode;
-- (void)setPrimitiveCode:(NSString*)value;
+- (NSNumber*)primitiveInfant;
+- (void)setPrimitiveInfant:(NSNumber*)value;
 
-
-
-
-- (NSString*)primitiveStatus;
-- (void)setPrimitiveStatus:(NSString*)value;
+- (BOOL)primitiveInfantValue;
+- (void)setPrimitiveInfantValue:(BOOL)value_;
 
 
 
@@ -176,8 +225,38 @@
 
 
 
-- (NSString*)primitiveGepre;
-- (void)setPrimitiveGepre:(NSString*)value;
+- (NSNumber*)primitiveParsed;
+- (void)setPrimitiveParsed:(NSNumber*)value;
+
+- (BOOL)primitiveParsedValue;
+- (void)setPrimitiveParsedValue:(BOOL)value_;
+
+
+
+
+- (NSString*)primitiveIndex;
+- (void)setPrimitiveIndex:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveAu;
+- (void)setPrimitiveAu:(NSNumber*)value;
+
+- (short)primitiveAuValue;
+- (void)setPrimitiveAuValue:(short)value_;
+
+
+
+
+- (NSString*)primitiveCode;
+- (void)setPrimitiveCode:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveStatus;
+- (void)setPrimitiveStatus:(NSString*)value;
 
 
 

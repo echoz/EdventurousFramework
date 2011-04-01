@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"infantValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"infant"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"coursesCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"coursesCount"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -37,9 +41,53 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"year"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"parsedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"parsed"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic birthDate;
+
+
+
+
+
+
+@dynamic lastAccessed;
+
+
+
+
+
+
+@dynamic infant;
+
+
+
+- (BOOL)infantValue {
+	NSNumber *result = [self infant];
+	return [result boolValue];
+}
+
+- (void)setInfantValue:(BOOL)value_ {
+	[self setInfant:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveInfantValue {
+	NSNumber *result = [self primitiveInfant];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveInfantValue:(BOOL)value_ {
+	[self setPrimitiveInfant:[NSNumber numberWithBool:value_]];
+}
+
 
 
 
@@ -65,13 +113,6 @@
 - (void)setPrimitiveCoursesCountValue:(long long)value_ {
 	[self setPrimitiveCoursesCount:[NSNumber numberWithLongLong:value_]];
 }
-
-
-
-
-
-@dynamic name;
-
 
 
 
@@ -103,7 +144,47 @@
 
 
 
+@dynamic name;
+
+
+
+
+
+
+@dynamic parsed;
+
+
+
+- (BOOL)parsedValue {
+	NSNumber *result = [self parsed];
+	return [result boolValue];
+}
+
+- (void)setParsedValue:(BOOL)value_ {
+	[self setParsed:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveParsedValue {
+	NSNumber *result = [self primitiveParsed];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveParsedValue:(BOOL)value_ {
+	[self setPrimitiveParsed:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
 @dynamic semester;
+
+
+
+
+
+
+@dynamic lastParsed;
 
 
 

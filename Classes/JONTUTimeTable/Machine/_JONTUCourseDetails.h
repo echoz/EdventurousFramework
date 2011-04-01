@@ -17,6 +17,11 @@
 
 
 
+
+
+
+
+
 @interface JONTUCourseDetailsID : NSManagedObjectID {}
 @end
 
@@ -28,15 +33,15 @@
 
 
 
-@property (nonatomic, retain) NSString *mutex;
+@property (nonatomic, retain) NSDate *lastParsed;
 
-//- (BOOL)validateMutex:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateLastParsed:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *notAvailUE;
 
-//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateNotAvailUE:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -46,21 +51,53 @@
 
 
 
+@property (nonatomic, retain) NSDate *birthDate;
+
+//- (BOOL)validateBirthDate:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSDate *lastAccessed;
+
+//- (BOOL)validateLastAccessed:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *title;
+
+//- (BOOL)validateTitle:(id*)value_ error:(NSError**)error_;
+
+
+
 @property (nonatomic, retain) NSString *notAvailCORE;
 
 //- (BOOL)validateNotAvailCORE:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *runBy;
+@property (nonatomic, retain) NSNumber *infant;
 
-//- (BOOL)validateRunBy:(id*)value_ error:(NSError**)error_;
+@property BOOL infantValue;
+- (BOOL)infantValue;
+- (void)setInfantValue:(BOOL)value_;
+
+//- (BOOL)validateInfant:(id*)value_ error:(NSError**)error_;
 
 
 
-@property (nonatomic, retain) NSString *code;
+@property (nonatomic, retain) NSString *mutex;
 
-//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateMutex:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSNumber *parsed;
+
+@property BOOL parsedValue;
+- (BOOL)parsedValue;
+- (void)setParsedValue:(BOOL)value_;
+
+//- (BOOL)validateParsed:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -76,9 +113,15 @@
 
 
 
-@property (nonatomic, retain) NSString *notAvailUE;
+@property (nonatomic, retain) NSString *code;
 
-//- (BOOL)validateNotAvailUE:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *runBy;
+
+//- (BOOL)validateRunBy:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -108,14 +151,14 @@
 @interface _JONTUCourseDetails (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveMutex;
-- (void)setPrimitiveMutex:(NSString*)value;
+- (NSDate*)primitiveLastParsed;
+- (void)setPrimitiveLastParsed:(NSDate*)value;
 
 
 
 
-- (NSString*)primitiveTitle;
-- (void)setPrimitiveTitle:(NSString*)value;
+- (NSString*)primitiveNotAvailUE;
+- (void)setPrimitiveNotAvailUE:(NSString*)value;
 
 
 
@@ -126,20 +169,50 @@
 
 
 
+- (NSDate*)primitiveBirthDate;
+- (void)setPrimitiveBirthDate:(NSDate*)value;
+
+
+
+
+- (NSDate*)primitiveLastAccessed;
+- (void)setPrimitiveLastAccessed:(NSDate*)value;
+
+
+
+
+- (NSString*)primitiveTitle;
+- (void)setPrimitiveTitle:(NSString*)value;
+
+
+
+
 - (NSString*)primitiveNotAvailCORE;
 - (void)setPrimitiveNotAvailCORE:(NSString*)value;
 
 
 
 
-- (NSString*)primitiveRunBy;
-- (void)setPrimitiveRunBy:(NSString*)value;
+- (NSNumber*)primitiveInfant;
+- (void)setPrimitiveInfant:(NSNumber*)value;
+
+- (BOOL)primitiveInfantValue;
+- (void)setPrimitiveInfantValue:(BOOL)value_;
 
 
 
 
-- (NSString*)primitiveCode;
-- (void)setPrimitiveCode:(NSString*)value;
+- (NSString*)primitiveMutex;
+- (void)setPrimitiveMutex:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveParsed;
+- (void)setPrimitiveParsed:(NSNumber*)value;
+
+- (BOOL)primitiveParsedValue;
+- (void)setPrimitiveParsedValue:(BOOL)value_;
 
 
 
@@ -156,8 +229,14 @@
 
 
 
-- (NSString*)primitiveNotAvailUE;
-- (void)setPrimitiveNotAvailUE:(NSString*)value;
+- (NSString*)primitiveCode;
+- (void)setPrimitiveCode:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveRunBy;
+- (void)setPrimitiveRunBy:(NSString*)value;
 
 
 

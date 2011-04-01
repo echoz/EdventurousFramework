@@ -29,12 +29,20 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"auValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"au"];
+	if ([key isEqualToString:@"infantValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"infant"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 	if ([key isEqualToString:@"classesCountValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"classesCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"parsedValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"parsed"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
+	if ([key isEqualToString:@"auValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"au"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -44,40 +52,35 @@
 
 
 
-@dynamic au;
+@dynamic lastParsed;
 
 
 
-- (short)auValue {
-	NSNumber *result = [self au];
-	return [result shortValue];
-}
 
-- (void)setAuValue:(short)value_ {
-	[self setAu:[NSNumber numberWithShort:value_]];
-}
 
-- (short)primitiveAuValue {
-	NSNumber *result = [self primitiveAu];
-	return [result shortValue];
-}
 
-- (void)setPrimitiveAuValue:(short)value_ {
-	[self setPrimitiveAu:[NSNumber numberWithShort:value_]];
-}
+@dynamic gepre;
+
+
+
+
+
+
+@dynamic birthDate;
+
+
+
+
+
+
+@dynamic lastAccessed;
+
 
 
 
 
 
 @dynamic type;
-
-
-
-
-
-
-@dynamic su;
 
 
 
@@ -91,22 +94,34 @@
 
 
 
-@dynamic index;
+@dynamic su;
 
 
 
 
 
 
-@dynamic code;
+@dynamic infant;
 
 
 
+- (BOOL)infantValue {
+	NSNumber *result = [self infant];
+	return [result boolValue];
+}
 
+- (void)setInfantValue:(BOOL)value_ {
+	[self setInfant:[NSNumber numberWithBool:value_]];
+}
 
+- (BOOL)primitiveInfantValue {
+	NSNumber *result = [self primitiveInfant];
+	return [result boolValue];
+}
 
-@dynamic status;
-
+- (void)setPrimitiveInfantValue:(BOOL)value_ {
+	[self setPrimitiveInfant:[NSNumber numberWithBool:value_]];
+}
 
 
 
@@ -138,7 +153,73 @@
 
 
 
-@dynamic gepre;
+@dynamic parsed;
+
+
+
+- (BOOL)parsedValue {
+	NSNumber *result = [self parsed];
+	return [result boolValue];
+}
+
+- (void)setParsedValue:(BOOL)value_ {
+	[self setParsed:[NSNumber numberWithBool:value_]];
+}
+
+- (BOOL)primitiveParsedValue {
+	NSNumber *result = [self primitiveParsed];
+	return [result boolValue];
+}
+
+- (void)setPrimitiveParsedValue:(BOOL)value_ {
+	[self setPrimitiveParsed:[NSNumber numberWithBool:value_]];
+}
+
+
+
+
+
+@dynamic index;
+
+
+
+
+
+
+@dynamic au;
+
+
+
+- (short)auValue {
+	NSNumber *result = [self au];
+	return [result shortValue];
+}
+
+- (void)setAuValue:(short)value_ {
+	[self setAu:[NSNumber numberWithShort:value_]];
+}
+
+- (short)primitiveAuValue {
+	NSNumber *result = [self primitiveAu];
+	return [result shortValue];
+}
+
+- (void)setPrimitiveAuValue:(short)value_ {
+	[self setPrimitiveAu:[NSNumber numberWithShort:value_]];
+}
+
+
+
+
+
+@dynamic code;
+
+
+
+
+
+
+@dynamic status;
 
 
 
