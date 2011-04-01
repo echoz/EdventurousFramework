@@ -11,6 +11,7 @@
 
 
 
+
 @interface JONTUSemesterID : NSManagedObjectID {}
 @end
 
@@ -22,6 +23,22 @@
 
 
 
+@property (nonatomic, retain) NSNumber *coursesCount;
+
+@property long long coursesCountValue;
+- (long long)coursesCountValue;
+- (void)setCoursesCountValue:(long long)value_;
+
+//- (BOOL)validateCoursesCount:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *name;
+
+//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+
+
+
 @property (nonatomic, retain) NSNumber *year;
 
 @property long long yearValue;
@@ -29,12 +46,6 @@
 - (void)setYearValue:(long long)value_;
 
 //- (BOOL)validateYear:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *name;
-
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -75,17 +86,26 @@
 @interface _JONTUSemester (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSNumber*)primitiveYear;
-- (void)setPrimitiveYear:(NSNumber*)value;
+- (NSNumber*)primitiveCoursesCount;
+- (void)setPrimitiveCoursesCount:(NSNumber*)value;
 
-- (long long)primitiveYearValue;
-- (void)setPrimitiveYearValue:(long long)value_;
+- (long long)primitiveCoursesCountValue;
+- (void)setPrimitiveCoursesCountValue:(long long)value_;
 
 
 
 
 - (NSString*)primitiveName;
 - (void)setPrimitiveName:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveYear;
+- (void)setPrimitiveYear:(NSNumber*)value;
+
+- (long long)primitiveYearValue;
+- (void)setPrimitiveYearValue:(long long)value_;
 
 
 

@@ -29,6 +29,10 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
+	if ([key isEqualToString:@"coursesCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"coursesCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 	if ([key isEqualToString:@"yearValue"]) {
 		NSSet *affectingKey = [NSSet setWithObject:@"year"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
@@ -36,6 +40,39 @@
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic coursesCount;
+
+
+
+- (long long)coursesCountValue {
+	NSNumber *result = [self coursesCount];
+	return [result longLongValue];
+}
+
+- (void)setCoursesCountValue:(long long)value_ {
+	[self setCoursesCount:[NSNumber numberWithLongLong:value_]];
+}
+
+- (long long)primitiveCoursesCountValue {
+	NSNumber *result = [self primitiveCoursesCount];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveCoursesCountValue:(long long)value_ {
+	[self setPrimitiveCoursesCount:[NSNumber numberWithLongLong:value_]];
+}
+
+
+
+
+
+@dynamic name;
+
+
 
 
 
@@ -61,13 +98,6 @@
 - (void)setPrimitiveYearValue:(long long)value_ {
 	[self setPrimitiveYear:[NSNumber numberWithLongLong:value_]];
 }
-
-
-
-
-
-@dynamic name;
-
 
 
 
