@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 44;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,10 +37,32 @@
 		3F54E171125CF75000D17762 /* JONTUVideoLecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFD1B9125A3D7F0089E5C1 /* JONTUVideoLecture.m */; };
 		3F54E172125CF75000D17762 /* JONTUVideoStreamingServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3F54E173125CF75000D17762 /* JONTUVideoStreamingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */; };
+		3F56FE021346148800982DBE /* _JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDF81346148800982DBE /* _JONTUClass.h */; };
+		3F56FE031346148800982DBE /* _JONTUClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDF81346148800982DBE /* _JONTUClass.h */; };
+		3F56FE041346148800982DBE /* _JONTUClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDF91346148800982DBE /* _JONTUClass.m */; };
+		3F56FE051346148800982DBE /* _JONTUClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDF91346148800982DBE /* _JONTUClass.m */; };
+		3F56FE061346148800982DBE /* _JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFA1346148800982DBE /* _JONTUCourse.h */; };
+		3F56FE071346148800982DBE /* _JONTUCourse.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFA1346148800982DBE /* _JONTUCourse.h */; };
+		3F56FE081346148800982DBE /* _JONTUCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFB1346148800982DBE /* _JONTUCourse.m */; };
+		3F56FE091346148800982DBE /* _JONTUCourse.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFB1346148800982DBE /* _JONTUCourse.m */; };
+		3F56FE0A1346148800982DBE /* _JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFC1346148800982DBE /* _JONTUCourseDetails.h */; };
+		3F56FE0B1346148800982DBE /* _JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFC1346148800982DBE /* _JONTUCourseDetails.h */; };
+		3F56FE0C1346148800982DBE /* _JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFD1346148800982DBE /* _JONTUCourseDetails.m */; };
+		3F56FE0D1346148800982DBE /* _JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFD1346148800982DBE /* _JONTUCourseDetails.m */; };
+		3F56FE0E1346148800982DBE /* _JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFE1346148800982DBE /* _JONTUSemester.h */; };
+		3F56FE0F1346148800982DBE /* _JONTUSemester.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FDFE1346148800982DBE /* _JONTUSemester.h */; };
+		3F56FE101346148800982DBE /* _JONTUSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFF1346148800982DBE /* _JONTUSemester.m */; };
+		3F56FE111346148800982DBE /* _JONTUSemester.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FDFF1346148800982DBE /* _JONTUSemester.m */; };
+		3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE001346148800982DBE /* _JONTUSemesterDates.h */; };
+		3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE001346148800982DBE /* _JONTUSemesterDates.h */; };
+		3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
+		3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363E128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
+		3F5D885913460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */; };
+		3F5D885A13460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */; };
 		3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0012564C9F00FF2D80 /* Foundation.framework */; };
 		3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD0412564CA300FF2D80 /* libicucore.dylib */; };
 		3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F5EDD2412564DB400FF2D80 /* Foundation.framework */; };
@@ -166,10 +188,21 @@
 		3F52415F1268243C009698EA /* JONTULocationDirections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTULocationDirections.m; sourceTree = "<group>"; };
 		3F5241661268244B009698EA /* JONTULocationRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTULocationRoute.h; sourceTree = "<group>"; };
 		3F5241671268244B009698EA /* JONTULocationRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTULocationRoute.m; sourceTree = "<group>"; };
+		3F56FDF81346148800982DBE /* _JONTUClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUClass.h; sourceTree = "<group>"; };
+		3F56FDF91346148800982DBE /* _JONTUClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUClass.m; sourceTree = "<group>"; };
+		3F56FDFA1346148800982DBE /* _JONTUCourse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUCourse.h; sourceTree = "<group>"; };
+		3F56FDFB1346148800982DBE /* _JONTUCourse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUCourse.m; sourceTree = "<group>"; };
+		3F56FDFC1346148800982DBE /* _JONTUCourseDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUCourseDetails.h; sourceTree = "<group>"; };
+		3F56FDFD1346148800982DBE /* _JONTUCourseDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUCourseDetails.m; sourceTree = "<group>"; };
+		3F56FDFE1346148800982DBE /* _JONTUSemester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUSemester.h; sourceTree = "<group>"; };
+		3F56FDFF1346148800982DBE /* _JONTUSemester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUSemester.m; sourceTree = "<group>"; };
+		3F56FE001346148800982DBE /* _JONTUSemesterDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUSemesterDates.h; sourceTree = "<group>"; };
+		3F56FE011346148800982DBE /* _JONTUSemesterDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUSemesterDates.m; sourceTree = "<group>"; };
 		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
 		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
 		3F5BEA28125CEC9000DF5B2B /* JONTUVideoStreamingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUVideoStreamingServer.m; sourceTree = "<group>"; };
+		3F5D885813460FE100B45134 /* JONTUTimeTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JONTUTimeTable.xcdatamodel; sourceTree = "<group>"; };
 		3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+htmlentitiesaddition.h"; path = "Classes/External/NSString+htmlentitiesaddition.h"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+htmlentitiesaddition.m"; path = "Classes/External/NSString+htmlentitiesaddition.m"; sourceTree = SOURCE_ROOT; };
 		3F5EDCDF12564C6A00FF2D80 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegexKitLite.h; path = Classes/External/RegexKitLite/RegexKitLite.h; sourceTree = SOURCE_ROOT; };
@@ -236,8 +269,8 @@
 		3FC99E63128AEAC0009E2B06 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = Classes/External/hpple/TFHppleElement.m; sourceTree = SOURCE_ROOT; };
 		3FC99E64128AEAC0009E2B06 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = Classes/External/hpple/XPathQuery.h; sourceTree = SOURCE_ROOT; };
 		3FC99E65128AEAC0009E2B06 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = Classes/External/hpple/XPathQuery.m; sourceTree = SOURCE_ROOT; };
-		3FE74C4C131620C900673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
-		3FE74C4E131620D300673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Security.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		3FE74C4C131620C900673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		3FE74C4E131620D300673DBD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +350,23 @@
 			name = JONTULocation;
 			path = Classes/JONTULocation;
 			sourceTree = SOURCE_ROOT;
+		};
+		3F56FDF71346148800982DBE /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				3F56FDF81346148800982DBE /* _JONTUClass.h */,
+				3F56FDF91346148800982DBE /* _JONTUClass.m */,
+				3F56FDFA1346148800982DBE /* _JONTUCourse.h */,
+				3F56FDFB1346148800982DBE /* _JONTUCourse.m */,
+				3F56FDFC1346148800982DBE /* _JONTUCourseDetails.h */,
+				3F56FDFD1346148800982DBE /* _JONTUCourseDetails.m */,
+				3F56FDFE1346148800982DBE /* _JONTUSemester.h */,
+				3F56FDFF1346148800982DBE /* _JONTUSemester.m */,
+				3F56FE001346148800982DBE /* _JONTUSemesterDates.h */,
+				3F56FE011346148800982DBE /* _JONTUSemesterDates.m */,
+			);
+			path = Machine;
+			sourceTree = "<group>";
 		};
 		3F5EDCCC12564B8D00FF2D80 = {
 			isa = PBXGroup;
@@ -400,6 +450,7 @@
 		3F5EDCEE12564C6A00FF2D80 /* JONTUTimeTable */ = {
 			isa = PBXGroup;
 			children = (
+				3F56FDF71346148800982DBE /* Machine */,
 				3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */,
 				3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */,
 				3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */,
@@ -408,6 +459,7 @@
 				3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */,
 				3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */,
 				3F5EDCF612564C6B00FF2D80 /* JONTUSemesterDates.m */,
+				3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */,
 			);
 			name = JONTUTimeTable;
 			path = Classes/JONTUTimeTable;
@@ -528,6 +580,11 @@
 				3F33A87E1316009200F95F8E /* JORequestQueue.h in Headers */,
 				3F33A8841316009200F95F8E /* JOURLRequest.h in Headers */,
 				3F33A8C81316127200F95F8E /* Reachability.h in Headers */,
+				3F56FE021346148800982DBE /* _JONTUClass.h in Headers */,
+				3F56FE061346148800982DBE /* _JONTUCourse.h in Headers */,
+				3F56FE0A1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
+				3F56FE0E1346148800982DBE /* _JONTUSemester.h in Headers */,
+				3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +626,11 @@
 				3F57363D128CE9B30063C313 /* JOIris.h in Headers */,
 				3F33A87F1316009200F95F8E /* JORequestQueue.h in Headers */,
 				3F33A8851316009200F95F8E /* JOURLRequest.h in Headers */,
+				3F56FE031346148800982DBE /* _JONTUClass.h in Headers */,
+				3F56FE071346148800982DBE /* _JONTUCourse.h in Headers */,
+				3F56FE0B1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
+				3F56FE0F1346148800982DBE /* _JONTUSemester.h in Headers */,
+				3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +734,12 @@
 				3F33A8811316009200F95F8E /* JORequestQueue.m in Sources */,
 				3F33A8871316009200F95F8E /* JOURLRequest.m in Sources */,
 				3F33A8CB1316127200F95F8E /* Reachability.m in Sources */,
+				3F5D885913460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */,
+				3F56FE041346148800982DBE /* _JONTUClass.m in Sources */,
+				3F56FE081346148800982DBE /* _JONTUCourse.m in Sources */,
+				3F56FE0C1346148800982DBE /* _JONTUCourseDetails.m in Sources */,
+				3F56FE101346148800982DBE /* _JONTUSemester.m in Sources */,
+				3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +778,12 @@
 				3F57363E128CE9B30063C313 /* JOIris.m in Sources */,
 				3F33A8821316009200F95F8E /* JORequestQueue.m in Sources */,
 				3F33A8881316009200F95F8E /* JOURLRequest.m in Sources */,
+				3F5D885A13460FE100B45134 /* JONTUTimeTable.xcdatamodeld in Sources */,
+				3F56FE051346148800982DBE /* _JONTUClass.m in Sources */,
+				3F56FE091346148800982DBE /* _JONTUCourse.m in Sources */,
+				3F56FE0D1346148800982DBE /* _JONTUCourseDetails.m in Sources */,
+				3F56FE111346148800982DBE /* _JONTUSemester.m in Sources */,
+				3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +953,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F5D885813460FE100B45134 /* JONTUTimeTable.xcdatamodel */,
+			);
+			currentVersion = 3F5D885813460FE100B45134 /* JONTUTimeTable.xcdatamodel */;
+			path = JONTUTimeTable.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F5EDCCE12564B8D00FF2D80 /* Project object */;
 }
