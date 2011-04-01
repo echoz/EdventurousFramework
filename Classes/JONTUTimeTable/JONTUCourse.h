@@ -1,5 +1,7 @@
 #import "_JONTUCourse.h"
 
 @interface JONTUCourse : _JONTUCourse {}
-// Custom logic goes here.
+
++(JONTUCourse *)courseWithCode:(NSString *)code forSemester:(JONTUSemester *)semester managedContext:(NSManagedObjectContext *)moc;
+
 @end
