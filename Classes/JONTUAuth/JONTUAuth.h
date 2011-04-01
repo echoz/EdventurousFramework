@@ -55,7 +55,7 @@
 @property (nonatomic, retain) NSString *domain;
 @property (readonly) NSString *studentid;
 @property (nonatomic, readwrite) double timeout;
--(BOOL)auth;
+-(BOOL)authed;
 -(BOOL)canAuth;
 -(void)singleSignOn;
 

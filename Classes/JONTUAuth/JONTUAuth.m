@@ -91,8 +91,8 @@
 }
 
 
--(BOOL)auth {
-	return (wisAuth) && (edventureAuth);
+-(BOOL)authed {
+	return (wisAuth) && (edventureAuth) && (tokenAuth);
 }
 
 #pragma mark -
