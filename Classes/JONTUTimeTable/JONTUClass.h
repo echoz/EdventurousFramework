@@ -1,5 +1,13 @@
 #import "_JONTUClass.h"
 
 @interface JONTUClass : _JONTUClass {}
-// Custom logic goes here.
+
+
+-(NSDateComponents *) fromTime;
+-(NSDateComponents *) toTime;
+-(NSUInteger)dayIndex;
+-(NSString *)fromTimeString;
+-(NSString *)toTimeString;
+-(NSArray *)activeWeeks;
+-(BOOL)isActiveForWeek:(NSUInteger)week;
 @end

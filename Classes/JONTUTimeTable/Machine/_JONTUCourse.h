@@ -80,8 +80,8 @@
 
 
 
-@property (nonatomic, retain) JONTUClass* classes;
-//- (BOOL)validateClasses:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSSet* classes;
+- (NSMutableSet*)classesSet;
 
 
 
@@ -94,6 +94,11 @@
 @end
 
 @interface _JONTUCourse (CoreDataGeneratedAccessors)
+
+- (void)addClasses:(NSSet*)value_;
+- (void)removeClasses:(NSSet*)value_;
+- (void)addClassesObject:(JONTUClass*)value_;
+- (void)removeClassesObject:(JONTUClass*)value_;
 
 @end
 
@@ -152,8 +157,8 @@
 
 
 
-- (JONTUClass*)primitiveClasses;
-- (void)setPrimitiveClasses:(JONTUClass*)value;
+- (NSMutableSet*)primitiveClasses;
+- (void)setPrimitiveClasses:(NSMutableSet*)value;
 
 
 

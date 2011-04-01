@@ -83,6 +83,13 @@
 @dynamic courses;
 
 	
+- (NSMutableSet*)coursesSet {
+	[self willAccessValueForKey:@"courses"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"courses"];
+	[self didAccessValueForKey:@"courses"];
+	return result;
+}
+	
 
 
 

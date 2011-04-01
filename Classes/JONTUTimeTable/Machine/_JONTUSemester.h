@@ -44,8 +44,8 @@
 
 
 
-@property (nonatomic, retain) JONTUCourse* courses;
-//- (BOOL)validateCourses:(id*)value_ error:(NSError**)error_;
+@property (nonatomic, retain) NSSet* courses;
+- (NSMutableSet*)coursesSet;
 
 
 
@@ -53,6 +53,11 @@
 @end
 
 @interface _JONTUSemester (CoreDataGeneratedAccessors)
+
+- (void)addCourses:(NSSet*)value_;
+- (void)removeCourses:(NSSet*)value_;
+- (void)addCoursesObject:(JONTUCourse*)value_;
+- (void)removeCoursesObject:(JONTUCourse*)value_;
 
 @end
 
@@ -81,8 +86,8 @@
 
 
 
-- (JONTUCourse*)primitiveCourses;
-- (void)setPrimitiveCourses:(JONTUCourse*)value;
+- (NSMutableSet*)primitiveCourses;
+- (void)setPrimitiveCourses:(NSMutableSet*)value;
 
 
 @end

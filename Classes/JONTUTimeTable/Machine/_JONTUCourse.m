@@ -118,6 +118,13 @@
 @dynamic classes;
 
 	
+- (NSMutableSet*)classesSet {
+	[self willAccessValueForKey:@"classes"];
+	NSMutableSet *result = [self mutableSetValueForKey:@"classes"];
+	[self didAccessValueForKey:@"classes"];
+	return result;
+}
+	
 
 @dynamic semester;
 
