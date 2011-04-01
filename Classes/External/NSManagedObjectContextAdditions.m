@@ -1,11 +1,3 @@
-//
-//  NSManagedObjectContextAdditions.m
-//  lbciphone
-//
-//  Created by Jeremy Foo on 3/11/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "NSManagedObjectContextAdditions.h"
 
 
