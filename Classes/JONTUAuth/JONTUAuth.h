@@ -40,6 +40,7 @@
 	NSString *secretToken;
     BOOL wisAuth;
 	BOOL edventureAuth;
+	BOOL tokenAuth;
 	BOOL authing;
 	
 	NSURLCredential *credential;

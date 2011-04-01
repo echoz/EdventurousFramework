@@ -57,6 +57,7 @@
 		domain = nil;
 		wisAuth = NO;
 		edventureAuth = NO;
+		tokenAuth = NO;
 		authing = NO;
 		timeout = 60.0;
 		credential = nil;
@@ -242,7 +243,6 @@
 				}
 				
 				edventurelogin.hasCompletionReturn = YES;
-
 			} 
 			
 			[test release];
@@ -269,6 +269,7 @@
 	edventure.completionBlock = ^(id _data, id _response, id _completion) {
 		if (edventure.hasCompletionReturn) {
 			[authCookies addObjectsFromArray:(NSArray *)_completion];
+			edventureAuth = YES;
 		}
 	};
 	
@@ -278,6 +279,7 @@
 			
 			studentid = [[dict objectForKey:@"studentid"] retain];
 			secretToken = [[dict objectForKey:@"secretToken"] retain];
+			tokenAuth = YES;
 		}
 	};
 	
@@ -294,6 +296,7 @@
 		if (wis.hasCompletionReturn) {
 			[authCookies addObjectsFromArray:(NSArray *)_completion];
 			credential = [NSURLCredential credentialWithUser:self.user password:self.pass persistence:NSURLCredentialPersistenceNone];
+			wisAuth = YES;
 			
 			[tokens start];
 		}
