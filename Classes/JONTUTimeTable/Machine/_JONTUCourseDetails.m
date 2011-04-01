@@ -71,6 +71,13 @@
 
 
 
+@dynamic code;
+
+
+
+
+
+
 @dynamic notAvailPE;
 
 

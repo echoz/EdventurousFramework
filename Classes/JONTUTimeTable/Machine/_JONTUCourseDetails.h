@@ -16,6 +16,7 @@
 
 
 
+
 @interface JONTUCourseDetailsID : NSManagedObjectID {}
 @end
 
@@ -54,6 +55,12 @@
 @property (nonatomic, retain) NSString *runBy;
 
 //- (BOOL)validateRunBy:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *code;
+
+//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -127,6 +134,12 @@
 
 - (NSString*)primitiveRunBy;
 - (void)setPrimitiveRunBy:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveCode;
+- (void)setPrimitiveCode:(NSString*)value;
 
 
 
