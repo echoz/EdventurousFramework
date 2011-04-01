@@ -37,11 +37,14 @@
 @synthesize completionReturn, hasCompletionReturn, useCredentialStorage, authChallengeBlock;
 @synthesize status = __status, autoResume;
 @synthesize timeout;
+@synthesize userAgent = __userAgent;
 
 -(id) init {
 	if ((self = [super init])) {
 		__data = [[NSMutableData data] retain];
 		__connection = nil;
+		
+		__userAgent = nil;
 		
 		hasCompletionReturn = NO;
 		__status = JOURLRequestStatusNew;
@@ -127,6 +130,8 @@
 		[[NSNotificationCenter defaultCenter] removeObserver:self];
 		[requestRechability release], requestRechability = nil;
 	#endif
+	
+	[__userAgent release], __userAgent = nil;
 	
 	[completionBlock release];
 	[postProcessBlock release];
@@ -382,6 +387,10 @@
 
 		wasStarted = YES;
 		
+		if (self.userAgent) {
+			[__request setValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
+		}
+				
 		[__request setTimeoutInterval:self.timeout];
 		__connection = [[NSURLConnection connectionWithRequest:__request delegate:self] retain];
 		

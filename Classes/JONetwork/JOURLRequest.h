@@ -73,6 +73,8 @@ typedef enum {
 	NSMutableData *__data;
 	id<JOURLRequestDelegate> __delegate;
 	
+	NSString *__userAgent;
+	
 	id completionReturn;
 	BOOL hasCompletionReturn;
 	
@@ -105,6 +107,8 @@ typedef enum {
 @property (nonatomic, copy) AuthChallengeBlock authCancelChallengeBlock;
 @property (nonatomic, copy) AuthProtectSpaceBlock authProtectSpaceBlock;
 @property (nonatomic, assign) id<JOURLRequestDelegate> delegate;
+
+@property (nonatomic, copy) NSString *userAgent;
 
 @property (readonly) NSMutableURLRequest *request;
 @property (readonly) NSHTTPURLResponse *response;
