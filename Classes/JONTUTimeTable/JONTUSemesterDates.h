@@ -31,5 +31,12 @@
 @interface JONTUSemesterDates : _JONTUSemesterDates {}
 
 +(JONTUSemesterDates *)semesterDatesForYear:(NSInteger)year managedContext:(NSManagedObjectContext *)moc;
++(JOURLRequest *)semestersWithYear:(NSInteger)year managedContext:(NSManagedObjectContext *)moc;
+-(NSDictionary *)semesterWithCode:(NSString *)code;
+
++(NSDate *)dateFromDateString:(NSString *)dateStr;
++(NSInteger)indexMatchedPrefixString:(NSString *)needle inArray:(NSArray *)haystack;
++(NSString *)matchedPrefixString:(NSString *)needle inArray:(NSArray *)haystack;
+
 
 @end
