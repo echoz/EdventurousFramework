@@ -489,6 +489,27 @@
 	
 }
 
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	if (self.postProcessBlock) {
+		completionReturn = self.postProcessBlock(__data, __response);
+		[completionReturn retain];
+	}
+	
+	if (self.completionBlock) {
+		self.completionBlock(__data, __response, completionReturn);		
+	}
+	
+	__status = JOURLRequestStatusCompleted;
+
+	if ([self.delegate respondsToSelector:@selector(didFinishRequest:)]) {
+		[self.delegate didFinishRequest:self];
+	}
+	
+}
+
+#pragma mark -
+#pragma mark NSURLConnection Auth methods
+
 -(BOOL)connectionShouldUseCredentialStorage:(NSURLConnection *)connection {
 	return self.useCredentialStorage;
 }
@@ -525,24 +546,6 @@
 	if ([self.delegate respondsToSelector:@selector(request:didReceiveAuthChallenge:)]) {
 		[self.delegate request:self didReceiveAuthChallenge:challenge];
 	}
-}
-
--(void)connectionDidFinishLoading:(NSURLConnection *)connection {
-	if (self.postProcessBlock) {
-		completionReturn = self.postProcessBlock(__data, __response);
-		[completionReturn retain];
-	}
-	
-	if (self.completionBlock) {
-		self.completionBlock(__data, __response, completionReturn);		
-	}
-	
-	__status = JOURLRequestStatusCompleted;
-
-	if ([self.delegate respondsToSelector:@selector(didFinishRequest:)]) {
-		[self.delegate didFinishRequest:self];
-	}
-	
 }
 
 @end
