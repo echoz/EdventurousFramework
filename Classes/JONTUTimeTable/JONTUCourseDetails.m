@@ -9,7 +9,7 @@
 		return [results anyObject];
 	} else {
 		JONTUCourseDetails *coursedetails = [[JONTUCourseDetails alloc] initWithEntity:[NSEntityDescription entityForName:[JONTUCourseDetails entityName] inManagedObjectContext:moc]
-												 insertIntoManagedObjectContext:moc];
+														insertIntoManagedObjectContext:moc];
 
 		coursedetails.semester = semester;
 		coursedetails.code = code;
