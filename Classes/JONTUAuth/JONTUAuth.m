@@ -29,7 +29,6 @@
 #import "JONTUAuth.h"
 #import "RegexKitLite.h"
 #import "NSDataAdditions.h"
-#import "JOURLRequest.h"
 
 #define HTTP_USER_AGENT @"Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us) AppleWebKit/533.4+ (KHTML, like Gecko) Version/4.0.5 Safari/531.22.7"
 #define AUTH_URL @"https://sso.wis.ntu.edu.sg/webexe88/owa/sso.asp"
@@ -352,5 +351,33 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 	
 }
 
+-(JOURLRequest *)authedJORequestForURL:(NSURL *)url withValues:(NSDictionary *)values usingTokens:(BOOL)tokens {
+	JOURLRequest *request = [[JOURLRequest alloc] initWithRequest:[self authedRequestForURL:url withValues:values usingTokens:tokens]
+												 startImmediately:NO];
+	
+	request.authProtectSpaceBlock = ^(id _connection, id _protectionspace) {
+		NSURLProtectionSpace *protectionSpace = (NSURLProtectionSpace *)_protectionspace;
+		
+		if (([protectionSpace authenticationMethod] == NSURLAuthenticationMethodHTTPBasic) || ([protectionSpace authenticationMethod] == NSURLAuthenticationMethodHTTPDigest)) {
+			return YES;
+		}
+		
+		return NO;
+		
+	};
+	
+	request.authChallengeBlock = ^(id _connection, id _challenge) {
+		NSURLAuthenticationChallenge *challenge = (NSURLAuthenticationChallenge *)_challenge;
+		
+		if ([challenge previousFailureCount] == 0) {
+			[[challenge sender] useCredential:self.credential forAuthenticationChallenge:challenge];
+		} else {
+			[[challenge sender] cancelAuthenticationChallenge:challenge];
+		}
+		
+	};
+	
+	return [request autorelease];
+}
 
 @end

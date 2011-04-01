@@ -28,6 +28,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SynthesizeSingleton.h"
+#import "JOURLRequest.h"
 
 @interface JONTUAuth : NSObject {
     NSMutableArray *cookies;
@@ -64,4 +65,5 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(JONTUAuth);
 
 -(void)processURL:(NSURL *)url sessionCookiesForResponse:(NSHTTPURLResponse *)response;
 -(NSURLRequest *)authedRequestForURL:(NSURL *)url withValues:(NSDictionary *)values usingTokens:(BOOL)tokens;
+-(JOURLRequest *)authedJORequestForURL:(NSURL *)url withValues:(NSDictionary *)values usingTokens:(BOOL)tokens;
 @end
