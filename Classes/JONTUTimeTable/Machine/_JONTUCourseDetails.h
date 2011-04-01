@@ -2,7 +2,7 @@
 // Make changes to JONTUCourseDetails.h instead.
 
 #import <CoreData/CoreData.h>
-#import "JONTUTimeTable.h"
+#import "JOManagedObject.h"
 
 @class JONTUSemester;
 @class JONTUCourse;
@@ -20,7 +20,7 @@
 @interface JONTUCourseDetailsID : NSManagedObjectID {}
 @end
 
-@interface _JONTUCourseDetails : JONTUTimeTable {}
+@interface _JONTUCourseDetails : JOManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;

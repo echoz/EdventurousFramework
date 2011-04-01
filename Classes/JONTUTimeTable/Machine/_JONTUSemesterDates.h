@@ -2,7 +2,7 @@
 // Make changes to JONTUSemesterDates.h instead.
 
 #import <CoreData/CoreData.h>
-#import "JONTUTimeTable.h"
+#import "JOManagedObject.h"
 
 
 
@@ -11,7 +11,7 @@
 @interface JONTUSemesterDatesID : NSManagedObjectID {}
 @end
 
-@interface _JONTUSemesterDates : JONTUTimeTable {}
+@interface _JONTUSemesterDates : JOManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
