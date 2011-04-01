@@ -67,6 +67,10 @@
 		3F56FE951346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */; };
 		3F56FE961346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */; };
 		3F56FE971346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */; };
+		3F56FE9A1346244A00982DBE /* JONTUTimeTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE981346244A00982DBE /* JONTUTimeTable.h */; };
+		3F56FE9B1346244A00982DBE /* JONTUTimeTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE981346244A00982DBE /* JONTUTimeTable.h */; };
+		3F56FE9C1346244A00982DBE /* JONTUTimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE991346244A00982DBE /* JONTUTimeTable.m */; };
+		3F56FE9D1346244A00982DBE /* JONTUTimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE991346244A00982DBE /* JONTUTimeTable.m */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
@@ -214,6 +218,8 @@
 		3F56FE1E1346166E00982DBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAdditions.h; sourceTree = "<group>"; };
 		3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAdditions.m; sourceTree = "<group>"; };
+		3F56FE981346244A00982DBE /* JONTUTimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUTimeTable.h; sourceTree = "<group>"; };
+		3F56FE991346244A00982DBE /* JONTUTimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JONTUTimeTable.m; sourceTree = "<group>"; };
 		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
 		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
@@ -474,6 +480,8 @@
 			children = (
 				3F56FDF71346148800982DBE /* Machine */,
 				3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */,
+				3F56FE981346244A00982DBE /* JONTUTimeTable.h */,
+				3F56FE991346244A00982DBE /* JONTUTimeTable.m */,
 				3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */,
 				3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */,
 				3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */,
@@ -611,6 +619,7 @@
 				3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 				3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 				3F56FE941346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
+				3F56FE9A1346244A00982DBE /* JONTUTimeTable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +668,7 @@
 				3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 				3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 				3F56FE951346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
+				3F56FE9B1346244A00982DBE /* JONTUTimeTable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +780,7 @@
 				3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 				3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
 				3F56FE961346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */,
+				3F56FE9C1346244A00982DBE /* JONTUTimeTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,6 +827,7 @@
 				3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 				3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
 				3F56FE971346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */,
+				3F56FE9D1346244A00982DBE /* JONTUTimeTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,4 @@
 #import "JONTUCourse.h"
-#import "NSManagedObjectContextAdditions.h"
 #import "JONTUCourseDetails.h"
 
 #define QUERY_URL @"https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1"

@@ -1,5 +1,4 @@
 #import "JONTUCourseDetails.h"
-#import "NSManagedObjectContextAdditions.h"
 
 @implementation JONTUCourseDetails
 
