@@ -46,6 +46,9 @@
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 
+#pragma mark -
+#pragma mark Object Lifecycle
+
 -(id)init {
     if ((self = [super init])) {
         cookies = [[NSMutableArray alloc] initWithCapacity:0];
@@ -64,13 +67,66 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
     return self;
 }
 
+
+-(void)dealloc {
+	[credential release], credential = nil;
+	[authCookies release], authCookies = nil;
+	[secretToken release], secretToken = nil;
+	[cookies release], cookies = nil;
+	[user release], user = nil;
+	[pass release], pass = nil;
+	[domain release], domain = nil;
+	[studentid release], studentid = nil;
+	[super dealloc];
+}
+
+#pragma mark -
+#pragma mark Convinence Methods
+
 -(NSString *)escapeString:(NSString *) str {
 	return [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)str, NULL, CFSTR(" ()<>#%{}|\\^~[]`;/?:@=&$"), kCFStringEncodingUTF8) autorelease];
 }
 
+
+-(BOOL)canAuth {
+	return ((user) && (pass) && (domain));
+}
+
+
+-(BOOL)auth {
+	return (wisAuth) && (edventureAuth);
+}
+
+#pragma mark -
+#pragma mark Cookie Management
+
 -(NSArray *)authCookies {
 	return authCookies;
 }
+
+-(void)processURL:(NSURL *)url sessionCookiesForResponse:(NSHTTPURLResponse *)response {
+	NSArray *sessioncookies = [NSHTTPCookie cookiesWithResponseHeaderFields:[response allHeaderFields] forURL:url];
+	
+	for (NSHTTPCookie *cookie in sessioncookies) {
+		if (([authCookies indexOfObject:cookie] == NSNotFound) && ([cookies indexOfObject:cookie] == NSNotFound)) {
+			[cookies addObject:sessioncookies];
+		}
+	}
+}
+
+-(void)clearStaleCookies {
+	NSMutableArray *staleCookies = [NSMutableArray arrayWithCapacity:0];
+	for (NSHTTPCookie *cookie in cookies) {
+		if ([cookie.expiresDate timeIntervalSinceNow] < 0) {
+			[staleCookies addObject:cookie];
+		}
+	}
+	
+	[cookies removeObjectsInArray:staleCookies];
+}
+
+#pragma mark -
+#pragma mark Sign on Requests
 
 -(JOURLRequest *)tokenRequest {
 	
@@ -201,15 +257,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 	return [edventurelogin autorelease];
 }
 
-
--(BOOL)canAuth {
-	return ((user) && (pass) && (domain));
-}
-
-
--(BOOL)auth {
-	return (wisAuth) && (edventureAuth);
-}
+#pragma mark -
+#pragma mark Sign on Process
 
 -(void)singleSignOn {
 	
@@ -241,7 +290,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 		
 		NSURLAuthenticationChallenge *authChallenge = (NSURLAuthenticationChallenge *)_authChallenge;		
 		[[authChallenge sender] useCredential:self.credential forAuthenticationChallenge:authChallenge];
-
+		
 	};
 	
 	wis.completionBlock = ^(id _data, id _response, id _completion) {
@@ -257,28 +306,51 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 	[edventure start];
 }
 
--(void)clearStaleCookies {
-	NSMutableArray *staleCookies = [NSMutableArray arrayWithCapacity:0];
-	for (NSHTTPCookie *cookie in cookies) {
-		if ([cookie.expiresDate timeIntervalSinceNow] < 0) {
-			[staleCookies addObject:cookie];
+#pragma mark -
+#pragma mark NSURLRequest creation
+
+-(NSURLRequest *)authedRequestForURL:(NSURL *)url withValues:(NSDictionary *)values usingTokens:(BOOL)tokens {
+	
+	NSMutableURLRequest *mutrequest = nil;
+	
+	// add auth cookies
+	NSMutableArray *submitcookies = [NSMutableArray arrayWithCapacity:2];
+	for (NSHTTPCookie *authcookie in authCookies) {
+		if ([url.host hasSuffix:authcookie.domain]) {
+			[submitcookies addObject:authcookie];				
 		}
 	}
 	
-	[cookies removeObjectsInArray:staleCookies];
+	// add session cookies
+	for (NSHTTPCookie *normalcookie in cookies) {
+		if ([url.host hasSuffix:normalcookie.domain]) {
+			[submitcookies addObject:normalcookie];
+		}
+	}
+
+	
+	if (values) {
+		// post method
+		// fill post values with tokens if requested
+		NSMutableDictionary *dictvalues = [values mutableCopy];		
+		if (tokens) {
+			[dictvalues setObject:studentid forKey:@"P1"];
+			[dictvalues setObject:secretToken forKey:@"P2"];
+		}
+		mutrequest = [JOURLRequest prepareRequestUsing:dictvalues];
+		
+		
+	} else {
+		// get method
+		mutrequest = [JOURLRequest prepareRequestUsing:nil];
+	}
+	
+	[mutrequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:submitcookies]];
+	[mutrequest setURL:url];
+	
+	return mutrequest;
+	
 }
 
-
--(void)dealloc {
-	[credential release], credential = nil;
-	[authCookies release], authCookies = nil;
-	[secretToken release], secretToken = nil;
-	[cookies release], cookies = nil;
-	[user release], user = nil;
-	[pass release], pass = nil;
-	[domain release], domain = nil;
-	[studentid release], studentid = nil;
-	[super dealloc];
-}
 
 @end

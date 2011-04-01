@@ -62,4 +62,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(JONTUAuth);
 -(void)clearStaleCookies;
 -(NSArray *)authCookies;
 
+-(void)processURL:(NSURL *)url sessionCookiesForResponse:(NSHTTPURLResponse *)response;
+-(NSURLRequest *)authedRequestForURL:(NSURL *)url withValues:(NSDictionary *)values usingTokens:(BOOL)tokens;
 @end
