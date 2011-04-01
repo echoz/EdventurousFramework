@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import "JOURLRequest.h"
+#import "NSManagedObjectContextAdditions.h"
 
 typedef enum {
 	JOManagedObjectNotSyncingStatus = 0,
