@@ -61,6 +61,8 @@
 		3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; };
 		3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
 		3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
+		3F56FE1D1346166600982DBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F56FE1C1346166600982DBE /* CoreData.framework */; };
+		3F56FE1F1346166E00982DBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F56FE1E1346166E00982DBE /* CoreData.framework */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
@@ -204,6 +206,8 @@
 		3F56FE011346148800982DBE /* _JONTUSemesterDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUSemesterDates.m; sourceTree = "<group>"; };
 		3F56FE161346162B00982DBE /* JONTUCourseDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JONTUCourseDetails.h; path = Classes/JONTUTimeTable/JONTUCourseDetails.h; sourceTree = SOURCE_ROOT; };
 		3F56FE171346162B00982DBE /* JONTUCourseDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JONTUCourseDetails.m; path = Classes/JONTUTimeTable/JONTUCourseDetails.m; sourceTree = SOURCE_ROOT; };
+		3F56FE1C1346166600982DBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		3F56FE1E1346166E00982DBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
 		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
@@ -284,6 +288,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F56FE1D1346166600982DBE /* CoreData.framework in Frameworks */,
 				3FE74C4D131620C900673DBD /* Security.framework in Frameworks */,
 				3F5EDD0112564C9F00FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD0512564CA300FF2D80 /* libicucore.dylib in Frameworks */,
@@ -296,6 +301,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F56FE1F1346166E00982DBE /* CoreData.framework in Frameworks */,
 				3FE74C4F131620D300673DBD /* Security.framework in Frameworks */,
 				3F5EDD2512564DB400FF2D80 /* Foundation.framework in Frameworks */,
 				3F5EDD2912564DBD00FF2D80 /* libicucore.dylib in Frameworks */,
@@ -310,6 +316,8 @@
 		3F33A8781316000A00F95F8E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F56FE1E1346166E00982DBE /* CoreData.framework */,
+				3F56FE1C1346166600982DBE /* CoreData.framework */,
 				3FE74C4E131620D300673DBD /* Security.framework */,
 				3FE74C4C131620C900673DBD /* Security.framework */,
 				3F5EDD0012564C9F00FF2D80 /* Foundation.framework */,
