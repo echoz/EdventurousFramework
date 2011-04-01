@@ -29,5 +29,7 @@
 #import "_JONTUSemesterDates.h"
 
 @interface JONTUSemesterDates : _JONTUSemesterDates {}
-// Custom logic goes here.
+
++(JONTUSemesterDates *)semesterDatesForYear:(NSInteger)year managedContext:(NSManagedObjectContext *)moc;
+
 @end

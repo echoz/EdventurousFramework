@@ -30,6 +30,19 @@
 
 @implementation JONTUSemesterDates
 
-// Custom logic goes here.
++(JONTUSemesterDates *)semesterDatesForYear:(NSInteger)year managedContext:(NSManagedObjectContext *)moc {
+	NSSet *results = [moc fetchObjectsForEntityName:[JONTUSemesterDates entityName] withPredicate:@"(year == %@)", year];
+	
+	if ([results count] == 1) {
+		return [results anyObject];
+	} else {
+		JONTUSemesterDates *semdates = [[JONTUSemesterDates alloc] initWithEntity:[NSEntityDescription entityForName:[JONTUSemesterDates entityName] inManagedObjectContext:moc]
+												   insertIntoManagedObjectContext:moc];
+		
+		semdates.yearValue = year;
+		
+		return [semdates autorelease];
+	}
+}
 
 @end
