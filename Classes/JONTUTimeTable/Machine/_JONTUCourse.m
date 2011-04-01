@@ -33,44 +33,13 @@
 		NSSet *affectingKey = [NSSet setWithObject:@"au"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
+	if ([key isEqualToString:@"classesCountValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"classesCount"];
+		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
+	}
 
 	return keyPaths;
 }
-
-
-
-
-@dynamic status;
-
-
-
-
-
-
-@dynamic gepre;
-
-
-
-
-
-
-@dynamic type;
-
-
-
-
-
-
-@dynamic choice;
-
-
-
-
-
-
-@dynamic su;
-
-
 
 
 
@@ -101,7 +70,21 @@
 
 
 
-@dynamic name;
+@dynamic type;
+
+
+
+
+
+
+@dynamic su;
+
+
+
+
+
+
+@dynamic choice;
 
 
 
@@ -109,6 +92,53 @@
 
 
 @dynamic index;
+
+
+
+
+
+
+@dynamic code;
+
+
+
+
+
+
+@dynamic status;
+
+
+
+
+
+
+@dynamic classesCount;
+
+
+
+- (int)classesCountValue {
+	NSNumber *result = [self classesCount];
+	return [result intValue];
+}
+
+- (void)setClassesCountValue:(int)value_ {
+	[self setClassesCount:[NSNumber numberWithInt:value_]];
+}
+
+- (int)primitiveClassesCountValue {
+	NSNumber *result = [self primitiveClassesCount];
+	return [result intValue];
+}
+
+- (void)setPrimitiveClassesCountValue:(int)value_ {
+	[self setPrimitiveClassesCount:[NSNumber numberWithInt:value_]];
+}
+
+
+
+
+
+@dynamic gepre;
 
 
 
@@ -127,6 +157,10 @@
 	
 
 @dynamic semester;
+
+	
+
+@dynamic detail;
 
 	
 

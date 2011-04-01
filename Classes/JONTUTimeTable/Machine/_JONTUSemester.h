@@ -4,6 +4,7 @@
 #import <CoreData/CoreData.h>
 
 
+@class JONTUCourseDetails;
 @class JONTUCourse;
 
 
@@ -44,6 +45,11 @@
 
 
 
+@property (nonatomic, retain) NSSet* courseDetails;
+- (NSMutableSet*)courseDetailsSet;
+
+
+
 @property (nonatomic, retain) NSSet* courses;
 - (NSMutableSet*)coursesSet;
 
@@ -53,6 +59,11 @@
 @end
 
 @interface _JONTUSemester (CoreDataGeneratedAccessors)
+
+- (void)addCourseDetails:(NSSet*)value_;
+- (void)removeCourseDetails:(NSSet*)value_;
+- (void)addCourseDetailsObject:(JONTUCourseDetails*)value_;
+- (void)removeCourseDetailsObject:(JONTUCourseDetails*)value_;
 
 - (void)addCourses:(NSSet*)value_;
 - (void)removeCourses:(NSSet*)value_;
@@ -83,6 +94,11 @@
 - (void)setPrimitiveSemesterValue:(int)value_;
 
 
+
+
+
+- (NSMutableSet*)primitiveCourseDetails;
+- (void)setPrimitiveCourseDetails:(NSMutableSet*)value;
 
 
 

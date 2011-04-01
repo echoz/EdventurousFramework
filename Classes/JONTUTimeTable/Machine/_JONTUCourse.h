@@ -2,10 +2,12 @@
 // Make changes to JONTUCourse.h instead.
 
 #import <CoreData/CoreData.h>
-#import "JONTUCourseDetails.h"
+
 
 @class JONTUClass;
 @class JONTUSemester;
+@class JONTUCourseDetails;
+
 
 
 
@@ -19,41 +21,11 @@
 @interface JONTUCourseID : NSManagedObjectID {}
 @end
 
-@interface _JONTUCourse : JONTUCourseDetails {}
+@interface _JONTUCourse : NSManagedObject {}
 + (id)insertInManagedObjectContext:(NSManagedObjectContext*)moc_;
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (JONTUCourseID*)objectID;
-
-
-
-@property (nonatomic, retain) NSString *status;
-
-//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *gepre;
-
-//- (BOOL)validateGepre:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *type;
-
-//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *choice;
-
-//- (BOOL)validateChoice:(id*)value_ error:(NSError**)error_;
-
-
-
-@property (nonatomic, retain) NSString *su;
-
-//- (BOOL)validateSu:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -67,15 +39,55 @@
 
 
 
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *type;
 
-//- (BOOL)validateName:(id*)value_ error:(NSError**)error_;
+//- (BOOL)validateType:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *su;
+
+//- (BOOL)validateSu:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *choice;
+
+//- (BOOL)validateChoice:(id*)value_ error:(NSError**)error_;
 
 
 
 @property (nonatomic, retain) NSString *index;
 
 //- (BOOL)validateIndex:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *code;
+
+//- (BOOL)validateCode:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *status;
+
+//- (BOOL)validateStatus:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSNumber *classesCount;
+
+@property int classesCountValue;
+- (int)classesCountValue;
+- (void)setClassesCountValue:(int)value_;
+
+//- (BOOL)validateClassesCount:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) NSString *gepre;
+
+//- (BOOL)validateGepre:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -87,6 +99,11 @@
 
 @property (nonatomic, retain) JONTUSemester* semester;
 //- (BOOL)validateSemester:(id*)value_ error:(NSError**)error_;
+
+
+
+@property (nonatomic, retain) JONTUCourseDetails* detail;
+//- (BOOL)validateDetail:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -105,14 +122,11 @@
 @interface _JONTUCourse (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveStatus;
-- (void)setPrimitiveStatus:(NSString*)value;
+- (NSNumber*)primitiveAu;
+- (void)setPrimitiveAu:(NSNumber*)value;
 
-
-
-
-- (NSString*)primitiveGepre;
-- (void)setPrimitiveGepre:(NSString*)value;
+- (short)primitiveAuValue;
+- (void)setPrimitiveAuValue:(short)value_;
 
 
 
@@ -123,35 +137,47 @@
 
 
 
-- (NSString*)primitiveChoice;
-- (void)setPrimitiveChoice:(NSString*)value;
-
-
-
-
 - (NSString*)primitiveSu;
 - (void)setPrimitiveSu:(NSString*)value;
 
 
 
 
-- (NSNumber*)primitiveAu;
-- (void)setPrimitiveAu:(NSNumber*)value;
-
-- (short)primitiveAuValue;
-- (void)setPrimitiveAuValue:(short)value_;
-
-
-
-
-- (NSString*)primitiveName;
-- (void)setPrimitiveName:(NSString*)value;
+- (NSString*)primitiveChoice;
+- (void)setPrimitiveChoice:(NSString*)value;
 
 
 
 
 - (NSString*)primitiveIndex;
 - (void)setPrimitiveIndex:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveCode;
+- (void)setPrimitiveCode:(NSString*)value;
+
+
+
+
+- (NSString*)primitiveStatus;
+- (void)setPrimitiveStatus:(NSString*)value;
+
+
+
+
+- (NSNumber*)primitiveClassesCount;
+- (void)setPrimitiveClassesCount:(NSNumber*)value;
+
+- (int)primitiveClassesCountValue;
+- (void)setPrimitiveClassesCountValue:(int)value_;
+
+
+
+
+- (NSString*)primitiveGepre;
+- (void)setPrimitiveGepre:(NSString*)value;
 
 
 
@@ -164,6 +190,11 @@
 
 - (JONTUSemester*)primitiveSemester;
 - (void)setPrimitiveSemester:(JONTUSemester*)value;
+
+
+
+- (JONTUCourseDetails*)primitiveDetail;
+- (void)setPrimitiveDetail:(JONTUCourseDetails*)value;
 
 
 @end
