@@ -46,7 +46,7 @@
 }
 
 -(id)initWithLocation:(NSString *)loc lazy:(BOOL)lazy {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		self.user = @"";
 		self.pass = @"";
 		self.domain = @"";

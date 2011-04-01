@@ -78,7 +78,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 }
 
 -(id)init {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		holdCache = 120;
 		stops = nil;
 		routes = nil;
@@ -92,7 +92,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUBusEngine);
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"JONTUBusEngineWillStartDecode" object:[NSNumber numberWithInt:4]];			
 		
 		[[NSNotificationCenter defaultCenter] postNotificationName:@"JONTUBusEngineWillDecodeStops" object:nil];

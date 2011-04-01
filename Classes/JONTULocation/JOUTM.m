@@ -534,13 +534,10 @@ typedef struct {
 @synthesize utm_x, utm_y, utm_zone, utm_southHemi, latitude, longitude;
 
 -(id)initWithLocation:(CLLocation *)location {
-	if (self = [self initWithLatitude:location.coordinate.latitude Longtitude:location.coordinate.longitude]) {
-		
-	}
-	return self;
+	return [self initWithLatitude:location.coordinate.latitude Longtitude:location.coordinate.longitude];
 }
 -(id)initWithLatitude:(double)lat Longtitude:(double)lon {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		
 		if ((lon < -180.0) || (180.0 <= lon))
 			return nil;
@@ -560,7 +557,7 @@ typedef struct {
 }
 
 -(id)initWithX:(double)x Y:(double)y zone:(int)zone SouthHemisphere:(BOOL)southhemi {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		
 		if ((zone < 1) || (60 < zone)) 
 			return nil;
@@ -577,7 +574,7 @@ typedef struct {
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		utm_x = [aDecoder decodeDoubleForKey:@"utm_x"];
 		utm_y = [aDecoder decodeDoubleForKey:@"utm_y"];
 		utm_zone = [aDecoder decodeIntForKey:@"utm_zone"];

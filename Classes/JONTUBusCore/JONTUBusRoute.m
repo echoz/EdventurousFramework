@@ -37,7 +37,7 @@
 static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.php/main/getCurrentBusStop";
 
 -(id)initWithID:(NSUInteger)rid name:(NSString *)rname color:(NSString*)clr colorAlt:(NSString *)clrAlt stops:(NSArray *)busstops polylines:(NSArray *)plines {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		routeid = rid;
 		name = [rname copy];
 		stops = [busstops copy];
@@ -50,7 +50,7 @@ static NSString *getRouteBusStops = @"http://campusbus.ntu.edu.sg/ntubus/index.p
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		routeid = [aDecoder decodeIntegerForKey:@"routeid"];
 		name = [[aDecoder decodeObjectForKey:@"name"] retain];
 		stops = [[aDecoder decodeObjectForKey:@"stops"] retain];

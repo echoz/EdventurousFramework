@@ -34,7 +34,7 @@
 @synthesize busid, route, busPlate, hide, iscdistance;
 
 -(id)initWithID:(NSUInteger)bID route:(JONTUBusRoute *)busRoute plateNumber:(NSString *)plateNumber longtitude:(NSNumber *)busLong latitude:(NSNumber *)busLat speed:(NSUInteger)busSpeed hide:(BOOL)busHide iscDistance:(NSNumber *)iscdist {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		busid = bID;
 		route = [busRoute retain];
 		busPlate = [plateNumber copy];
@@ -48,7 +48,7 @@
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		busid = [aDecoder decodeIntegerForKey:@"busid"];
 		route = [[aDecoder decodeObjectForKey:@"route"] retain];
 		busPlate = [[aDecoder decodeObjectForKey:@"busPlate"] retain];

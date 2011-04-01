@@ -38,7 +38,7 @@ static NSString *getEta = @"http://campusbus.ntu.edu.sg/ntubus/index.php/xml/get
 @synthesize routes;
 
 -(id)initWithID:(NSUInteger)stopID code:(NSString *)stopCode description:(NSString *)stopDesc roadName:(NSString *)stopRdName longtitude:(NSNumber *)stopLong latitude:(NSNumber *)stopLat otherBuses:(NSArray *)stopOtherBus {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		busstopid = stopID;
 		code = [stopCode copy];
 		desc = [stopDesc copy];
@@ -53,7 +53,7 @@ static NSString *getEta = @"http://campusbus.ntu.edu.sg/ntubus/index.php/xml/get
 }
 
 -(id)initWithCoder:(NSCoder *)aDecoder {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		busstopid = [aDecoder decodeIntegerForKey:@"stopID"];
 		code = [[aDecoder decodeObjectForKey:@"code"] retain];
 		desc = [[aDecoder decodeObjectForKey:@"desc"] retain];

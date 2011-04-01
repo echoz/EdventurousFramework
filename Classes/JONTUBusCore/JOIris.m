@@ -120,7 +120,7 @@
 }
 
 -(id)initWithTimeout:(NSTimeInterval) tout {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		hash = nil;
 		cookies = nil;
 		timeout = tout;
