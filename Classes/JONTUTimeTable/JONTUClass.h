@@ -1,7 +1,10 @@
 #import "_JONTUClass.h"
+#import "JONTUCourse.h"
 
-@interface JONTUClass : _JONTUClass {}
-
+@interface JONTUClass : _JONTUClass {
+	NSArray *__activeWeeks;
+}
++(JONTUClass *)classForCourse:(JONTUCourse *)course onDay:(NSString *)day spanningTime:(NSString *)time managedContext:(NSManagedObjectContext *)moc;
 
 -(NSDateComponents *) fromTime;
 -(NSDateComponents *) toTime;
