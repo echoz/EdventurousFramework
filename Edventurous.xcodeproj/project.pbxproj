@@ -63,6 +63,10 @@
 		3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
 		3F56FE1D1346166600982DBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F56FE1C1346166600982DBE /* CoreData.framework */; };
 		3F56FE1F1346166E00982DBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F56FE1E1346166E00982DBE /* CoreData.framework */; };
+		3F56FE941346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */; };
+		3F56FE951346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */; };
+		3F56FE961346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */; };
+		3F56FE971346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
@@ -208,6 +212,8 @@
 		3F56FE171346162B00982DBE /* JONTUCourseDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JONTUCourseDetails.m; path = Classes/JONTUTimeTable/JONTUCourseDetails.m; sourceTree = SOURCE_ROOT; };
 		3F56FE1C1346166600982DBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		3F56FE1E1346166E00982DBE /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectContextAdditions.h; sourceTree = "<group>"; };
+		3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectContextAdditions.m; sourceTree = "<group>"; };
 		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
 		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
@@ -415,6 +421,8 @@
 				3F5EDCDE12564C6A00FF2D80 /* RegexKitLite */,
 				3F25B6C9125B17E3005CEBF4 /* NSDataAdditions.h */,
 				3F25B6CA125B17E3005CEBF4 /* NSDataAdditions.m */,
+				3F56FE921346170800982DBE /* NSManagedObjectContextAdditions.h */,
+				3F56FE931346170800982DBE /* NSManagedObjectContextAdditions.m */,
 				3F5EDCDC12564C6A00FF2D80 /* NSString+htmlentitiesaddition.h */,
 				3F5EDCDD12564C6A00FF2D80 /* NSString+htmlentitiesaddition.m */,
 				3F5EDCE112564C6A00FF2D80 /* SynthesizeSingleton.h */,
@@ -465,6 +473,7 @@
 			isa = PBXGroup;
 			children = (
 				3F56FDF71346148800982DBE /* Machine */,
+				3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */,
 				3F5EDCEF12564C6A00FF2D80 /* JONTUClass.h */,
 				3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */,
 				3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */,
@@ -475,7 +484,6 @@
 				3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */,
 				3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */,
 				3F5EDCF612564C6B00FF2D80 /* JONTUSemesterDates.m */,
-				3F5D885713460FE100B45134 /* JONTUTimeTable.xcdatamodeld */,
 			);
 			name = JONTUTimeTable;
 			path = Classes/JONTUTimeTable;
@@ -602,6 +610,7 @@
 				3F56FE0E1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 				3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */,
+				3F56FE941346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,6 +658,7 @@
 				3F56FE0F1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */,
 				3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */,
+				3F56FE951346170800982DBE /* NSManagedObjectContextAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,6 +769,7 @@
 				3F56FE101346148800982DBE /* _JONTUSemester.m in Sources */,
 				3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 				3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
+				3F56FE961346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +815,7 @@
 				3F56FE111346148800982DBE /* _JONTUSemester.m in Sources */,
 				3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */,
 				3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
+				3F56FE971346170800982DBE /* NSManagedObjectContextAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
