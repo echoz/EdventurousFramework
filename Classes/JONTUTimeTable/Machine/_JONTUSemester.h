@@ -22,7 +22,11 @@
 
 
 
-@property (nonatomic, retain) NSString *year;
+@property (nonatomic, retain) NSNumber *year;
+
+@property long long yearValue;
+- (long long)yearValue;
+- (void)setYearValue:(long long)value_;
 
 //- (BOOL)validateYear:(id*)value_ error:(NSError**)error_;
 
@@ -34,11 +38,7 @@
 
 
 
-@property (nonatomic, retain) NSNumber *semester;
-
-@property int semesterValue;
-- (int)semesterValue;
-- (void)setSemesterValue:(int)value_;
+@property (nonatomic, retain) NSString *semester;
 
 //- (BOOL)validateSemester:(id*)value_ error:(NSError**)error_;
 
@@ -75,8 +75,11 @@
 @interface _JONTUSemester (CoreDataGeneratedPrimitiveAccessors)
 
 
-- (NSString*)primitiveYear;
-- (void)setPrimitiveYear:(NSString*)value;
+- (NSNumber*)primitiveYear;
+- (void)setPrimitiveYear:(NSNumber*)value;
+
+- (long long)primitiveYearValue;
+- (void)setPrimitiveYearValue:(long long)value_;
 
 
 
@@ -87,11 +90,8 @@
 
 
 
-- (NSNumber*)primitiveSemester;
-- (void)setPrimitiveSemester:(NSNumber*)value;
-
-- (int)primitiveSemesterValue;
-- (void)setPrimitiveSemesterValue:(int)value_;
+- (NSString*)primitiveSemester;
+- (void)setPrimitiveSemester:(NSString*)value;
 
 
 

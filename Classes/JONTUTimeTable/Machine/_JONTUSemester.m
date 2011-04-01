@@ -29,8 +29,8 @@
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
 	NSSet *keyPaths = [super keyPathsForValuesAffectingValueForKey:key];
 	
-	if ([key isEqualToString:@"semesterValue"]) {
-		NSSet *affectingKey = [NSSet setWithObject:@"semester"];
+	if ([key isEqualToString:@"yearValue"]) {
+		NSSet *affectingKey = [NSSet setWithObject:@"year"];
 		keyPaths = [keyPaths setByAddingObjectsFromSet:affectingKey];
 	}
 
@@ -42,6 +42,25 @@
 
 @dynamic year;
 
+
+
+- (long long)yearValue {
+	NSNumber *result = [self year];
+	return [result longLongValue];
+}
+
+- (void)setYearValue:(long long)value_ {
+	[self setYear:[NSNumber numberWithLongLong:value_]];
+}
+
+- (long long)primitiveYearValue {
+	NSNumber *result = [self primitiveYear];
+	return [result longLongValue];
+}
+
+- (void)setPrimitiveYearValue:(long long)value_ {
+	[self setPrimitiveYear:[NSNumber numberWithLongLong:value_]];
+}
 
 
 
@@ -56,25 +75,6 @@
 
 @dynamic semester;
 
-
-
-- (int)semesterValue {
-	NSNumber *result = [self semester];
-	return [result intValue];
-}
-
-- (void)setSemesterValue:(int)value_ {
-	[self setSemester:[NSNumber numberWithInt:value_]];
-}
-
-- (int)primitiveSemesterValue {
-	NSNumber *result = [self primitiveSemester];
-	return [result intValue];
-}
-
-- (void)setPrimitiveSemesterValue:(int)value_ {
-	[self setPrimitiveSemester:[NSNumber numberWithInt:value_]];
-}
 
 
 
