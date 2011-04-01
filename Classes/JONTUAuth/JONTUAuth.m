@@ -162,7 +162,7 @@
 	
 	JOURLRequest *wisrequest = nil;
 	
-	if (![self auth]) {
+	if (![self authed]) {
 		NSMutableDictionary *postvalues = [NSMutableDictionary dictionaryWithCapacity:3];
 		[postvalues setValue:self.user forKey:@"UserName"];
 		[postvalues setValue:self.pass forKey:@"PIN"];
@@ -205,7 +205,7 @@
 	
 	JOURLRequest *edventurelogin = nil;
 
-	if (![self auth]) {
+	if (![self authed]) {
 		
 		/* need to do logout first
 		edventurelogin = [[JOURLRequest alloc] initWithRequest:[JOURLRequest prepareRequestUsing:nil] startImmediately:NO];
