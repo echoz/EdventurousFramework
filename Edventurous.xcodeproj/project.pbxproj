@@ -57,6 +57,10 @@
 		3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE001346148800982DBE /* _JONTUSemesterDates.h */; };
 		3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
 		3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE011346148800982DBE /* _JONTUSemesterDates.m */; };
+		3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; };
+		3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F56FE161346162B00982DBE /* JONTUCourseDetails.h */; };
+		3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
+		3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F56FE171346162B00982DBE /* JONTUCourseDetails.m */; };
 		3F573639128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
 		3F57363A128CE9B30063C313 /* JOIris.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F573638128CE9B30063C313 /* JOIris.m */; };
 		3F57363D128CE9B30063C313 /* JOIris.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F573637128CE9B30063C313 /* JOIris.h */; };
@@ -198,6 +202,8 @@
 		3F56FDFF1346148800982DBE /* _JONTUSemester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUSemester.m; sourceTree = "<group>"; };
 		3F56FE001346148800982DBE /* _JONTUSemesterDates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _JONTUSemesterDates.h; sourceTree = "<group>"; };
 		3F56FE011346148800982DBE /* _JONTUSemesterDates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _JONTUSemesterDates.m; sourceTree = "<group>"; };
+		3F56FE161346162B00982DBE /* JONTUCourseDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JONTUCourseDetails.h; path = Classes/JONTUTimeTable/JONTUCourseDetails.h; sourceTree = SOURCE_ROOT; };
+		3F56FE171346162B00982DBE /* JONTUCourseDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JONTUCourseDetails.m; path = Classes/JONTUTimeTable/JONTUCourseDetails.m; sourceTree = SOURCE_ROOT; };
 		3F573637128CE9B30063C313 /* JOIris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JOIris.h; sourceTree = "<group>"; };
 		3F573638128CE9B30063C313 /* JOIris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JOIris.m; sourceTree = "<group>"; };
 		3F5BEA27125CEC9000DF5B2B /* JONTUVideoStreamingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JONTUVideoStreamingServer.h; sourceTree = "<group>"; };
@@ -455,6 +461,8 @@
 				3F5EDCF012564C6A00FF2D80 /* JONTUClass.m */,
 				3F5EDCF112564C6A00FF2D80 /* JONTUCourse.h */,
 				3F5EDCF212564C6A00FF2D80 /* JONTUCourse.m */,
+				3F56FE161346162B00982DBE /* JONTUCourseDetails.h */,
+				3F56FE171346162B00982DBE /* JONTUCourseDetails.m */,
 				3F5EDCF312564C6A00FF2D80 /* JONTUSemester.h */,
 				3F5EDCF412564C6B00FF2D80 /* JONTUSemester.m */,
 				3F5EDCF512564C6B00FF2D80 /* JONTUSemesterDates.h */,
@@ -585,6 +593,7 @@
 				3F56FE0A1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
 				3F56FE0E1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE121346148800982DBE /* _JONTUSemesterDates.h in Headers */,
+				3F56FE181346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +640,7 @@
 				3F56FE0B1346148800982DBE /* _JONTUCourseDetails.h in Headers */,
 				3F56FE0F1346148800982DBE /* _JONTUSemester.h in Headers */,
 				3F56FE131346148800982DBE /* _JONTUSemesterDates.h in Headers */,
+				3F56FE191346162B00982DBE /* JONTUCourseDetails.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +750,7 @@
 				3F56FE0C1346148800982DBE /* _JONTUCourseDetails.m in Sources */,
 				3F56FE101346148800982DBE /* _JONTUSemester.m in Sources */,
 				3F56FE141346148800982DBE /* _JONTUSemesterDates.m in Sources */,
+				3F56FE1A1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +795,7 @@
 				3F56FE0D1346148800982DBE /* _JONTUCourseDetails.m in Sources */,
 				3F56FE111346148800982DBE /* _JONTUSemester.m in Sources */,
 				3F56FE151346148800982DBE /* _JONTUSemesterDates.m in Sources */,
+				3F56FE1B1346162B00982DBE /* JONTUCourseDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
