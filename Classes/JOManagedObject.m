@@ -33,6 +33,17 @@
 #pragma mark -
 #pragma mark NSManagedObject lifecycle
 
+-(void)awakeFromInsert {
+	[super awakeFromInsert];
+	self.infantValue = YES;
+	self.birthDate = [NSDate date];
+}
+
+-(void)awakeFromFetch {
+	[super awakeFromFetch];
+	self.lastAccessed = [NSDate date];
+}
+
 -(void)didTurnIntoFault {
 	[self stopSync];
 	[super didTurnIntoFault];
