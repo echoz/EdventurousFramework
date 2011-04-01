@@ -43,8 +43,6 @@
 @synthesize cookies, user, pass, domain, studentid, credential;
 @synthesize timeout;
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
-
 #pragma mark -
 #pragma mark Object Lifecycle
 
@@ -347,6 +345,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 	[mutrequest setAllHTTPHeaderFields:[NSHTTPCookie requestHeaderFieldsWithCookies:submitcookies]];
 	[mutrequest setURL:url];
 	
+	[mutrequest setValue:HTTP_USER_AGENT forHTTPHeaderField:@"User-Agent"];
+	
 	return mutrequest;
 	
 }
@@ -376,6 +376,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(JONTUAuth);
 		}
 		
 	};
+	
+	request.userAgent = HTTP_USER_AGENT;
 	
 	return [request autorelease];
 }

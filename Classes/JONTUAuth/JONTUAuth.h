@@ -47,8 +47,6 @@
 	double timeout;
 }
 
-SYNTHESIZE_SINGLETON_FOR_CLASS_HEADER(JONTUAuth);
-
 @property (readonly) NSMutableArray *cookies;
 @property (readonly) NSURLCredential *credential;
 @property (nonatomic, retain) NSString *user;
