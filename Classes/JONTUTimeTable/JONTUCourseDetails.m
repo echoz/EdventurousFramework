@@ -14,7 +14,7 @@
 		coursedetails.semester = semester;
 		coursedetails.code = code;
 		
-		return coursedetails;
+		return [coursedetails autorelease];
 	}
 }
 @end

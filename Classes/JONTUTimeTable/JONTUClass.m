@@ -28,7 +28,7 @@
 		class.day = day;
 		class.time = time;
 		
-		return class;
+		return [class autorelease];
 	}
 }
 

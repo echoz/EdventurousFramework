@@ -33,7 +33,7 @@
 		course.code = code;
 		course.detail = [JONTUCourseDetails courseWithCode:code semester:semester managedContext:moc];
 		
-		return course;
+		return [course autorelease];
 	}
 }
 
