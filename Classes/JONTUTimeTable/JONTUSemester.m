@@ -108,7 +108,20 @@
 }
 
 -(void)parse {
-	
+	if ([__auth authed]) {
+		NSMutableDictionary *postvalues = [NSMutableDictionary dictionary];
+		[postvalues setValue:[NSString stringWithFormat:@"%i",self.year] forKey:@"acad"];
+		[postvalues setValue:self.semester forKey:@"semester"];
+
+		__request = [__auth authedJORequestForURL:[NSURL URLWithString:XHR_URL] withValues:postvalues usingTokens:YES];
+		
+		__request.postProcessBlock = ^(id _data, id _response) {
+			NSString *html = [[NSString alloc] initWithData:(NSData *)_data encoding:NSUTF8StringEncoding];
+			NSArray *timetablelines = [html stringByMatching:REGEX_TABLE capture:1];
+			
+			return (id)nil;
+		};
+	}
 }
 
 
