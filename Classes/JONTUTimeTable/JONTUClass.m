@@ -31,7 +31,7 @@
 
 #define REGEX_TIME_SUBUNIT @"([0-9]{2})([0-9]{2})-([0-9]{2})([0-9]{2})"
 #define REGEX_TIME_STRING @"([0-9]{4})-([0-9]{4})"
-#define REGEX_RECURRENCE_THROUGH @"Wk([0-9]+)-([0-9]+)"
+#define REGEX_RECURRENCE_THROUGH @".*Wk([0-9]+)-([0-9]+)"
 
 @implementation JONTUClass
 
@@ -137,8 +137,6 @@
 	[comp setHour:[[self.time stringByMatching:REGEX_TIME_SUBUNIT capture:1] integerValue]];
 	[comp setMinute:[[self.time stringByMatching:REGEX_TIME_SUBUNIT capture:2] integerValue]];
 	
-	[comp setWeekday:[self dayIndex]];
-	
 	return [comp autorelease];
 }
 -(NSDateComponents *) toTime {
@@ -146,9 +144,7 @@
 	[comp setHour:[[self.time stringByMatching:REGEX_TIME_SUBUNIT capture:3] integerValue]];
 	[comp setMinute:[[self.time stringByMatching:REGEX_TIME_SUBUNIT capture:4] integerValue]];
 	
-	[comp setWeekday:[self dayIndex]];
-	
-	return [comp autorelease];
+        return [comp autorelease];
 }
 
 -(NSUInteger)dayIndex {

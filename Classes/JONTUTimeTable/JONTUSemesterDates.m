@@ -108,21 +108,27 @@
 			// inspect for semester and setup
 			if (testSemName) {
 				if ((currentSemester) && (currentSemesterName)) {
-					[sems setObject:currentSemester forKey:currentSemesterName];
+                    [sems setObject:currentSemester forKey:currentSemesterName];
 				}				
 				
-				[currentSemesterName release], currentSemesterName = nil;
-				currentSemesterName = testSemName;
-				
-				[currentSemester release], currentSemester = nil;
-				currentSemester = [[NSMutableDictionary dictionary] retain];
-				[currentSemester setObject:[JONTUSemesterDates dateFromDateString:[[rowcontents objectAtIndex:1] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""]] forKey:@"SEM_START"];
-				[currentSemester setObject:[JONTUSemesterDates dateFromDateString:[[rowcontents objectAtIndex:2] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""]] forKey:@"SEM_END"];
-				[currentSemester setObject:[[rowcontents objectAtIndex:3] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""] forKey:@"SEM_DURATION"];
-				
-				NSLog(@"Found %@", testSemName);
-				
-				rowcontents = [[rows objectAtIndex:++i] componentsMatchedByRegex:REGEX_TABLE_CELL];
+                if (![sems objectForKey:testSemName]) {
+                    
+                    [currentSemesterName release], currentSemesterName = nil;
+                    currentSemesterName = testSemName;
+                    
+                    [currentSemester release], currentSemester = nil;
+                    currentSemester = [[NSMutableDictionary dictionary] retain];
+                    [currentSemester setObject:[JONTUSemesterDates dateFromDateString:[[rowcontents objectAtIndex:1] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""]] forKey:@"SEM_START"];
+                    [currentSemester setObject:[JONTUSemesterDates dateFromDateString:[[rowcontents objectAtIndex:2] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""]] forKey:@"SEM_END"];
+                    [currentSemester setObject:[[rowcontents objectAtIndex:3] stringByReplacingOccurrencesOfRegex:REGEX_STRIP_HTMLTAGS withString:@""] forKey:@"SEM_DURATION"];
+                    
+                    NSLog(@"Found Semester: %@", testSemName);
+                    
+                    rowcontents = [[rows objectAtIndex:++i] componentsMatchedByRegex:REGEX_TABLE_CELL];
+                } else {
+                    [currentSemesterName release], currentSemesterName = nil;
+                    rowcontents = nil;
+                }
 				
 			} 
 			
